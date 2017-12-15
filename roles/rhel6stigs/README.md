@@ -58,7 +58,7 @@ Role Variables
 
  TASK TAGS: [cat1, cat2, cat2-gui, cat3, cat3-gui, disable_autofs, gui, high, low, medium, removal_tftp, selinux_enforce]
  
- You can also you either the STIG Rule ID or Vuln ID as a tag to correct the individual vulnerability. 
+ You can also use either the STIG Rule ID or Vuln ID as tag to correct the individual vulnerability. 
 
 Dependencies
 ------------
