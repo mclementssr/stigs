@@ -32,7 +32,7 @@ Requirements
 
  Set SELinux to enforcing (V-71989)? Answer 'Yes/No' [No]:
  
- 
+ #### or
 
  Single host:
  ansible-playbook rhel7-stigs.yml --limit <hostname>
