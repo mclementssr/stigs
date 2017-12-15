@@ -1,0 +1,245 @@
+---
+- name: "HIGH | V-38476 | Vendor-provided cryptographic certificates must be installed to verify the integrity of system software."
+  command: "true"
+  tags:
+    - cat1
+    - high
+    - RHEL-06-000008
+    - SV-50276r3_rule
+    - V-38476
+
+- name: "HIGH | V-38491 | There must be no .rhosts or hosts.equiv files on the system."
+  script: v-38491.sh
+  tags:
+    - cat1
+    - high
+    - RHEL-06-000019
+    - SV-50292r1_rule
+    - V-38491
+
+- name: "HIGH | V-38497 | The system must not have accounts configured with blank or null passwords."
+  replace:
+    dest: /etc/pam.d/system-auth
+    regexp: 'nullok ?'
+    replace: ''
+  tags:
+    - cat1
+    - high
+    - RHEL-06-000030
+    - SV-50298r2_rule
+    - V-38497
+
+- name: "HIGH | V-38587 | The telnet-server package must not be installed."
+  yum:
+      name: telnet-server
+      state: absent
+  tags:
+    - cat1
+    - high
+    - RHEL-06-000206
+    - SV-50388r1_rule
+    - V-38587
+
+- name: "HIGH | V-38589 | The telnet daemon must not be running."
+  #command: chkconfig telnet off 
+  #ignore_errors: true
+  service:
+    name: telnet
+    enabled: no
+    state: stopped
+  ignore_errors: true
+  tags:
+    - cat1
+    - high
+    - RHEL-06-000211
+    - SV-50390r2_rule
+    - V-38589
+
+- name: "HIGH | V-38591 | The rsh-server package must not be installed."
+  yum:
+      name: rsh-server
+      state: absent
+  tags:
+    - cat1
+    - high
+    - RHEL-06-000213
+    - SV-50392r1_rule
+    - V-38591
+
+- name: "HIGH | V-38594 | The rshd service must not be running."
+  #command: chkconfig rsh off  
+  #ignore_errors: true
+  service:
+    name: rsh
+    enabled: no
+    state: stopped
+  ignore_errors: true
+  tags:
+    - cat1
+    - high
+    - RHEL-06-000214
+    - SV-50395r2_rule
+    - V-38594
+
+- name: "HIGH | V-38598 | The rexecd service must not be running."
+  #command: chkconfig rexec off      
+  #ignore_errors: true
+  service:
+    name: rexec
+    enabled: no
+    state: stopped
+  ignore_errors: true
+  tags:
+    - cat1
+    - high
+    - RHEL-06-000216
+    - SV-50399r2_rule
+    - V-38598
+
+- name: "HIGH | V-38602 | The rlogind service must not be running."
+  #command: chkconfig rlogin off      
+  #ignore_errors: true
+  service:
+    name: rlogin
+    enabled: no
+    state: stopped
+  ignore_errors: true
+  tags:
+    - cat1
+    - high
+    - RHEL-06-000218
+    - SV-50403r2_rule
+    - V-38602
+
+- name: "HIGH | V-38607 | The SSH daemon must be configured to use only the SSHv2 protocol."
+  lineinfile:
+      dest: /etc/ssh/sshd_config
+      regexp: (?i)^#?protocol
+      line: Protocol 2
+      #validate: sshd -t -f %s
+      #backup: yes
+  notify: restart ssh
+  tags:
+    - cat1
+    - high
+    - RHEL-06-000227
+    - SV-50408r1_rule
+    - V-38607
+
+- name: "HIGH | V-38614 | The SSH daemon must not allow authentication using an empty password."
+  lineinfile:
+      state: present
+      dest: /etc/ssh/sshd_config
+      regexp: ^#?PermitEmptyPasswords
+      #regexp: (?i)permitemptypassword
+      line: PermitEmptyPasswords no
+  notify: restart ssh
+  tags:
+    - cat1
+    - high
+    - RHEL-06-000239
+    - SV-50415r1_rule
+    - V-38614
+
+- name: "HIGH | V-38653 | "
+  script: v-38653.sh
+  ignore_errors: yes
+  tags:
+    - cat1
+    - high
+    - RHEL-06-000341
+    - SV-50454r1_rule
+    - V-38653
+
+- name: "HIGH | V-38666 | The system must use and update a DoD-approved virus scan program."
+  command: "true"
+  tags:
+    - cat1
+    - high
+    - RHEL-06-000284
+    - SV-50467r2_rule
+    - V-38666
+
+- name: "HIGH | V-38668 | Check if /etc/init/control-alt-delete.override exists."
+  stat: path=/etc/init/control-alt-delete.override
+  register: v_38668_check
+  tags:
+    - cat1
+    - high
+    - RHEL-06-000286
+    - SV-50469r3_rule
+    - V-38668
+
+- name: "HIGH | V-38668 | Create /etc/init/control-alt-delete.override if it doesn't exists."
+  file:
+      path: /etc/init/control-alt-delete.override
+      state: touch
+      owner: root
+      group: root
+      mode: 0644
+  when: v_38668_check.stat.exists == False
+  tags:
+    - cat1
+    - high
+    - RHEL-06-000286
+    - SV-50469r3_rule
+    - V-38668
+
+- name: "HIGH | V-38668 | Check if /etc/init/control-alt-delete.override exists."
+  stat: path=/etc/init/control-alt-delete.override
+  register: v_38668_check2
+  tags:
+    - cat1
+    - high
+    - RHEL-06-000286
+    - SV-50469r3_rule
+    - V-38668
+
+- name: "HIGH | V-38668 | The x86 Ctrl-Alt-Delete key sequence must be disabled."
+  lineinfile:
+      dest: /etc/init/control-alt-delete.override
+      state: present
+      regexp: 'exec /usr/bin/logger -p security.info "Ctrl-Alt-Delete pressed"'
+      line: 'exec /usr/bin/logger -p security.info "Ctrl-Alt-Delete pressed"'
+  when: v_38668_check2.stat.exists == True
+  tags:
+    - cat1
+    - high
+    - RHEL-06-000286
+    - SV-50469r3_rule
+    - V-38668
+
+- name: "HIGH | V-38677 | The NFS server must not have the insecure file locking option enabled."
+  replace:
+    dest: /etc/exports 
+    regexp: 'insecure_locks ?'
+    replace: ''
+  tags:
+    - cat1
+    - high
+    - RHEL-06-000309
+    - SV-50478r1_rule
+    - V-38677
+
+- name: "HIGH | V-38701 | Check if /etc/xinetd.d/tftp exists."
+  stat: path=/etc/xinetd.d/tftp
+  register: v_38701_check
+  tags:
+    - cat1
+    - high
+    - RHEL-06-000338
+    - SV-50502r1_rule
+    - V-38701
+
+- name: "HIGH | V-38701 | The TFTP daemon must operate in secure mode which provides access only to a single directory on the host file system."
+  lineinfile:
+      dest: /etc/xinetd.d/tftp
+      regexp: 'server_args = '
+      line: 'server_args = -s /var/lib/tftpboot'
+  when: v_38701_check.stat.exists == true
+  tags:
+    - cat1
+    - high
+    - RHEL-06-000338
+    - SV-50502r1_rule
+    - V-38701

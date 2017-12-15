@@ -1,0 +1,35 @@
+---
+# handlers file for rhel7_stigs
+
+- name: restart ssh
+  service:
+    name: sshd
+    state: restarted
+
+- name: reboot system
+  shell: sleep 3; reboot
+  async: 0
+  poll: 0
+  ignore_errors: yes
+
+- name: restart snmpd
+  service:
+      name: snmpd
+      state: restarted
+
+- name: restart ntpd
+  service:
+      name: ntpd
+      state: restarted
+
+- name: restart rsyslog
+  service:
+      name: rsyslog
+      state: restarted
+
+- name: restart auditd
+  command: service auditd restart
+  #service:
+  #    name: auditd
+  #    state: restarted
+

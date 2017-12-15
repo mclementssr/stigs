@@ -1,0 +1,124 @@
+==============================================================================
+How to run an individual finding on a individual host:
+
+
+  cd /etc/ansible/playbooks
+  ansible-playbook rhel6-stigs.yml --tags V-38653 --limit <hostname> 
+
+  or
+
+  ansible-playbook rhel6-stigs.yml --become --ask-become-pass --tags V-38653 --limit <hostname>
+
+
+  Whether running categories or individual findings you must answer 'Yes' or 'No' to the catogory or catetory the finding is part of.
+
+
+How to run the playbook playbook on all host
+  
+  ansible-playbook rhel6-stigs.yml
+
+
+
+==============================================================================
+-- List available tags: --
+ansible-playbook rhel6-stigs.yml --list-tags
+
+  playbook: rhel6-stigs.yml
+
+  play #1 (linux): linux        TAGS: []
+      TASK TAGS: [RHEL-06-38653, cat1, cat2, cat3, enable_selinux, fix_cat1, fix_cat1_gui, fix_cat2, fix_cat2_gui, fix_cat3, gui, high, medium, patch, removal_lftpd, removal_router, removal_tftp]
+
+
+
+==============================================================================
+-- STIG playbook menu example: --
+
+ Fix CAT 1 findings? Answer 'Yes/No' [No]:
+ Fix CAT 2 findings? Answer 'Yes/No' [No]:
+ Fix CAT 3 findings? Answer 'Yes/No' [No]:
+ Fix CAT 1 GUI findings? Answer 'Yes/No' [No]:
+ Fix CAT 2 GUI findings? Answer 'Yes/No' [No]:
+
+ Remove X Windows? Recommended if not needed.  Answer 'Yes/No' [No]:
+
+ Remove FTP server (LFTPD)? Removal required if not if use. Answer 'Yes/No' [No]:
+
+ Remove TFTP/TFTP-Server? Removal required if not if use.  Answer 'Yes/No' [No]:
+
+ Disable router functions? Required if not configured as a router? Answer 'Yes/No' [No]:
+
+ Set SELinux to enforcing? Answer 'Yes/No' [No]:
+
+ Disable autofs? Required if mounting NFS must be documented. Answer 'Yes/No' [No]:
+
+ Set GRUB password (V-38585)? Answer 'Yes/No' [No]:
+
+
+
+==============================================================================
+-- General Information --
+
+Directory and file Structure
+
+All playbooks ve been placed in /etc/ansible/playbooks.
+
+Example:
+
+The roles for RHEL 6 STIGs are located in /etc/ansible/playbooks/roles/rhel6stig.
+
+Under /etc/ansible/playbooks/roles/rhel6stig/ are the following directories and files.
+    - defaults/
+        main.yml (Playbook default variables.0
+    - files/
+    - handlers/
+        main.yml (Service restart, called from tasks.)
+    - meta/
+        main.yml (Not used)
+    - tasks/
+        disable_autofs.yml
+        fix-cat1-gui.yml
+        fix-cat1.yml
+        fix-cat2-gui.yml
+        fix-cat2.yml
+        fix-cat3.yml
+        grub2_password.yml
+        main.yml
+        remove-gui.yml
+        remove-lftpd.yml
+        remove-router.yml
+        remove-tftp.yml
+        selinux_enforce.yml
+    - templates/
+        audit_rules
+        issue (Banner)
+    - tests/
+        test.yml  (Not used)
+        inventory (Not used) 
+    - vars/
+        main.yml  (Not used, this file is used to override variables set in defaults/main.yml)
+
+The order in which the playbook uses the directories and file. 
+1. rhel6-stigs.yml - playbook which start everything
+2. defaults/main.yml - All default variables that are over writable.
+3. tasks/main.yml - All tasks performed in the playbook.
+   a. files - scripts and files used by the tasks.
+   b. templates - templates used by the tasks to replace files. 
+   c. handlers/main.yml - common tasks such as service restarts
+   d. vars/main.yml - Used to override defaults varaibles.
+
+
+
+==============================================================================
+Notes
+
+ - Bash Scripts report changed; even if nothing was changed.
+ - SELinux changes, requires reboot when ran.
+ - dracut-fips rpm will be installed, but FIPS must be manully configured if required.
+ - Check for McAfeeVSEForLinux are set to continue on errors.
+
+ -  All scripts will return
+    ok=1    changed=1    unreachable=0    failed=0 
+
+    whether it ran or not. If is important only when reading the PLAY RECAP.
+
+

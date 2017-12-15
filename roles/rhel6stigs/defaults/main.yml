@@ -1,0 +1,29 @@
+---
+# Nothing is currently used from this file.
+# It is all in the displayed menu
+
+
+# defaults file for rhel6_stigs
+
+#rhel6stig_cat1: No
+#rhel6stig_cat2: No
+#rhel6stig_cat3: No
+
+#rhel6stig_cat1_gui: No
+#rhel6stig_cat2_gui: No
+##rhel6stig_cat3_gui: No
+
+#rhel6stig_remove_gui: No
+
+#rhel6stig_tftp_removal: No
+
+#selinux_enforce: No
+
+#disable_autofs: No
+
+#grub_password: No
+
+# The system must use a DoD-approved virus scan program.
+#rhel6stig_av_package.package: McAfeeVSEForLinux
+#rhel6stig_av_package.service: nails
+

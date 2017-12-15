@@ -1,0 +1,151 @@
+---
+# tasks file for rhel7_stigs
+
+- name: Run CAT1 STIGs
+  include: cat1.yml 
+  with_items:
+      - rhel7stig_cat1
+  when: 
+      - rhel7stig_cat1 == "Yes" or rhel7stig_cat1 == "yes" or rhel7stig_cat1 == "Y" or rhel7stig_cat1 == "y"
+      - (ansible_distribution == "RedHat" and ansible_distribution_major_version == "7") or (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
+  #when: confirmation != "Yes"
+  tags:
+      - cat1
+      - high
+
+- name: Run CAT2 STIGs
+  include: cat2.yml
+  with_items:
+      - rhel7stig_cat2
+  when: 
+      - rhel7stig_cat2 == "Yes" or rhel7stig_cat2 == "yes" or rhel7stig_cat2 == "Y" or rhel7stig_cat2 == "y"
+      - (ansible_distribution == "RedHat" and ansible_distribution_major_version == "7") or (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
+  #when: confirmation != "Yes"
+  tags:
+      - cat2
+      - medium
+
+- name: Run CAT3 STIGs
+  include: cat3.yml 
+  with_items:
+      - rhel7stig_cat3
+  when: 
+      - rhel7stig_cat3 == "Yes" or rhel7stig_cat3 == "yes" or rhel7stig_cat3 == "Y" or rhel7stig_cat3 == "y"
+      - (ansible_distribution == "RedHat" and ansible_distribution_major_version == "7") or (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
+  #when: confirmation != "Yes"
+  tags:
+      - cat3
+      - low
+
+- name: Remove X Windows
+  include: remove-gui.yml
+  with_items:
+      - rhel7stig_remove_gui
+  when:
+      - rhel7stig_remove_gui == "Yes" or rhel7stig_remove_gui == "yes" or rhel7stig_remove_gui == "Y" or rhel7stig_remove_gui == "y"
+      - (ansible_distribution == "RedHat" and ansible_distribution_major_version == "7") or (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
+  #when: confirmation != "Yes"
+  tags:
+      - cat2-gui
+      - medium
+
+- name: Run CAT1 GUI STIGs
+  include: cat1-gui.yml
+  with_items:
+      - rhel7stig_cat1_gui
+  when: 
+      - rhel7stig_cat1_gui == "Yes" or rhel7stig_cat1_gui == "yes" or rhel7stig_cat1_gui == "Y" or rhel7stig_cat1_gui == "y"
+      - (ansible_distribution == "RedHat" and ansible_distribution_major_version == "7") or (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
+  #when: confirmation != "Yes"
+  tags:
+      - cat1-gui
+      - high
+
+- name: Run CAT2 GUI STIGs
+  include: cat2-gui.yml
+  with_items:
+      - rhel7stig_cat2_gui
+  when: 
+      - rhel7stig_cat2_gui == "Yes" or rhel7stig_cat2_gui == "yes" or rhel7stig_cat2_gui == "Y" or rhel7stig_cat2_gui == "y"
+      - (ansible_distribution == "RedHat" and ansible_distribution_major_version == "7") or (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
+  #when: confirmation != "Yes"
+  tags:
+      - cat2-gui
+      - medium
+
+#- name: Run CAT3 GUI STIGs
+#  include: cat3-gui.yml
+#  with_items:
+#      - rhel7stig_cat3_gui
+#  when:
+#      - rhel7stig_cat3_gui == "Yes" or rhel7stig_cat3_gui == "yes" or rhel7stig_cat3_gui == "Y" or rhel7stig_cat3_gui == "y"
+#      - (ansible_distribution == "RedHat" and ansible_distribution_major_version == "7") or (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
+  #when: confirmation != "Yes"
+#  tags:
+#      - cat3-gui
+#      - low
+
+- name: Run FTP server (LFTPD) removal
+  include: remove-lftpd.yml
+  with_items:
+      - rhel7stig_lftpd_removal
+  when:
+      - rhel7stig_lftpd_removal == "Yes" or rhel7stig_lftpd_removal == "yes" or rhel7stig_lftpd_removal == "Y" or rhel7stig_lftpd_removal == "y"
+      - (ansible_distribution == "RedHat" and ansible_distribution_major_version == "7") or (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
+  #when: confirmation != "Yes"
+  tags:
+      - removal_lftpd
+
+- name: Run TFTP server removal
+  include: remove-tftp.yml
+  with_items:
+      - rhel7stig_tftp_removal
+  when:
+      - rhel7stig_tftp_removal == "Yes" or rhel7stig_tftp_removal == "yes" or rhel7stig_tftp_removal== "Y" or rhel7stig_tftp_removal == "y"
+      - (ansible_distribution == "RedHat" and ansible_distribution_major_version == "7") or (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
+  #when: confirmation != "Yes"
+  tags:
+      - removal_tftp
+
+- name: Router Configuration removal
+  include: remove-router.yml
+  with_items:
+      - rhel7stig_system_not_router
+  when:
+      - rhel7stig_system_not_router == "Yes" or rhel7stig_system_not_router == "yes" or rhel7stig_system_not_router == "Y" or rhel7stig_system_not_router == "y"
+      - (ansible_distribution == "RedHat" and ansible_distribution_major_version == "7") or (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
+  #when: confirmation != "Yes"
+  tags:
+      - removal_router
+
+- name: Set SELinux to enforcing
+  include: selinux_enforce.yml
+  with_items:
+      - selinux_enforce
+  when:
+      - selinux_enforce == "Yes" or selinux_enforce == "yes" or selinux_enforce == "Y" or selinux_enforce == "y"
+  #when: confirmation != "Yes"
+  tags:
+      - selinux_enforce
+
+- name: Disable autofs
+  include: disable_autofs.yml
+  with_items:
+      - disable_autofs
+  when:
+      - disable_autofs == "Yes" or disable_autofs == "yes" or disable_autofs == "Y" or disable_autofs == "y"
+      - (ansible_distribution == "RedHat" and ansible_distribution_major_version == "7") or (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
+  #when: confirmation != "Yes"
+  tags:
+      - disable_autofs
+
+#- name: Set GRUB2 Password
+#  include: grub2_password.yml
+#  with_items:
+#      - grub2_password
+#  when:
+#      - grub2_password == "Yes" or grub2_password == "yes" or grub2_password == "Y" or grub2_password == "y"
+#      - (ansible_distribution == "RedHat" and ansible_distribution_major_version == "7") or (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
+#  #when: confirmation != "Yes"
+#  tags:
+#      - grub2_password

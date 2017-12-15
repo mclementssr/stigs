@@ -1,0 +1,20 @@
+---
+
+- name: "LOW GUI | V-38474 | The system must allow locking of graphical desktop sessions."
+  command: gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.mandatory --type string --set /apps/gnome_settings_daemon/keybindings/screensaver "l"
+  tags:
+      - cat3-gui
+      - low
+      - RHEL-06-000508
+      - SV-50274r1_rule
+      - V-38474
+
+- name: "LOW GUI | V-38639 | The system must display a publicly-viewable pattern during a graphical desktop environment session lock."
+  command: gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.mandatory --type string --set /apps/gnome-screensaver/mode blank-only
+  tags:
+      - cat3-gui
+      - low
+      - RHEL-06-000260
+      - SV-50440r3_rule
+      - V-38639
+

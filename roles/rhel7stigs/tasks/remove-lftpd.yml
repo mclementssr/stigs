@@ -1,0 +1,13 @@
+---
+- name: "HIGH | V-72299 | A File Transfer Protocol (FTP) server package must not be installed unless needed."
+  yum:
+      name: 
+          - lftpd
+      state: absent
+  tags:
+      - cat1
+      - high
+      - RHEL-07-040690
+      - SV-86923r1_rule
+      - V-72299
+

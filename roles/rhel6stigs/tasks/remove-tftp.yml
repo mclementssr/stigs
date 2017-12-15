@@ -1,0 +1,36 @@
+---
+- name: "MEDIUM | V-38606 | The tftp-server package must not be installed unless required."
+  yum:
+      name:
+          - tftp
+          - tftp-server
+      state: absent
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000222
+      - SV-50407r2_rule
+      - V-38606
+
+- name: "MEDIUM | V-38609 | The TFTP service (xinetd)  must not be running."
+  service:
+      name: xinetd
+      enabled: no
+      state: stopped
+  ignore_errors: true
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000223
+      - SV-50223r2_rule
+      - V-38609
+
+- name: "MEDIUM | V-38609 | The TFTP service must not be running."
+  shell: chkconfig tftp off
+  ignore_errors: true
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000223
+      - SV-50223r2_rule
+      - V-38609

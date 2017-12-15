@@ -1,0 +1,203 @@
+--HIGH--
+
+
+
+--MEDIUM--
+
+- name: "MEDIUM | RHEL-07-010371 | PATCH | If three unsuccessful logon attempts within 15 minutes occur the associated account must be locked."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-07-010371
+
+- name: "RHEL-07-010400 | Check if /etc/sssd/sssd.conf exists."
+  stat: path=/etc/sssd/sssd.conf
+  register: rhel7_010400_check
+  tags:
+      - cat2
+      - medium
+      - RHEL-07-010400
+      - gui
+
+- name: "MEDIUM | RHEL-07-010400 | PATCH | The operating system must prohibit the use of cached nss authenticators after one day."
+  lineinfile:
+      dest: /etc/sssd/sssd.conf
+      state: present
+      regexp: 'memcache_timeout = *'
+      line: 'memcache_timeout = 86400'
+  when: rhel7_010400_check.stat.exists == True
+  tags:
+      - cat2
+      - medium
+      - RHEL-07-010400
+
+- name: "RHEL-07-010401 | Check if /etc/sssd/sssd.conf exists."
+  stat: path=/etc/sssd/sssd.conf
+  register: rhel7_010401_check
+  tags:
+      - cat2
+      - medium
+      - RHEL-07-010401
+      - gui
+
+- name: "MEDIUM | RHEL-07-010401 | PATCH | The operating system must prohibit the use of cached PAM authenticators after one day."
+  lineinfile:
+      dest: /etc/sssd/sssd.conf
+      state: present
+      regexp: 'offline_credentials_expiration = *'
+      line: 'offline_credentials_expiration = 1'
+  when: rhel7_010401_check.stat.exists == True
+  tags:
+      - cat2
+      - medium
+      - RHEL-07-010401
+
+- name: "RHEL-07-010402 | Check if /etc/sssd/sssd.conf exists."
+  stat: path=/etc/sssd/sssd.conf
+  register: rhel7_010402_check
+  tags:
+      - cat2
+      - medium
+      - RHEL-07-010402
+      - gui
+
+- name: "MEDIUM | RHEL-07-010402 | PATCH | The operating system must prohibit the use of cached SSH authenticators after one day."
+  lineinfile:
+      dest: /etc/sssd/sssd.conf
+      state: present
+      regexp: 'ssh_known_hosts_timeout = *'
+      line: 'ssh_known_hosts_timeout = 86400'
+  when: rhel7_010402_check.stat.exists == True
+  tags:
+      - cat2
+      - medium
+      - RHEL-07-010402
+      - ssh
+
+- name: "MEDIUM | RHEL-07-040020 | PATCH | The system must log informational authentication data."
+  blockinfile:
+      dest: /etc/rsyslog.conf
+      content: |
+        # STIG Requirment
+        auth,authpriv.debug                                     /var/log/auth.log
+        daemon.notice                                           /var/log/messages
+      insertafter: "local7.*                                                /var/log/boot.log"
+      marker: ""
+  tags:
+      - cat2
+      - medium
+      - RHEL-07-040020
+
+- name: "MEDIUM | RHEL-07-040030 | PATCH | The operating system, for PKI-based authentication, must validate certificates by performing RFC 5280-compliant certification path validation."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-07-040030
+
+- name: "MEDIUM | RHEL-07-040040 | PATCH | The operating system, for PKI-based authentication, must enforce authorized access to all PKI private keys stored or used by the operating system."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-07-040040
+
+- name: "MEDIUM | RHEL-07-040050 | PATCH | The operating system must map the authenticated identity to the user or group account for PKI-based authentication."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-07-040050
+
+- name: "MEDIUM | RHEL-07-040060 | PATCH | The cn_map file must have mode 0644 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-07-040060
+
+- name: "MEDIUM | RHEL-07-040070 | PATCH | The cn_map file must be owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-07-040070
+
+- name: "MEDIUM | RHEL-07-040080 | PATCH | The cn_map file must be group owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-07-040080
+
+- name: "MEDIUM | RHEL-07-040230 | PATCH | The operating system, if using PKI-based authentication, must implement a local cache of revocation data to certificate validation in case of the inability to access revocation information via the network."
+  command: "true"
+  #lineinfile:
+  #    dest: /var/lib/pki-kra/conf/server.xml
+  #    regexp: "{{ item.regexp }}"
+  #    line: "{{ item.line }}"
+  #when: rhel_07_040230_audit.stat.exists
+  #with_items:
+  #    -   regexp: '^#?auths.revocationChecking.bufferSize'
+  #        line: 'auths.revocationChecking.bufferSize=50'
+
+  #    -   regexp: '^#?auths.revocationChecking.enabled'
+  #        line: 'auths.revocationChecking.enabled=true'
+
+  #    -   regexp: '^#?enableOCSP'
+  #        line: 'enableOCSP="true"'
+
+  #    -   regexp: '^#?ocspCacheSize'
+  #        line: 'ocspCacheSize="50"'
+  tags:
+      - cat2
+      - medium
+      - RHEL-07-040230
+      - pki
+
+- name: "MEDIUM | RHEL-07-040810 | PATCH | The system must use a local firewall."
+  yum:
+      name: firewalld
+      state: latest
+  tags:
+      - cat2
+      - medium
+      - RHEL-07-040810
+      - firewalld
+
+#- name: "MEDIUM | RHEL-07-040810 | PATCH | The system must use a local firewall."
+#  service:
+#      name: firewalld
+#      state: started
+#      enabled: yes
+#  tags:
+#      - cat2
+#      - medium
+#      - RHEL-07-040810
+#      - firewalld
+
+
+
+--LOW--
+
+- name: "LOW | RHEL-07-010490 | PATCH | Unnecessary default system accounts must be removed."
+  user:
+      name: games
+      state: absent
+      remove: yes # Not required because games doesn't have a home directory.
+      #ignoreerrors: yes
+  tags:
+      - cat3
+      - low
+      - patch
+      - RHEL-07-010490
+
+- name: "LOW | RHEL-07-021260 | PATCH | The system must use /var/log/audit for the system audit data path."
+  command: "true"
+  tags:
+      - cat3
+      - low
+      - patch
+      - RHEL-07-021260
+

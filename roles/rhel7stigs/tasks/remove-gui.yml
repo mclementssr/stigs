@@ -1,0 +1,31 @@
+---
+- name: "MEDIUM | V-72307 | An X Windows display manager must not be installed unless approved."
+  yum:
+      name:
+          - "@X Windows System"
+          - xorg-x11-server-common
+      state: absent
+  tags:
+      - cat2
+      - medium
+      - RHEL-07-040730
+      - SV-86931r2_rule
+      - V-72307
+
+- name: "MEDIUM | V-72307 | Change graphical runlevel from 5 to 3."
+  command: systemctl set-default runlevel3.target
+  tags:
+      - cat2
+      - medium
+      - RHEL-07-040730
+      - SV-86931r2_rule
+      - V-72307
+
+- name: "MEDIUM | V-72307 | Reset graphical mode to non-graphical."
+  command: init 3
+  tags:
+      - cat2
+      - medium
+      - RHEL-07-040730
+      - SV-86931r2_rule
+      - V-72307

@@ -1,0 +1,11 @@
+---
+- name: "HIGH | V-51363 | The operating system must enable SELinux."
+  selinux:
+      policy: targeted
+      state: enforcing
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000020
+      - SV-65573r1_rule
+      - V-51363

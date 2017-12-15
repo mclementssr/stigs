@@ -1,0 +1,12 @@
+---
+
+- name: "LOW | V-38627 | The openldap-servers package must not be installed unless required."
+  yum: 
+     name: openldap-servers
+     state: absent
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000256
+      - SV-50428r2_rule
+      - V-38627

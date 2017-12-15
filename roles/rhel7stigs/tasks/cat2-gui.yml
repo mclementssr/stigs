@@ -1,0 +1,691 @@
+---
+- name: "MEDIUM GUI | V-71859 | Check if /etc/dconf/db/local.d/01-banner-message exists."
+  stat: path=/etc/dconf/db/local.d/01-banner-message
+  register: v_71859_check
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010030
+      - SV-86483r2_rule
+      - V-71859
+
+- name: "MEDIUM GUI | V-71859 | Create /etc/dconf/db/local.d/01-banner-message if it doesn't exists."
+  file:
+      path: /etc/dconf/db/local.d/01-banner-message
+      state: touch
+      owner: root
+      group: root
+      mode: 0644
+  when: v_71859_check.stat.exists == False
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010030
+      - SV-86483r2_rule
+      - V-71859
+
+- name: "MEDIUM GUI | V-71859 | Check if /etc/dconf/db/local.d/01-banner-message exists."
+  stat: path=/etc/dconf/db/local.d/01-banner-message
+  register: v_71859_check2
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010030
+      - SV-86483r2_rule
+      - V-71859
+
+- name: "MEDIUM GUI | V-71859 | Add [org/gnome/login-screen] if it doesn't exists."
+  lineinfile:
+      dest: /etc/dconf/db/local.d/01-banner-message
+      state: present
+      regexp: '\[org/gnome/login-screen\]'
+      line: '[org/gnome/login-screen]' 
+  when: v_71859_check2.stat.exists == True
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010030
+      - SV-86483r2_rule
+      - V-71859
+
+- name: "MEDIUM GUI | V-71859 | Check if /etc/dconf/db/local.d/01-banner-message exists."
+  stat: path=/etc/dconf/db/local.d/01-banner-message
+  register: v_71859_check3
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010030
+      - SV-86483r2_rule
+      - V-71859
+
+- name: "MEDIUM GUI | V-71859 | Add banner-message-enable=true if it doesn't exists."
+  lineinfile:
+      dest: /etc/dconf/db/local.d/01-banner-message 
+      state: present 
+      regexp: 'banner-message-enable=*'
+      line: 'banner-message-enable=true'
+      insertafter: '\[org/gnome/login-screen\]'
+  when: v_71859_check3.stat.exists == True
+  #notify: update_dconf
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010030
+      - SV-86483r2_rule
+      - V-71859
+
+- name: "MEDIUM GUI | V-71861 | Check if /etc/dconf/db/local.d/01-banner-message exists."
+  stat: path=/etc/dconf/db/local.d/01-banner-message
+  register: v_71861_check
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010040
+      - SV-86485r2_rule
+      - V-71861
+
+- name: "MEDIUM GUI | V-71861 | Create /etc/dconf/db/local.d/01-banner-message if it doesn't exists."
+  file:
+      path: /etc/dconf/db/local.d/01-banner-message
+      state: touch
+      owner: root
+      group: root
+      mode: 0644
+  when: v_71861_check.stat.exists == False
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010040
+      - SV-86485r2_rule
+      - V-71861
+
+- name: "MEDIUM GUI | V-71861 | Check if /etc/dconf/db/local.d/01-banner-message exists."
+  stat: path=/etc/dconf/db/local.d/01-banner-message
+  register: v_71861_check2
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010040
+      - SV-86485r2_rule
+      - V-71861
+
+- name: "MEDIUM GUI | V-71861 | Add [org/gnome/login-screen] if it doesn't exists."
+  lineinfile:
+      dest: /etc/dconf/db/local.d/01-banner-message
+      state: present
+      regexp: '\[org/gnome/login-screen\]'
+      line: '[org/gnome/login-screen]'
+  when: v_71861_check2.stat.exists == True
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010040
+      - SV-86485r2_rule
+      - V-71861
+
+- name: "MEDIUM GUI | V-71861 | Check if /etc/dconf/db/local.d/01-banner-message exists."
+  stat: path=/etc/dconf/db/local.d/01-banner-message
+  register: v_71861_check3
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010040
+      - SV-86485r2_rule
+      - V-71861
+
+- name: "MEDIUM GUI | V-71861 | The operating system must display the approved Standard Mandatory DoD Notice and Consent Banner before granting local or remote access to the system via a graphical user logon."
+  blockinfile:
+      dest: /etc/dconf/db/local.d/01-banner-message
+      regexp: 'banner-message-text='
+      insertafter: '\[org/gnome/login-screen\]'
+      state: present
+      content: |
+        banner-message-text='You are accessing a U.S. Government (USG) Information System (IS) that is provided for USG-authorized use only.\n\n By using this IS (which includes any device attached to this IS), you consent to the following conditions:\n\n -The USG routinely intercepts and monitors communications on this IS for purposes including, but not limited to, penetration testing, COMSEC monitoring, network operations and defense, personnel misconduct (PM), law enforcement (LE), and counterintelligence (CI) investigations.\n\n -At any time, the USG may inspect and seize data stored on this IS.\n\n -Communications using, or data stored on, this IS are not private, are subject to routine monitoring, interception, and search, and may be disclosed or used for any USG-authorized purpose.\n\n -This IS includes security measures (e.g., authentication and access controls) to protect USG interests--not for your personal benefit or privacy.\n\n -Notwithstanding the above, using this IS does not constitute consent to PM, LE or CI investigative searching or monitoring of the content of privileged communications, or work product, related to personal representation or services by attorneys, psychotherapists, or clergy, and their assistants. Such communications and work product are private and confidential. See User Agreement for details.' 
+  when: v_71861_check3.stat.exists == True
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010040
+      - SV-86485r2_rule
+      - V-71861
+
+- name: "MEDIUM GUI | V-71891 | Check if /etc/dconf/db/local.d/00-screensaver exists."
+  stat: path=/etc/dconf/db/local.d/00-screensaver
+  register: v_71891_check
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010060
+      - SV-86515r2_rule
+      - V-71891
+
+- name: "MEDIUM GUI | V-71891 | Create /etc/dconf/db/local.d/00-screensaver if it doesn't exists."
+  file:
+      path: /etc/dconf/db/local.d/00-screensaver
+      state: touch
+      owner: root
+      group: root
+      mode: 0644
+  when: v_71891_check.stat.exists == False
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010060
+      - SV-86515r2_rule
+      - V-71891
+
+- name: "MEDIUM GUI | V-71891 | Check if /etc/dconf/db/local.d/00-screensaver exists."
+  stat: path=/etc/dconf/db/local.d/00-screensaver
+  register: v_71891_check2
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010060
+      - SV-86515r2_rule
+      - V-71891
+
+- name: "MEDIUM GUI | V-71891 | Add [org/gnome/desktop/screensaver] if it doesn't exists."
+  lineinfile:
+      dest: /etc/dconf/db/local.d/00-screensaver
+      state: present
+      regexp: '\[org/gnome/desktop/screensaver\]'
+      line: '[org/gnome/desktop/screensaver]'
+  when: v_71891_check2.stat.exists == True
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010060
+      - SV-86515r2_rule
+      - V-71891
+
+- name: "MEDIUM GUI | V-71891 | Check if /etc/dconf/db/local.d/00-screensaver exists."
+  stat: path=/etc/dconf/db/local.d/00-screensaver
+  register: v_71891_check3
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010060
+      - SV-86515r2_rule
+      - V-71891
+
+- name: "MEDIUM GUI | V-71891 | The operating system must enable a user session lock until that user re-establishes access using established identification and authentication procedures."
+  lineinfile:
+      dest: /etc/dconf/db/local.d/00-screensaver
+      state: present
+      regexp: 'lock-enabled=*'
+      line: 'lock-enabled=true'
+      insertafter: '\[org/gnome/desktop/screensaver\]'
+  when: v_71891_check3.stat.exists == True
+  #notify: update_dconf
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010060
+      - SV-86515r2_rule
+      - V-71891
+
+- name: "MEDIUM GUI | V-71893 | Check if /etc/dconf/db/local.d/00-screensaver exists."
+  stat: path=/etc/dconf/db/local.d/00-screensaver
+  register: v_71893_check
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010070
+      - SV-86517r2_rule
+      - V-71893
+
+- name: "MEDIUM GUI | V-71893 | Create /etc/dconf/db/local.d/00-screensaver if it doesn't exists."
+  file:
+      path: /etc/dconf/db/local.d/00-screensaver
+      state: touch
+      owner: root
+      group: root
+      mode: 0644
+  when: v_71893_check.stat.exists == False
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010070
+      - SV-86517r2_rule
+      - V-71893
+
+- name: "MEDIUM GUI | V-71893 | Check if /etc/dconf/db/local.d/00-screensaver exists."
+  stat: path=/etc/dconf/db/local.d/00-screensaver
+  register: v_71893_check2
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010070
+      - SV-86517r2_rule
+      - V-71893
+
+- name: "MEDIUM GUI | V-71893 | Add [org/gnome/desktop/screensaver] if it doesn't exists."
+  lineinfile:
+      dest: /etc/dconf/db/local.d/00-screensaver
+      state: present
+      regexp: '\[org/gnome/desktop/screensaver\]'
+      line: '[org/gnome/desktop/screensaver]'
+  when: v_71893_check2.stat.exists == True
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010070
+      - SV-86517r2_rule
+      - V-71893
+
+- name: "MEDIUM GUI | V-71893 | Check if /etc/dconf/db/local.d/00-screensaver exists."
+  stat: path=/etc/dconf/db/local.d/00-screensaver
+  register: v_71893_check3
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010070
+      - SV-86517r2_rule
+      - V-71893
+
+- name: "MEDIUM GUI | V-71893 | The operating system must initiate a screensaver after a 15-minute period of inactivity for graphical user interfaces."
+  lineinfile:
+      dest: /etc/dconf/db/local.d/00-screensaver
+      state: present
+      regexp: 'idle-delay=uint32'
+      line: 'idle-delay=uint32 900'
+      insertafter: '\[org/gnome/desktop/screensaver\]'
+  when: v_71893_check3.stat.exists == True
+  #notify: update_dconf
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010070
+      - SV-86517r2_rule
+      - V-71893
+
+- name: "MEDIUM GUI | V-71901 | Check if /etc/dconf/db/local.d/00-screensaver exists."
+  stat: path=/etc/dconf/db/local.d/00-screensaver
+  register: v_71901_check
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010110
+      - SV-86525r1_rule
+      - V-71901
+
+- name: "MEDIUM GUI | V-71901 | Create /etc/dconf/db/local.d/00-screensaver if it doesn't exists."
+  file:
+      path: /etc/dconf/db/local.d/00-screensaver
+      state: touch
+      owner: root
+      group: root
+      mode: 0644
+  when: v_71901_check.stat.exists == False
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010110
+      - SV-86525r1_rule
+      - V-71901
+
+- name: "MEDIUM GUI | V-71901 | Check if /etc/dconf/db/local.d/00-screensaver exists."
+  stat: path=/etc/dconf/db/local.d/00-screensaver
+  register: v_71901_check2
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010110
+      - SV-86525r1_rule
+      - V-71901
+
+- name: "MEDIUM GUI | V-71901 | Add [org/gnome/desktop/screensaver] if it doesn't exists."
+  lineinfile:
+      dest: /etc/dconf/db/local.d/00-screensaver
+      state: present
+      regexp: '\[org/gnome/desktop/screensaver\]'
+      line: '[org/gnome/desktop/screensaver]'
+  when: v_71901_check2.stat.exists == True
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010110
+      - SV-86525r1_rule
+      - V-71901
+
+- name: "MEDIUM GUI | V-71901 | Check if /etc/dconf/db/local.d/00-screensaver exists."
+  stat: path=/etc/dconf/db/local.d/00-screensaver
+  register: v_71901_check3
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010110
+      - SV-86525r1_rule
+      - V-71901
+
+- name: "MEDIUM GUI | V-71901 | The operating system must initiate a session lock for graphical user interfaces when the screensaver is activated."
+  lineinfile:
+      dest: /etc/dconf/db/local.d/00-screensaver
+      state: present
+      regexp: 'lock-delay=uint32'
+      line: 'lock-delay=uint32 5'
+      insertafter: '\[org/gnome/desktop/screensaver\]'
+  when: v_71901_check3.stat.exists == True
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010110
+      - SV-86525r1_rule
+      - V-71901
+
+- name: "MEDIUM GUI | V-71895 | Check if /etc/dconf/db/local.d/locks directory exists."
+  stat: path=/etc/dconf/db/local.d/locks
+  register: v_71895_check
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010080
+      - SV-86519r3_rule
+      - V-71895
+
+- name: "MEDIUM GUI | V-71895 | Create /etc/dconf/db/local.d/locks directory if it doesn't exists."
+  file:
+      path: /etc/dconf/db/local.d/locks
+      state: directory
+      owner: root
+      group: root
+      mode: 0755
+  when: v_71895_check.stat.exists == False
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010080
+      - SV-86519r3_rule
+      - V-71895
+
+- name: "MEDIUM GUI | V-71895 | Check if /etc/dconf/db/local.d/locks/session exists."
+  stat: path=/etc/dconf/db/local.d/locks/session
+  register: v_71895_check2
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010080
+      - SV-86519r3_rule
+      - V-71895
+
+- name: "MEDIUM GUI | V-71895 | Create /etc/dconf/db/local.d/locks/session if it doesn't exists."
+  file:
+      path: /etc/dconf/db/local.d/locks/session
+      state: touch
+      owner: root
+      group: root
+      mode: 0644
+  when: v_71895_check2.stat.exists == False
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010080
+      - SV-86519r3_rule
+      - V-71895
+
+- name: "MEDIUM GUI | V-71895 | Check if /etc/dconf/db/local.d/locks/session exists."
+  stat: path=/etc/dconf/db/local.d/locks/session
+  register: v_71895_check3
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010080
+      - SV-86519r3_rule
+      - V-71895
+
+- name: "MEDIUM GUI | V-71895 | The operating system must initiate a session lock after a 15-minute period of inactivity for all connection types."
+  lineinfile:
+      state: present
+      dest: /etc/dconf/db/local.d/locks/session
+      regexp: '/org/gnome/desktop/screensaver/idle-delay'
+      line: '/org/gnome/desktop/screensaver/idle-delay'
+  when: v_71895_check3.stat.exists == True
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010080
+      - SV-86519r3_rule
+      - V-71895
+
+- name: "MEDIUM GUI | V-71897 | The operating system must have the screen package installed."
+  yum:
+      name: screen
+      state: latest
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010090
+      - SV-86521r1_rule
+      - V-71897
+
+- name: "MEDIUM GUI | V-71899 | Check if /etc/dconf/db/local.d/00-screensaver exists."
+  stat: path=/etc/dconf/db/local.d/00-screensaver
+  register: v_71899_check
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010100
+      - SV-86523r1_rule
+      - V-71899
+
+- name: "MEDIUM GUI | V-71899 | Create /etc/dconf/db/local.d/00-screensaver if it doesn't exists."
+  file:
+      path: /etc/dconf/db/local.d/00-screensaver
+      state: touch
+      owner: root
+      group: root
+      mode: 0644
+  when: v_71899_check.stat.exists == False
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010100
+      - SV-86523r1_rule
+      - V-71899
+
+- name: "MEDIUM GUI | V-71899 | Check if /etc/dconf/db/local.d/00-screensaver exists."
+  stat: path=/etc/dconf/db/local.d/00-screensaver
+  register: v_71899_check2
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010100
+      - SV-86523r1_rule
+      - V-71899
+
+- name: "MEDIUM GUI | V-71899 | Add [org/gnome/desktop/screensaver] if it doesn't exists."
+  lineinfile:
+      dest: /etc/dconf/db/local.d/00-screensaver 
+      state: present
+      regexp: '\[org/gnome/desktop/screensaver\]'
+      line: '[org/gnome/desktop/screensaver]'
+  when: v_71899_check2.stat.exists == True
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010100
+      - SV-86523r1_rule
+      - V-71899
+
+- name: "MEDIUM GUI | V-71899 | Check if /etc/dconf/db/local.d/00-screensaver exists."
+  stat: path=/etc/dconf/db/local.d/00-screensaver 
+  register: v_71899_check3
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010100
+      - SV-86523r1_rule
+      - V-71899
+
+- name: "MEDIUM GUI | V-71899 | The operating system must initiate a session lock for the screensaver after a period of inactivity for graphical user interfaces."
+  lineinfile:
+      dest: /etc/dconf/db/local.d/00-screensaver
+      state: present
+      regexp: 'idle-activation-enabled=*'
+      line: 'idle-activation-enabled=true'
+      insertafter: '\[org/gnome/desktop/screensaver\]'
+  when: v_71899_check3.stat.exists == True
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010100
+      - SV-86523r1_rule
+      - V-71899
+
+- name: "MEDIUM GUI | V-73155 | Check if directory /etc/dconf/db/local.d/locks exist."
+  stat: path=/etc/dconf/db/local.d/locks
+  register: v_73155_check
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010081
+      - SV-87807r2_rule
+      - V-73155
+
+- name: "MEDIUM GUI | V-73155 | Create /etc/dconf/db/local.d/locks."
+  file:
+      path: /etc/dconf/db/local.d/locks
+      state: directory
+      owner: root
+      group: root
+      mode: 0755
+  when: v_73155_check.stat.exists == False
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010081
+      - SV-87807r2_rule
+      - V-73155
+
+- name: "MEDIUM GUI | V-73155 | Check if /etc/dconf/db/local.d/locks/session exists."
+  stat: path=/etc/dconf/db/local.d/locks/session
+  register: v_73155_check2
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010081
+      - SV-87807r2_rule
+      - V-73155
+
+- name: "MEDIUM GUI | V-73155 | Create /etc/dconf/db/local.d/locks/session if it doesn't exists."
+  file:
+      path: /etc/dconf/db/local.d/locks/session
+      state: touch
+      owner: root
+      group: root
+      mode: 0644
+  when: v_73155_check2.stat.exists == False
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010081
+      - SV-87807r2_rule
+      - V-73155
+
+- name: "MEDIUM GUI | V-73155 | Check if /etc/dconf/db/local.d/locks/session exists."
+  stat: path=/etc/dconf/db/local.d/locks/session
+  register: v_73155_check3
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010081
+      - SV-87807r2_rule
+      - V-73155
+
+- name: "MEDIUM GUI | V-73155 | The operating system must set the lock delay setting for all connection types."
+  lineinfile:
+      state: present
+      dest: /etc/dconf/db/local.d/locks/session
+      regexp: '/org/gnome/desktop/screensaver/lock-delay' 
+      line: '/org/gnome/desktop/screensaver/lock-delay'
+  when: v_73155_check3.stat.exists == True
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010081
+      - SV-87807r2_rule
+      - V-73155
+
+- name: "MEDIUM GUI | V-73157 | Check if directory /etc/dconf/db/local.d/locks exist."
+  stat: path=/etc/dconf/db/local.d/locks
+  register: v_73157_check
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010082
+      - SV-87809r2_rule
+      - V-73157
+
+- name: "MEDIUM GUI | V-73157 | Create /etc/dconf/db/local.d/locks."
+  file:
+      path: /etc/dconf/db/local.d/locks
+      state: directory
+      owner: root
+      group: root
+      mode: 0755
+  when: v_73157_check.stat.exists == False
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010082
+      - SV-87809r2_rule
+      - V-73157
+
+- name: "MEDIUM GUI | V-73157 | Check if /etc/dconf/db/local.d/locks/session exists."
+  stat: path=/etc/dconf/db/local.d/locks/session
+  register: v_73157_check2
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010082
+      - SV-87809r2_rule
+      - V-73157
+
+- name: "MEDIUM GUI | V-73157 | Create /etc/dconf/db/local.d/locks/session if it doesn't exists."
+  file:
+      path: /etc/dconf/db/local.d/locks/session
+      state: touch
+      owner: root
+      group: root
+      mode: 0644
+  when: v_73157_check2.stat.exists == False
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010082
+      - SV-87809r2_rule
+      - V-73157
+
+- name: "MEDIUM GUI | V-73157 | Check if /etc/dconf/db/local.d/locks/session exists."
+  stat: path=/etc/dconf/db/local.d/locks/session
+  register: v_73157_check3
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010082
+      - SV-87809r2_rule
+      - V-73157
+
+- name: "MEDIUM GUI | V-73157 | The operating system must set the idle delay setting for all connection types."
+  lineinfile:
+      state: present
+      dest: /etc/dconf/db/local.d/locks/session
+      regexp: '/org/gnome/desktop/session/idle-delay'
+      line: '/org/gnome/desktop/session/idle-delay'
+  when: v_73157_check3.stat.exists == True
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010082
+      - SV-87809r2_rule
+      - V-73157
+
+- name: "MEDIUM GUI | V-77819 | The operating system must uniquely identify and must authenticate users using multifactor authentication via a graphical user logon."
+  command: "true"
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-07-010061
+      - SV-92515r1_rule
+      - V-77819
+

@@ -1,0 +1,43 @@
+---
+# handlers file for rhel6_stigs
+
+- name: restart ssh
+  service:
+    name: sshd
+    state: restarted
+
+- name: reboot system
+  shell: sleep 3; reboot
+  async: 0
+  poll: 0
+  ignore_errors: yes
+
+- name: restart snmpd
+  service:
+      name: snmpd
+      state: restarted
+
+#- name: update_dconf
+#  command: dconf update
+
+- name: restart ntpd
+  service:
+      name: ntpd
+      state: restarted
+
+- name: restart rsyslog
+  service:
+      name: rsyslog
+      state: restarted
+
+- name: restart auditd
+  #command: service auditd restart
+  service:
+      name: auditd
+      state: restarted
+
+- name: restart iptables
+  become: yes
+  service: 
+      name: iptables
+      state: restarted

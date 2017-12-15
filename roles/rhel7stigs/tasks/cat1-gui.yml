@@ -1,0 +1,265 @@
+---
+
+- name: "HIGH GUI | V-71953 | Check if /etc/gdm/custom.conf exists."
+  stat: path=/etc/gdm/custom.conf
+  register: v_71953_check
+  tags:
+      - cat1-gui
+      - high
+      - RHEL-07-010440
+      - SV-86577r1_rule
+      - V-71953
+
+- name: "HIGH GUI | V-71953 | Create /etc/gdm if it doesn't exist."
+  file:
+      path: /etc/gdm
+      state: directory
+      owner: root
+      group: root
+      mode: 0755
+  when: v_71953_check.stat.exists == false
+  tags:
+      - cat1-gui
+      - high
+      - RHEL-07-010440
+      - SV-86577r1_rule
+      - V-71953
+
+- name: "HIGH GUI | V-71953 | Check if /etc/gdm/custom.conf exists."
+  stat: path=/etc/gdm/custom.conf
+  register: v_71953_check2
+  tags:
+      - cat1-gui
+      - high
+      - RHEL-07-010440
+      - SV-86577r1_rule
+      - V-71953
+
+- name: "HIGH GUI | V-71953 | Create /etc/gdm/custom.conf if it doesn't exist."
+  file:
+      path: /etc/gdm/custom.conf
+      state: touch
+      owner: root
+      group: root
+      mode: 0644
+  when: v_71953_check2.stat.exists == false
+  tags:
+      - cat1-gui
+      - high      
+      - RHEL-07-010440
+      - SV-86577r1_rule
+      - V-71953
+
+- name: "HIGH GUI | V-71953 | Check if /etc/gdm/custom.conf exists."
+  stat: path=/etc/gdm/custom.conf
+  register: v_71953_check3
+  tags:
+      - cat1-gui
+      - high
+      - RHEL-07-010440
+      - SV-86577r1_rule
+      - V-71953
+
+- name: "HIGH GUI | v-71953 | The operating system must not allow an unrestricted logon to the system."
+  lineinfile:
+      dest: /etc/gdm/custom.conf
+      regexp: (?i)automaticloginenable
+      line: AutomaticLoginEnable=false
+      insertafter: '\[daemon\]'
+      #backup: yes
+  when: v_71953_check3.stat.exists == True
+  tags:
+      - cat1-gui
+      - high
+      - RHEL-07-010440
+      - SV-86577r1_rule
+      - V-71953
+
+
+- name: "HIGH GUI | V-71955 | Check if /etc/gdm/custom.conf exists."
+  stat: path=/etc/gdm/custom.conf
+  register: v_71955_check
+  tags:
+      - cat1-gui
+      - high
+      - RHEL-07-010450
+      - SV-86579r1_rule
+      - V-71955
+
+- name: "HIGH GUI | V-71955 | Create /etc/gdm directory if it doesn't exist."
+  file:
+      path: /etc/gdm
+      state: directory
+      owner: root
+      group: root
+      mode: 0755
+  when: v_71955_check.stat.exists == false
+  tags:
+      - cat1-gui
+      - high
+      - RHEL-07-010440
+      - SV-86577r1_rule
+      - V-71955
+
+- name: "HIGH GUI | V-71955 | Check if /etc/gdm/custom.conf exists."
+  stat: path=/etc/gdm/custom.conf
+  register: v_71955_check2
+  tags:
+      - cat1-gui
+      - high
+      - RHEL-07-010450
+      - SV-86579r1_rule
+      - V-71955
+
+- name: "HIGH GUI | V-71955 | Create /etc/gdm/custom.conf file if it doesn't exist."
+  file:
+      path: /etc/gdm/custom.conf
+      state: touch
+      owner: root
+      group: root
+      mode: 0644
+  when: v_71955_check2.stat.exists == false
+  tags:
+      - cat1-gui
+      - high
+      - RHEL-07-010440
+      - SV-86577r1_rule
+      - V-71955
+
+- name: "HIGH GUI | V-71955 | Check if /etc/gdm/custom.conf exists."
+  stat: path=/etc/gdm/custom.conf
+  register: v_71955_check3
+  tags:
+      - cat1-gui
+      - high
+      - RHEL-07-010450
+      - SV-86579r1_rule
+      - V-71955
+
+- name: "HIGH GUI | v-71955 | The operating system must not allow an unrestricted logon to the system."
+  lineinfile:
+      dest: /etc/gdm/custom.conf
+      regexp: (?i)timedloginenable
+      line: TimedLoginEnable=false
+      insertafter: '\[daemon\]'
+  when: v_71955_check3.stat.exists == True
+  tags:
+      - cat1-gui
+      - high
+      - RHEL-07-010450
+      - SV-86579r1_rule
+      - V-71955
+
+- name: "HIGH GUI | V-71993 | Check if /etc/dconf/db/local.d exists."
+  stat: path=/etc/dconf/db/local.d
+  register: v_71993_check
+  tags:
+      - cat1-gui
+      - medium
+      - RHEL-07-020230
+      - SV-86617r1_rule
+      - V-71993
+
+- name: "HIGH GUI | V-71993 | Create /etc/dconf/db/local.d if it doesn't exists."
+  file:
+      path: /etc/dconf/db/local.d
+      state: directory
+      owner: root
+      group: root
+      mode: 0755
+  when: v_71993_check.stat.exists == False
+  tags:
+      - cat1-gui
+      - medium
+      - RHEL-07-020230
+      - SV-86617r1_rule
+      - V-71993
+
+- name: "HIGH GUI | V-71993 | Check if /etc/dconf/db/local.d/00-disable-CAD exists."
+  stat: path=/etc/dconf/db/local.d/00-disable-CAD
+  register: v_71993_check2
+  tags:
+      - cat1-gui
+      - medium
+      - RHEL-07-020230
+      - SV-86617r1_rule
+      - V-71993
+
+- name: "HIGH GUI | V-71993 | Create /etc/dconf/db/local.d/00-disable-CAD if it doesn't exists."
+  file:
+      path: /etc/dconf/db/local.d/00-disable-CAD
+      state: touch
+      owner: root
+      group: root
+      mode: 0644
+  when: v_71993_check2.stat.exists == False
+  tags:
+      - cat1-gui
+      - medium
+      - RHEL-07-020230
+      - SV-86617r1_rule
+      - V-71993
+
+- name: "HIGH GUI | V-71993 | Check if /etc/dconf/db/local.d/00-disable-CAD exists."
+  stat: path=/etc/dconf/db/local.d/00-disable-CAD
+  register: v_71993_check3
+  tags:
+      - cat1-gui
+      - medium
+      - RHEL-07-020230
+      - SV-86617r1_rule
+      - V-71993
+
+- name: "HIGH GUI | V-71993 | Add [org/gnome/settings-daemon/plugins/media-keys] if it doesn't exists."
+  lineinfile:
+      dest: /etc/dconf/db/local.d/00-disable-CAD
+      state: present
+      regexp: '\[org/gnome/settings-daemon/plugins/media-keys\]'
+      line: '[org/gnome/settings-daemon/plugins/media-keys]'
+  when: v_71993_check3.stat.exists == True
+  tags:
+      - cat1-gui
+      - medium
+      - RHEL-07-020230
+      - SV-86617r1_rule
+      - V-71993
+
+- name: "HIGH GUI | V-71993 | Check if /etc/dconf/db/local.d/00-disable-CAD exists."
+  stat: path=/etc/dconf/db/local.d/00-disable-CAD
+  register: v_71993_check4
+  tags:
+      - cat1-gui
+      - medium
+      - RHEL-07-020230
+      - SV-86617r1_rule
+      - V-71993
+
+
+- name: "HIGH GUI | V-71993 | The x86 Ctrl-Alt-Delete key sequence must be disabled."
+  lineinfile:
+      dest: /etc/dconf/db/local.d/00-disable-CAD
+      state: present
+      regexp: 'logout=*'
+      line: "logout=''"
+      insertafter: '\[org/gnome/settings-daemon/plugins/media-keys\]'
+  when: v_71993_check4.stat.exists == True
+  tags:
+      - cat1-gui
+      - high
+      - RHEL-07-020230
+      - SV-86617r1_rule
+      - V-71993
+
+#- name: "HIGH GUI | RHEL-07-020230 | The x86 Ctrl-Alt-Delete key sequence must be disabled."
+#  file:
+#      src: /dev/null
+#      dest: /etc/systemd/system/ctrl-alt-del.target
+#      state: link
+#      #backup: yes
+#  tags:
+#      - cat1-gui
+#      - high
+#      - RHEL-07-020230
+#      - SV-86617r1_rule
+#      - V-71993
+

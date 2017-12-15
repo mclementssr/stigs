@@ -1,0 +1,57 @@
+---
+
+- name: "MEDIUM GUI | V-38629 | The graphical desktop environment must set the idle timeout to no more than 15 minutes."
+  #command: "true"
+  command: gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.mandatory --type int --set /apps/gnome-screensaver/idle_delay 15
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-06-000257
+      - SV-50430r3_rule
+      - V-38629
+
+- name: "MEDIUM GUI | V-38630 | The graphical desktop environment must automatically lock after 15 minutes of inactivity and the system must require user reauthentication to unlock the environment."
+  command: gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.mandatory --type bool --set /apps/gnome-screensaver/idle_activation_enabled true
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-06-000258
+      - SV-50431r3_rule
+      - V-38630
+
+- name: "MEDIUM GUI | V-38638 | The graphical desktop environment must have automatic lock enabled."
+  command: gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.mandatory --type bool --set /apps/gnome-screensaver/lock_enabled true
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-06-000259
+      - SV-50439r3_rule
+      - V-38638
+
+- name: "MEDIUM GUI | V-38688 | A login banner must be displayed immediately prior to, or as part of, graphical desktop environment login prompts."
+  command: gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.mandatory --type bool --set /apps/gdm/simple-greeter/banner_message_enable true
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-06-000324
+      - SV-50489r3_rule
+      - V-38688
+
+- name: "MEDIUM | GUI | V-38689 | The Department of Defense (DoD) login banner must be displayed immediately prior to, or as part of, graphical desktop environment login prompts."
+  command: gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.mandatory --type string --set /apps/gdm/simple-greeter/banner_message_text "You are accessing a U.S. Government (USG) Information System (IS) that is provided for USG-authorized use only. By using this IS (which includes any device attached to this IS), you consent to the following conditions:\n\n-The USG routinely intercepts and monitors communications on this IS for purposes including, but not limited to, penetration testing, COMSEC monitoring, network operations and defense, personnel misconduct (PM), law enforcement (LE), and counterintelligence (CI) investigations.\n\n-At any time, the USG may inspect and seize data stored on this IS.\n\n-Communications using, or data stored on, this IS are not private, are subject to routine monitoring, interception, and search, and may be disclosed or used for any USG-authorized purpose.\n\n\-This IS includes security measures (e.g., authentication and access controls) to protect USG interests--not for your personal benefit or privacy.\n\n-Notwithstanding the above, using this IS does not constitute consent to PM, LE or CI investigative searching or monitoring of the content of privileged communications, or work product, related to personal representation or services by attorneys, psychotherapists, or clergy, and their assistants. Such communications and work product are private and confidential. See User Agreement for details."
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-06-000326
+      - SV-50490r5_rule
+      - V-38689
+
+- name: "MEDIUM GUI | V-43150 | The login user list must be disabled."
+  command: gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.mandatory --type bool --set /apps/gdm/simple-greeter/disable_user_list true
+  tags:
+      - cat2-gui
+      - medium
+      - RHEL-06-000527
+      - SV-50880r2_rule
+      - V-43150
+

@@ -1,0 +1,271 @@
+---
+- name: "HIGH | V-71849 | The file permissions, ownership, and group membership of system files and commands must match the vendor values."
+  #script: roles/rhel7stigs/scripts/rhel-07-010010.sh
+  script: v-71849.sh
+  tags:
+    - cat1
+    - high
+    - RHEL-07-010010
+    - SV-86473r2_rule
+    - V-71849
+
+- name: "HIGH | V-71855 | The cryptographic hash of system files and commands must match vendor values."
+  #script: roles/rhel7stigs/scripts/rhel-07-010020.sh
+  script: v-71855.sh
+  #command: "true"
+  tags:
+    - cat1
+    - high
+    - RHEL-07-010020
+    - SV-86479r2_rule
+    - V-71855
+
+- name: "HIGH | V-71937 | The system must not have accounts configured with blank or null passwords."
+  replace:
+    dest: /etc/pam.d/system-auth-ac
+    regexp: 'nullok ?'
+    replace: ''
+    #backup: yes
+  tags:
+    - cat1
+    - high
+    - RHEL-07-010290
+    - SV-86561r1_rule
+    - V-71937
+
+- name: "HIGH | V-71939 | The SSH daemon must not allow authentication using an empty password."
+  lineinfile:
+      state: present
+      dest: /etc/ssh/sshd_config
+      regexp: ^#?PermitEmptyPasswords
+      #regexp: (?i)permitemptypassword
+      line: PermitEmptyPasswords no
+  notify: restart ssh
+  tags:
+      - cat1
+      - high
+      - RHEL-07-010300
+      - SV-86563r2_rule
+      - V-71939
+
+# V-71961 has it's own grub2_password.yml file.
+
+# V-71963 has it's own grub2_password.yml file.
+
+- name: "HIGH | V-71967 | The rsh-server package including rexecd and rlogind must not be installed."
+  yum:
+      name: rsh-server
+      state: absent
+  tags:
+      - cat1
+      - high
+      - patch
+      - RHEL-07-020000
+      - SV-86591r1_rule
+      - V-71967
+
+- name: "HIGH | V-71969 | The ypserv package must not be installed."
+  yum:
+     name: ypserv
+     state: absent
+  tags:
+      - cat1
+      - high
+      - RHEL-07-020010
+      - SV-86593r1_rule
+      - V-71969
+
+- name: "HIGH | V-71977 | The operating system must prevent the installation of software, patches, service packs, device drivers, or operating system components from a repository without verification they have been digitally signed using a certificate that is issued by a Certificate Authority (CA) that is recognized and approved by the organization."
+  lineinfile:
+      dest: /etc/yum.conf
+      regexp: gpgcheck
+      line: gpgcheck=1
+      insertafter: '\[main\]'
+      #backup: yes
+  tags:
+      - cat1
+      - high
+      - RHEL-07-020050
+      - SV-86601r1_rule
+      - V-71977
+
+- name: "HIGH | V-71979 | The operating system must prevent the installation of software, patches, service packs, device drivers, or operating system components of local packages without verification they have been digitally signed using a certificate that is issued by a Certificate Authority (CA) that is recognized and approved by the organization."
+  lineinfile:
+      dest: /etc/yum.conf
+      regexp: localpkg_gpgcheck
+      line: localpkg_gpgcheck=1
+      insertafter: '\[main\]'
+      #backup: yes
+  tags:
+      - cat1
+      - high
+      - RHEL-07-020060
+      - SV-86603r1_rule
+      - V-71979
+
+- name: "HIGH | V-71981 | The operating system must prevent the installation of software, patches, service packs, device drivers, or operating system components of packages without verification of the repository metadata."
+  lineinfile:
+      dest: /etc/yum.conf
+      regexp: repo_gpgcheck
+      #line: repo_gpgcheck=1
+      line: repo_gpgcheck=0
+      insertafter: '\[main\]'
+      #backup: yes
+  tags:
+      - cat1
+      - high
+      - RHEL-07-020070
+      - SV-86605r1_rule
+      - V-71981
+
+#- name: "HIGH | V-71989 | The operating system must enable the SELinux."
+#  This finding has it's only task called enable-selinux.yml
+
+- name: "HIGH | V-71991 | The operating system must enable the SELinux targeted policy."
+  #script: roles/rhel7stigs/scripts/rhel-07-020220.sh
+  script: selinuxtype.sh
+  tags:
+      - cat1
+      - high
+      - RHEL-07-020220
+      - SV-86615r2_rule
+      - V-71991
+
+- name: "HIGH | V-71997 | The operating system must be a vendor supported release."
+  command: cat /etc/redhat-release 
+  tags:
+      - cat1
+      - high
+      - RHEL-07-020250
+      - SV-86621r2_rule
+      - V-71997
+
+- name: "HIGH | V-72005 | The root account must be the only account having unrestricted access to the system."
+# Audited but not automated.
+  command: "awk -F: '$3 == 0 {print $1}' /etc/passwd"
+  tags:
+      - cat1
+      - high
+      - RHEL-07-020310
+      - SV-86629r1_rule
+      - V-72005
+
+- name: "HIGH | V-72067 | The operating system must implement NIST FIPS-validated cryptography for the following: to provision digital signatures, to generate cryptographic hashes, and to protect unclassified information requiring confidentiality and cryptographic protection in accordance with applicable federal laws, Executive Orders, directives, policies, regulations, and standards."
+  yum:
+      name: dracut-fips
+      state: present
+  tags:
+      - cat1
+      - high
+      - RHEL-07-021350
+      - SV-86691r2_rule
+      - V-72067
+
+- name: "HIGH | V-72077 | The telnet-server package must not be installed."
+  yum:
+      name: telnet-server
+      state: absent
+  tags:
+      - cat1
+      - high
+      - RHEL-07-021710
+      - SV-86701r1_rule
+      - V-72077
+
+- name: "HIGH | V-72079 | Auditing must be configured to produce records containing information to establish what type of events occurred, where the events occurred, the source of the events, and the outcome of the events. These audit records must also identify individual identities of group account users."
+  service:
+      name: auditd
+      state: started
+      enabled: yes
+  tags:
+      - cat1
+      - high
+      - RHEL-07-030000
+      - SV-86703r1_rule
+      - V-72079
+
+- name: "HIGH | V-72213 | Check if a DoD-approved virus scan program is installed."
+  command: "true"
+  tags:
+      - cat1
+      - high
+      - RHEL-07-032000
+      - SV-86837r1_rule
+      - V-72213
+
+- name: "HIGH | V-72251 | The SSH daemon must be configured to only use the SSHv2 protocol."
+  lineinfile:
+      dest: /etc/ssh/sshd_config
+      regexp: (?i)^#?protocol
+      line: Protocol 2
+      #validate: sshd -t -f %s
+      #backup: yes
+  notify: restart ssh
+  tags:
+      - cat1
+      - high
+      - RHEL-07-040390
+      - SV-86875r2_rule
+      - V-72251
+
+- name: "HIGH | V-72277 | There must be no .shosts files on the system."
+  #script: roles/rhel7stigs/scripts/rhel-07-040540.sh
+  script: v-72277.sh
+  tags:
+      - cat1
+      - high
+      - RHEL-07-040540
+      - SV-86901r1_rule
+      - V-72277
+
+- name: "HIGH | V-72279 | There must be no .shosts.equiv files on the system."
+  #script: roles/rhel7stigs/scripts/rhel-07-040550.sh
+  script: v-72279.sh
+  tags:
+      - cat1
+      - high
+      - RHEL-07-040550
+      - SV-86903r1_rule
+      - V-72279
+
+# name: "HIGH | V-72299 | A File Transfer Protocl (FTP) server package must not be installed unless needed."
+# This finding has it's own remove-lftpd.yml file.
+
+# name: "HIGH | V-72301 | The Trivial File Transfer Protocl (TFTP) server package must not be installed if not required for operational support."
+# This finding has it's own remove-tftp.yml file.
+
+- name: "HIGH | V-72303 | Remote X connections for interactive users must be encrypted."
+  lineinfile:
+      dest: /etc/ssh/sshd_config
+      regexp: (?i)^#?x11forwarding
+      line: X11Forwarding yes
+      #validate: sshd -t -f %s
+      #backup: yes
+  notify: restart ssh
+  tags:
+      - cat1
+      - high
+      - RHEL-07-040710
+      - SV-86927r2_rule
+      - V-72303
+
+- name: "HIGH | V-72313 | SNMP community strings must be changed from the default."
+  stat: path=/etc/snmp/snmpd.conf
+  register: v_72313_check  
+  tags:
+      - cat1
+      - high
+      - RHEL-07-040800
+      - SV-86937r1_rule
+      - V-72313
+
+- name: "HIGH | V-72313 | Fix /etc/snmp/snmpd.conf community string public or private if they exists"  
+  #script: roles/rhel7stigs/scripts/rhel-07-040800.sh
+  script: v-72313.sh
+  when: v_72313_check.stat.exists == True
+  tags:
+      - cat1
+      - high
+      - RHEL-07-040800
+      - SV-86937r1_rule
+      - V-72313

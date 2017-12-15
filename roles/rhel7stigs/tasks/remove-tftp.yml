@@ -1,0 +1,13 @@
+---
+- name: "HIGH | V-72301 | The Trivial File Transfer Protocol (TFTP) server package must not be installed if not required for operational support."
+  yum:
+      name:
+          - tftp
+          - tftp-server
+      state: absent
+  tags:
+      - cat1
+      - high
+      - RHEL-07-040700
+      - SV-86925r1_rule
+      - V-72301

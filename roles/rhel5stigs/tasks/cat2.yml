@@ -1,0 +1,3318 @@
+- name: "MEDIUM | V-756 | The system must require authentication upon booting into single-user and maintenance modes."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37350r2_rule
+      - V-756
+
+- name: "MEDIUM | V-760 | Direct logins must not be permitted to shared, default, application, or utility accounts."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37419r2_rule
+      - V-760
+
+- name: "MEDIUM | V-761 | All accounts on the system must have unique user or account names."
+  command: "true"
+  tags:
+      - cat2
+      - SV-27063r1_rule
+      - V-763
+
+- name: "MEDIUM | V-762 | All accounts must be assigned unique User Identification Numbers (UIDs)."
+  command: "true"
+  tags:
+      - cat2
+      - SV-27068r1_rule
+      - V-762
+
+- name: "MEDIUM | V-763 | The Department of Defense (DoD) login banner must be displayed immediately prior to, or as part of, console login prompts."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37169r1_rule
+      - V-763
+
+- name: "MEDIUM | V-765 | Successful and unsuccessful logins and logouts must be logged."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37178r1_rule
+      - V-765
+
+- name: "MEDIUM | V-766 | The system must disable accounts after three consecutive unsuccessful login attempts."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37203r1_rule
+      - V-766
+
+- name: "MEDIUM | V-768 | The delay between login prompts following a failed login attempt must be at least 4 seconds."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37213r2_rule
+      - V-769
+
+- name: "MEDIUM | V-769 | The root user must not own the logon session for an application requiring a continuous display."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37232r1_rule
+      - V-769
+
+- name: "MEDIUM | V-773 | The root account must be the only account having a UID of 0."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37347r2_rule
+      - V-773
+
+- name: "MEDIUM | V-775 | The root account's home directory (other than /) must have mode 0700."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37355r3_rule
+      - V-775
+
+- name: "MEDIUM | V-776 | The root account's executable search path must be the vendor default and must contain only absolute paths."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37360r4_rule
+      - V-776
+
+- name: "MEDIUM | V-777 | The root account must not have world-writable directories in its executable search path."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37372r1_rule
+      - V-777
+
+- name: "MEDIUM | V-778 | The system must prevent the root account from directly logging in except from the system console."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37374r1_rule
+      - V-778
+
+- name: "MEDIUM | V-780 | GIDs reserved for system accounts must not be assigned to non-system groups."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37157r1_rule
+      - V-780
+
+- name: "MEDIUM | V-782 | The system must have a host-based intrusion detection tool installed."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37746r2_rule
+      - V-782
+
+- name: "MEDIUM | V-783 | System security patches and updates must be installed and up-to-date."
+  command: "true"
+  tags:
+      - cat2
+      - SV-27059r2_rule
+      - V-783
+
+- name: "MEDIUM | V-784 | System files and directories must not have uneven access permissions."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37159r1_rule
+      - V-784
+
+- name: "MEDIUM | V-785 | All files and directories must have a valid owner."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37161r2_rule
+      - V-785
+
+- name: "MEDIUM | V-786 | All network services daemon files must have mode 0755 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37194r1_rule
+      - V-786
+
+- name: "MEDIUM | V-787 | System log files must have mode 0640 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37228r3_rule
+      - V-787
+
+- name: "MEDIUM | V-788 | All skeleton files (typically those in /etc/skel) must have mode 0644 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37292r1_rule
+      - V-788
+
+- name: "MEDIUM | V-789 | NIS/NIS+/yp files must be owned by root, sys, or bin."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37267r1_rule
+      - V-789
+
+- name: "MEDIUM | V-790 | NIS/NIS+/yp files must be group-owned by root, sys, or bin."
+  command: "true"
+  tags:
+      - cat2
+      - SV-41577r2_rule
+      - V-790
+
+- name: "MEDIUM | V-791 | The NIS/NIS+/yp command files must have mode 0755 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37272r1_rule
+      - V-791
+
+- name: "MEDIUM | V-793 | Library files must have mode 0755 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37241r2_rule
+      - V-793
+
+- name: "MEDIUM | V-794 | All system command files must have mode 0755 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37205r2_rule
+      - V-794
+
+- name: "MEDIUM | V-795 | All system files, programs, and directories must be owned by a system account."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37216r1_rule
+      - V-795
+
+- name: "MEDIUM | V-796 | System files, programs, and directories must be group-owned by a system group."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37220r1_rule
+      - V-796
+
+- name: "MEDIUM | V-797 | The /etc/shadow (or equivalent) file must be owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37361r1_rule
+      - V-797
+
+- name: "MEDIUM | V-798 | The /etc/passwd file must have mode 0644 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37344r1_rule
+      - V-798
+
+- name: "MEDIUM | V-800 | The /etc/shadow (or equivalent) file must have mode 0400."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37368r1_rule
+      - V-800
+
+- name: "MEDIUM | V-801 | The owner, group-owner, mode, ACL, and location of files with the setuid bit set must be documented using site-defined procedures."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37579r4_rule
+      - V-801
+
+- name: "MEDIUM | V-802 | The owner, group-owner, mode, ACL and location of files with the setgid bit set must be documented using site-defined procedures."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37628r3_rule
+      - V-802
+
+- name: "MEDIUM | V-803 | The system must be checked weekly for unauthorized setuid files as well as unauthorized modification to authorized setuid files."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37592r4_rule
+      - V-803
+
+- name: "MEDIUM | V-804 | The system must be checked weekly for unauthorized setgid files as well as unauthorized modification to authorized setgid files."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37635r4_rule
+      - V-804
+
+- name: "MEDIUM | V-805 | Removable media, remote file systems, and any file system not containing approved setuid files must be mounted with the "nosuid" option."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37607r1_rule
+      - V-805
+
+- name: "MEDIUM | V-807 | All public directories must be owned by root or an application account."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37888r1_rule
+      - V-807
+
+- name: "MEDIUM | V-808 | The system and user default umask must be 077."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37898r2_rule
+      - V-808
+
+- name: "MEDIUM | V-810 | Default system accounts must be disabled or removed."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37903r1_rule
+      - V-810
+
+- name: "MEDIUM | V-811 | Auditing must be implemented."
+  command: "true"
+  tags:
+      - cat2
+      - SV-27270r1_rule
+      - V-811
+
+- name: "MEDIUM | V-812 | System audit logs must be owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37912r1_rule
+      - V-812
+
+- name: "MEDIUM | V-813 | System audit logs must have mode 0640 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37916r1_rule
+      - V-813
+
+- name: "MEDIUM | V-814 | The audit system must be configured to audit failed attempts to access files and programs."
+  command: "true"
+  tags:
+      - cat2
+      - SV-38645r1_rule
+      - V-814
+
+- name: "MEDIUM | V-815 | The audit system must be configured to audit files and programs deleted by the user."
+  command: "true"
+  tags:
+      - cat2
+      - SV-42185r3_rule
+      - V-815
+
+- name: "MEDIUM | V-818 | The audit system must be configured to audit login, logout, and session initiation."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37944r1_rule
+      - V-818
+
+- name: "MEDIUM | V-819 | The audit system must be configured to audit all discretionary access control permission modifications."
+  command: "true"
+  tags:
+      - cat2
+      - SV-48488r1_rule
+      - V-819
+
+- name: "MEDIUM | V-821 | The inetd.conf file, xinetd.conf file, and the xinetd.d directory must be owned by root or bin."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37406r1_rule
+      - V-821
+
+- name: "MEDIUM | V-822 | The xinetd configuration files must have mode 0640 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37408r2_rule
+      - V-822
+
+- name: "MEDIUM | V-823 | The services file must be owned by root or bin."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37424r1_rule
+      - V-823
+
+- name: "MEDIUM | V-824 | "
+  command: "true"
+  tags:
+      - cat2
+      - SV-37426r1_rule
+      - V-824
+
+- name: "MEDIUM | V-827 | The hosts.lpd file (or equivalent) must not contain a + character."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37447r2_rule
+      - V-827
+
+- name: "MEDIUM | V-828 | The hosts.lpd (or equivalent) file must be owned by root, bin, sys, or lp."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37448r1_rule
+      - V-828
+
+- name: "MEDIUM | V-829 | The hosts.lpd (or equivalent) must have mode 0644 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37461r1_rule
+      - V-829
+
+- name: "MEDIUM | V-831 | The alias file must be owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37472r2_rule
+      - V-831
+
+- name: "MEDIUM | V-832 | The alias file must have mode 0644 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37475r3_rule
+      - V-832
+
+- name: "MEDIUM | V-834 | Files executed through a mail aliases file must have mode 0755 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37494r2_rule
+      - V-834
+
+- name: "MEDIUM | V-836 | The system syslog service must log informational and more severe SMTP service messages."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37500r3_rule
+      - V-836
+
+- name: "MEDIUM | V-837 | The SMTP service log file must be owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37501r3_rule
+      - V-837
+
+- name: "MEDIUM | V-838 | The SMTP service log file must have mode 0644 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37502r3_rule
+      - V-838
+
+- name: "MEDIUM | V-840 | The ftpusers file must exist."
+  command: "true"
+  tags:
+      - cat2
+      - SV-51983r1_rule
+      - V-840
+
+- name: "MEDIUM | V-841 | The ftpusers file must contain account names not allowed to use FTP."
+  command: "true"
+  tags:
+      - cat2
+      - SV-52091r1_rule
+      - V-841
+
+- name: "MEDIUM | V-842 | The ftpusers file must be owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37537r1_rule
+      - V-842
+
+- name: "MEDIUM | V-843 | The ftpusers file must have mode 0640 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37542r1_rule
+      - V-843
+
+- name: "MEDIUM | V-846 | Anonymous FTP must not be active on the system unless authorized."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37526r1_rule
+      - V-846
+
+- name: "MEDIUM | V-849 | The TFTP daemon must be configured to vendor specifications, including a dedicated TFTP user account, a non-login shell such as /bin/false, and a home directory owned by the TFTP user."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37674r1_rule
+      - V-849
+
+- name: "MEDIUM | V-850 | Any X Windows host must write .Xauthority files."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37678r3_rule
+      - V-850
+
+- name: "MEDIUM | V-867 | The Network Information System (NIS) protocol must not be used."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37742r1_rule
+      - V-867
+
+- name: "MEDIUM | V-901 | All user home directories must have mode 0750 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37154r1_rule
+      - V-901
+
+- name: "MEDIUM | V-902 | All interactive user home directories must be owned by their respective users."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37163r1_rule
+      - V-902
+
+- name: "MEDIUM | V-903 | All interactive user home directories must be group-owned by the home directory owner's primary group."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37168r1_rule
+      - V-903
+
+- name: "MEDIUM | V-904 | All local initialization files must be owned by the home directorys user or root."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37430r3_rule
+      - V-904
+
+- name: "MEDIUM | V-905 | All local initialization files must have mode 0740 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37431r1_rule
+      - V-905
+
+- name: "MEDIUM | V-906 | All run control scripts must have mode 0755 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37192r1_rule
+      - V-906
+
+- name: "MEDIUM | V-907 | Run control scripts executable search paths must contain only authorized paths."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37202r4_rule
+      - V-907
+
+- name: "MEDIUM | V-913 | There must be no .netrc files on the system."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37436r1_rule
+      - V-913
+
+- name: "MEDIUM | V-916 | The /etc/shells (or equivalent) file must exist."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37390r1_rule
+      - V-916
+
+- name: "MEDIUM | V-917 | All shells referenced in /etc/passwd must be listed in the /etc/shells file, except any shells specified for the purpose of preventing logins."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37393r2_rule
+      - V-917
+
+- name: "MEDIUM | V-918 | Accounts must be locked upon 35 days of inactivity."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37314r2_rule
+      - V-918
+
+- name: "MEDIUM | V-921 | All shell files must be owned by root or bin."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37396r1_rule
+      - V-921
+
+- name: "MEDIUM | V-924 | Device files and directories must only be writable by users with a system account or as configured by the vendor."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37553r3_rule
+      - V-924
+
+- name: "MEDIUM | V-925 | Device files used for backup must only be readable and/or writable by root or the backup user."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37558r1_rule
+      - V-925
+
+- name: "MEDIUM | V-928 | The Network File System (NFS) export configuration file must be owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37936r1_rule
+      - V-928
+
+- name: "MEDIUM | V-931 | All Network File System (NFS) exported system files and system directories must be owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37849r1_rule
+      - V-931
+
+- name: "MEDIUM | V-932 | The Network File System (NFS) anonymous UID and GID must be configured to values without permissions."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37854r1_rule
+      - V-932
+
+- name: "MEDIUM | V-933 | The Network File System (NFS) server must be configured to restrict file system access to local hosts."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37857r1_rule
+      - V-933
+
+- name: "MEDIUM | V-935 | The Network File System (NFS) server must not allow remote root access."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37859r1_rule
+      - V-935
+
+- name: "MEDIUM | V-936 | The 'nosuid' option must be enabled on all Network File System (NFS) client mounts."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37860r1_rule
+      - V-936
+
+- name: "MEDIUM | V-940 | The system must use an access control program."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37756r1_rule
+      - V-940
+
+- name: "MEDIUM | V-941 | The system's access control program must log each system access attempt."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37757r3_rule
+      - V-941
+
+- name: "MEDIUM | V-974 | Access to the cron utility must be controlled using the cron.allow and/or cron.deny file(s)."
+  command: "true"
+  tags:
+      - cat2
+      - SV-27320r2_rule
+      - V-974
+
+- name: "MEDIUM | V-975 | The cron.allow file must have mode 0600 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-27326r1_rule
+      - V-975
+
+- name: "MEDIUM | V-976 | Cron must not execute group-writable or world-writable programs."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37384r1_rule
+      - V-976
+
+- name: "MEDIUM | V-977 | Cron must not execute programs in, or subordinate to, world-writable directories."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37388r1_rule
+      - V-977
+
+- name: "MEDIUM | V-978 | Crontab files must have mode 0600 or less permissive, and files in cron script directories must have mode 0700 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37466r1_rule
+      - V-978
+
+- name: "MEDIUM | V-979 | Cron and crontab directories must have mode 0755 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37470r1_rule
+      - V-979
+
+- name: "MEDIUM | V-980 | Cron and crontab directories must be owned by root or bin."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37474r1_rule
+      - V-980
+
+- name: "MEDIUM | V-981 | Cron and crontab directories must be group-owned by root, sys, bin or cron."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37476r1_rule
+      - V-981
+
+- name: "MEDIUM | V-982 | Cron logging must be implemented."
+  command: "true"
+  tags:
+      - cat2
+      - SV-27352r2_rule
+      - V-982
+
+- name: "MEDIUM | V-983 | The cronlog file must have mode 0600 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-27357r2_rule
+      - V-983
+
+- name: "MEDIUM | V-984 | Access to the 'at' utility must be controlled via the at.allow and/or at.deny file(s)."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37512r2_rule
+      - V-984
+
+- name: "MEDIUM | V-985 | The at.deny file must not be empty if it exists."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37516r1_rule
+      - V-985
+
+- name: "MEDIUM | V-986 | Default system accounts (with the exception of root) must not be listed in the at.allow file or must be included in the at.deny file if the at.allow file does not exist."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37517r1_rule
+      - V-986
+
+- name: "MEDIUM | V-987 | The at.allow file must have mode 0600 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37518r1_rule
+      - V-987
+
+- name: "MEDIUM | V-988 | The "at" daemon must not execute group-writable or world-writable programs."
+  command: "true"
+  tags:
+      - cat2
+      -
+      - V-988
+
+- name: "MEDIUM | V-989 | The "at" daemon must not execute programs in, or subordinate to, world-writable directories."
+  command: "true"
+  tags:
+      - cat2
+      -
+      - V-989
+
+- name: "MEDIUM | V-994 | The snmpd.conf file must have mode 0600 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - The snmpd.conf file must have mode 0600 or less permissive.
+      - V-994
+
+- name: "MEDIUM | V-995 | Management Information Base (MIB) files must have mode 0640 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37698r1_rule
+      - V-995
+
+- name: "MEDIUM | V-1010 | Public directories must be the only world-writable directories and world-writable files must be located only in public directories."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37645r1_rule
+      - V-1010
+
+- name: "MEDIUM | V-1021 | The X server must have the correct options enabled."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37207r1_rule
+      - V-1021
+
+- name: "MEDIUM | V-1022 | An X server must have none of the following options enabled: -ac, -core (except for debugging purposes), or -nolock."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37217r2_rule
+      - V-1022
+
+- name: "MEDIUM | V-1023 | The system must not run an Internet Network News (INN) server."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37899r1_rule
+      - V-1023
+
+- name: "MEDIUM | V-1025 | The /etc/access.conf file must be owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37224r1_rule
+      - V-1025
+
+- name: "MEDIUM | V-1026 | The Samba Web Administration Tool (SWAT) must be restricted to the local host or require SSL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37870r1_rule
+      - V-1026
+
+- name: "MEDIUM | V-1027 | The /etc/smb.conf file must be owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37871r1_rule
+      - V-1027
+
+- name: "MEDIUM | V-1028 | The /etc/smb.conf file must have mode 0644 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37875r1_rule
+      - V-1028
+
+- name: "MEDIUM | V-1029 | The /etc/smbpasswd file must be owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37879r1_rule
+      - V-1029
+
+- name: "MEDIUM | V-1030 | The smb.conf file must use the "hosts" option to restrict access to Samba."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37887r1_rule
+      - V-1030
+
+- name: "MEDIUM | V-1032 | Users must not be able to change passwords more than once every 24 hours."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37239r1_rule
+      - V-1032
+
+- name: "MEDIUM | V-1047 | The system must not permit root logins using remote access programs such as ssh."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37156r1_rule
+      - V-1047
+
+- name: "MEDIUM | V-1048 | Audio devices must have mode 0660 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37566r1_rule
+      - V-1048
+
+- name: "MEDIUM | V-1049 | Audio devices must be owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37575r2_rule
+      - V-1049
+
+- name: "MEDIUM | V-1054 | The /etc/access.conf file must have a privileged group owner."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37227r1_rule
+      - V-1054
+
+- name: "MEDIUM | V-1055 | The /etc/security/access.conf file must have mode 0640 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37243r2_rule
+      - V-1055
+
+- name: "MEDIUM | V-1056 | The /etc/smb.conf file must be group-owned by root, bin, sys, or system."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37873r1_rule
+      - V-1056
+
+- name: "MEDIUM | V-1058 | The smbpasswd file must be group-owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - SV-41574r1_rule
+      - V-1058
+
+- name: "MEDIUM | V-1059 | The smbpasswd file must have mode 0600 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-41575r1_rule
+      - V-1059
+
+- name: "MEDIUM | V-1061 | Audio devices must be group-owned by root, sys, bin, or system."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37577r2_rule
+      - V-1061
+
+- name: "MEDIUM | V-4083 | Graphical desktop environments provided by the system must automatically lock after 15 minutes of inactivity and the system must require users to re-authenticate to unlock the environment.
+  tags:
+      - cat2
+      - SV-48455r1_rule
+      - V-4083
+
+- name: "MEDIUM | V-4084 | The system must prohibit the reuse of passwords within five iterations."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37323r3_rule
+      - V-4084
+
+- name: "MEDIUM | V-4087 | User start-up files must not execute world-writable programs."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37433r3_rule
+      - V-4087
+
+- name: "MEDIUM | V-4089 | All system start-up files must be owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37264r1_rule
+      - V-4089
+
+- name: "MEDIUM | V-4090 | All system start-up files must be group-owned by root, sys, bin, other, or system."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37269r1_rule
+      - V-4090
+
+
+- name: "MEDIUM | V-4291 | System start-up files must only execute programs owned by a privileged UID or an application."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37270r1_rule
+      - V-4291
+
+- name: "MEDIUM | V-4246 | System BIOS or system controllers supporting password protection must have administrator accounts/passwords configured, and no others."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37925r1_rule
+      - V-4246
+
+- name: "MEDIUM | V-4250 | The system's boot loader configuration file(s) must have mode 0600 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37942r1_rule
+      - V-4250
+
+- name: "MEDIUM | V-4269 | The system must not have unnecessary accounts."
+  command: "true"
+  tags:
+      - cat2
+      - SV-38176r1_rule
+      - V-4269
+
+- name: "MEDIUM | V-4273 | The /etc/news/incoming.conf (or equivalent) must have mode 0600 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37901r1_rule
+      - V-4273
+
+- name: "MEDIUM | V-4274 | The /etc/news/infeed.conf (or equivalent) must have mode 0600 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37712r1_rule
+      - V-4274
+
+- name: "MEDIUM | V-4275 | The /etc/news/readers.conf (or equivalent) must have mode 0600 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37714r1_rule
+      - V-4275
+
+- name: "MEDIUM | V-4276 | The /etc/news/passwd.nntp file (or equivalent) must have mode 0600 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37731r1_rule
+      - V-4276
+
+- name: "MEDIUM | V-4277 | Files in /etc/news must be owned by root or news."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37735r1_rule
+      - V-4277
+
+- name: "MEDIUM | V-4278 | The files in /etc/news must be group-owned by root or news."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37737r1_rule
+      - V-4278
+
+- name: "MEDIUM | V-4298 | Remote consoles must be disabled or protected from unauthorized access."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37376r1_rule
+      - V-4298
+
+- name: "MEDIUM | V-4301 | The system clock must be synchronized to an authoritative DoD time source."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37402r1_rule
+      - V-4301
+
+- name: "MEDIUM | V-4304 | The root file system must employ journaling or another mechanism ensuring file system consistency."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37398r1_rule
+      - V-4304
+
+- name: "MEDIUM | V-4321 | The system must not run Samba unless needed."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37867r1_rule
+      - V-4321
+
+- name: "MEDIUM | V-4334 | The /etc/sysctl.conf file must be owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37253r1_rule
+      - V-4334
+
+- name: "MEDIUM | V-4335 | The /etc/sysctl.conf file must be group-owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37257r1_rule
+      - V-4335
+
+- name: "MEDIUM | V-4336 | The /etc/sysctl.conf file must have mode 0600 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37258r1_rule
+      - V-4336
+
+- name: "MEDIUM | V-4346 | The Linux PAM system must not grant sole access to admin privileges to the first user who logs into the console."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37339r1_rule
+      - V-4346
+
+- name: "MEDIUM | V-4347 | Audit logs must be rotated daily."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37945r1_rule
+      - V-4347
+
+- name: "MEDIUM | V-4358 | The cron.deny file must have mode 0600 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-27362r1_rule
+      - V-4358
+
+- name: "MEDIUM | V-4361 | The cron.allow file must be owned by root, bin, or sys."
+  command: "true"
+  tags:
+      - cat2
+      - SV-27369r1_rule
+      - V-4361
+
+- name: "MEDIUM | V-4364 | The 'at' directory must have mode 0755 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37521r1_rule
+      - V-4364
+
+- name: "MEDIUM | V-4365 | The at directory must be owned by root, bin, sys, daemon, or cron."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37527r2_rule
+      - V-4365
+
+- name: "MEDIUM | V-4366 | 'At' jobs must not set the umask to a value less restrictive than 077."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37531r1_rule
+      - V-4366
+
+- name: "MEDIUM | V-4367 | The at.allow file must be owned by root, bin, or sys."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37533r1_rule
+      - V-4367
+
+- name: "MEDIUM | V-4368 | The at.deny file must be owned by root, bin, or sys."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37535r1_rule
+      - V-4368
+
+- name: "MEDIUM | V-4369 | The traceroute command owner must be root."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37463r1_rule
+      - V-4369
+
+- name: "MEDIUM | V-4370 | The traceroute command must be group-owned by sys, bin, root, or system."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37464r1_rule
+      - V-4370
+
+- name: "MEDIUM | V-4371 | The traceroute file must have mode 0700 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37465r1_rule
+      - V-4371
+
+- name: "MEDIUM | V-4385 | The system must not use .forward files."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37506r3_rule
+      - V-4385
+
+- name: "MEDIUM | V-4392 | If the system is a Network Management System (NMS) server, it must only run the NMS and any software required by the NMS."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37708r1_rule
+      - V-4392
+
+- name: "MEDIUM | V-4393 | The /etc/syslog.conf file must be owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37707r2_rule
+      - V-4393
+
+- name: "MEDIUM | V-4394 | The /etc/syslog.conf file must be group-owned by root, bin, sys, or system."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37812r2_rule
+      - V-4394
+
+- name: "MEDIUM | V-4395 | The system must only use remote syslog servers (log hosts) that is justified and documented using site-defined procedures."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37812r2_rule
+      - V-4395
+
+- name: "MEDIUM | V-4397 | The system must be configured with a default gateway for IPv4 if the system uses IPv4, unless the system is a router."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37918r1_rule
+      - V-4397
+
+- name: "MEDIUM | V-4398 | A system used for routing must not run other network services or applications."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37924r2_rule
+      - V-4398
+
+- name: "MEDIUM | V-4427 | All .rhosts, .shosts, or host.equiv files must only contain trusted host-user pairs."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37437r1_rule
+      - V-4427
+
+- name: "MEDIUM | V-4428 | All .rhosts, .shosts, .netrc, or hosts.equiv files must be accessible by only root or the owner."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37385r1_rule
+      - V-4428
+
+- name: "MEDIUM | V-4430 | The cron.deny file must be owned by root, bin, or sys."
+  command: "true"
+  tags:
+      - cat2
+      - SV-27374r1_rule
+      - V-4430
+
+- name: "MEDIUM | V-4696 | The system must not have the UUCP service active."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37688r1_rule
+      - V-4696
+
+- name: "MEDIUM | V-4702 | If the system is an anonymous FTP server, it must be isolated to the DMZ network."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37528r1_rule
+      - V-4702
+
+- name: "MEDIUM | V-11945 | A file integrity tool must be used at least weekly to check for unauthorized file changes, particularly the addition of unauthorized system libraries or binaries, or for unauthorized modification to authorized system libraries or binaries."
+  command: "true"
+  tags:
+      - cat2
+      - SV-38178r3_rule
+      - V-11945
+
+- name: "MEDIUM | V-11946 | UIDs reserved for system accounts must not be assigned to non-system accounts."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37155r1_rule
+      - V-11946
+
+- name: "MEDIUM | V-11947 | The system must require passwords contain a minimum of 15 characters."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37260r3_rule
+      - V-11947
+
+- name: "MEDIUM | V-11948 | The system must require passwords contain at least one uppercase alphabetic character."
+  command: "true"
+  tags:
+      - cat2
+      - SV-41826r1_rule
+      - V-11948
+
+- name: "MEDIUM | V-11972 | system must require passwords contain at least one numeric character."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37281r1_rule
+      - V-11972
+
+- name: "MEDIUM | V-11973 | The system must require passwords contain at least one special character."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37287r1_rule
+      - V-11973
+
+- name: "MEDIUM | V-11975 | The system must require passwords contain no more than three consecutive repeating characters."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37294r1_rule
+      - V-11975
+
+- name: "MEDIUM | V-11976 | User passwords must be changed at least every 60 days."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37298r1_rule
+      - V-11976
+
+- name: "MEDIUM | V-11977 | All non-interactive/automated processing account passwords must be changed at least once per year or be locked."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37302r1_rule
+      - V-11977
+
+- name: "MEDIUM | V-11979 | The root account must not be used for direct log in."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37377r2_rule
+      - V-11979
+
+- name: "MEDIUM | V-11980 | The system must log successful and unsuccessful access to the root account."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37378r3_rule
+      - V-11980
+
+- name: "MEDIUM | V-11981 | All global initialization files must have mode 0644 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37275r1_rule
+      - V-11981
+
+- name: "MEDIUM | V-11982 | All global initialization files must be owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37283r1_rule
+      - V-11982
+
+- name: "MEDIUM | V-11983 | All global initialization files must be group-owned by root, sys, bin, other, system, or the system default."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37285r1_rule
+      - V-11983
+
+- name: "MEDIUM | V-11984 | All skeleton files and directories (typically in /etc/skel) must be owned by root or bin."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37300r1_rule
+      - V-11984
+
+- name: "MEDIUM | V-11985 | All global initialization files' executable search paths must contain only absolute paths."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37420r3_rule
+      - V-11985
+
+- name: "MEDIUM | V-11986 | All local initialization files' executable search paths must contain only absolute paths."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37432r4_rule
+      - V-11986
+
+- name: "MEDIUM | V-11987 | The .rhosts, .shosts, hosts.equiv, shosts.equiv, /etc/passwd, /etc/shadow, and/or /etc/group files must not contain a plus (+) without defining entries for NIS+ netgroups."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37435r1_rule
+      - V-11987
+
+- name: "MEDIUM | V-11989 | The .rhosts file must not be supported in PAM."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37389r1_rule
+      - V-11989
+
+- name: "MEDIUM | V-11990 | All public directories must be group-owned by root, sys, bin, or an application group."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37893r1_rule
+      - V-11990
+
+- name: "MEDIUM | V-11994 | Crontabs must be owned by root or the crontab creator."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37392r1_rule
+      - V-11994
+
+- name: "MEDIUM | V-11995 | Default system accounts (with the exception of root) must not be listed in the cron.allow file or must be included in the cron.deny file, if cron.allow does not exist."
+  command: "true"
+  tags:
+      - cat2
+      - SV-27338r1_rule 
+      - V-11995
+
+- name: "MEDIUM | V-11999 | The system must implement non-executable program stacks."
+  command: "true"
+  tags:
+      - cat2
+      - SV-27414r1_rule
+      - V-11999
+
+- name: "MEDIUM | V-12002 | The system must not forward IPv4 source-routed packets."
+  command: "true"
+  tags:
+      - cat2
+      - SV-29795r1_rule
+      - V-12002
+
+- name: "MEDIUM | V-12004 | The system must log informational authentication data."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37404r2_rule
+      - V-12004
+
+- name: "MEDIUM | V-12005 | Inetd and xinetd must be disabled or removed if no network services utilizing them are enabled."
+  command: "true"
+  tags:
+      - cat2
+      - SV-27424r1_rule
+      - V-12005
+
+- name: "MEDIUM | V-12006 | The SMTP service HELP command must not be enabled."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37504r4_rule
+      - V-12006
+
+- name: "MEDIUM | V-12010 | Unencrypted FTP must not be used on the system."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37515r1_rule
+      - V-12010
+
+- name: "MEDIUM | V-12011 | All FTP users must have a default umask of 077."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37555r1_rule
+      - V-12011
+
+- name: "MEDIUM | V-12014 | All .Xauthority files must have mode 0600 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37679r1_rule
+      - V-12014
+
+- name: "MEDIUM | V-12016 | .Xauthority or X*.hosts (or equivalent) file(s) must be used to restrict access to the X server."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37684r1_rule
+      - V-12016
+
+- name: "MEDIUM | V-12017 | The .Xauthority utility must only permit access to authorized hosts."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37685r1_rule
+      - V-12017
+
+- name: "MEDIUM | V-12018 | X Window System connections not required must be disabled."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37686r1_rule
+      - V-12018
+
+- name: "MEDIUM | V-12019 | The snmpd.conf file must be owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37703r1_rule
+      - V-12019
+
+- name: "MEDIUM | V-12020 | The system must not be used as a syslog server (loghost) for systems external to the enclave."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37810r1_rule
+      - V-12020
+
+- name: "MEDIUM | V-12021 | The syslog daemon must not accept remote messages unless it is a syslog server documented using site-defined procedures."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37813r1_rule
+      - V-12021
+
+- name: "MEDIUM | V-12022 | The SSH daemon must be configured for IP filtering."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37913r1_rule
+      - V-12022
+
+- name: "MEDIUM | V-12023 | IP forwarding for IPv4 must not be enabled, unless the system is a router."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37929r1_rule
+      - V-12023
+
+- name: "MEDIUM | V-12024 | The system must not have a public Instant Messaging (IM) client installed."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37862r1_rule
+      - V-12024
+
+- name: "MEDIUM | V-12025 | The system must not have any peer-to-peer file-sharing application installed."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37865r1_rule
+      - V-12025
+
+- name: "MEDIUM | V-12026 | NIS maps must be protected through hard-to-guess domain names."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37743r1_rule
+      - V-12026
+
+- name: "MEDIUM | V-12028 | The system vulnerability assessment tool, host-based intrusion detection tool, and file integrity tool must notify the SA and the IAO of a security breach or a suspected security breach."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37747r2_rule
+      - V-12028
+
+- name: "MEDIUM | V-12030 | The system's access control program must be configured to grant or deny system access to specific hosts."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37758r1_rule
+      - V-12030
+
+- name: "MEDIUM | V-12038 | The /etc/securetty file must be group-owned by root, sys, or bin."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37340r1_rule
+      - V-12038
+
+- name: "MEDIUM | V-12039 | The /etc/securetty file must be owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37341r1_rule
+      - V-12039
+
+- name: "MEDIUM | V-12040 | The /etc/securetty file must have mode 0600 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37342r3_rule
+      - V-12040
+
+- name: "MEDIUM | V-12049 | Network analysis tools must not be installed."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37446r2_rule
+      - V-12049
+
+- name: "MEDIUM | V-12765 | The system must use and update a DoD-approved virus scan program."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37760r2_rule
+      - V-12765
+
+- name: "MEDIUM | V-22290 | The system clock must be synchronized continuously, or at least daily."
+  command: "true"
+  tags:
+      - cat2
+      - SV-26292r4_rule
+      - V-22290
+
+- name: "MEDIUM | V-22291 | The system must use at least two time sources for clock synchronization."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37412r1_rule
+      - V-22291
+
+- name: "MEDIUM | V-22294 | The time synchronization configuration file (such as /etc/ntp.conf) must be owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37415r1_rule
+      - V-22294
+
+- name: "MEDIUM | V-22295 | The time synchronization configuration file (such as /etc/ntp.conf) must be group-owned by root, bin, or sys."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37416r1_rule
+      - V-22295
+
+- name: "MEDIUM | V-22296 | The time synchronization configuration file (such as /etc/ntp.conf) must have mode 0640 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37417r1_rule
+      - V-22296
+
+- name: "MEDIUM | V-22297 | The time synchronization configuration file (such as /etc/ntp.conf) must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37418r1_rule
+      - V-22297
+
+- name: "MEDIUM | V-22302 | The system must enforce compliance of the entire password during authentification."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37261r2_rule
+      - V-22302
+
+- name: "MEDIUM | V-22303 | The system must use a FIPS 140-2 approved cryptographic hashing algorithm for generating account password hashes."
+  command: "true"
+  tags:
+      - cat2
+      - SV-26313r2_rule
+      - V-22303
+
+- name: "MEDIUM | V-22304 | The password hashes stored on the system must have been generated using a FIPS 140-2 approved cryptographic hashing algorithm."
+  command: "true"
+  tags:
+      - cat2
+      - SV-26316r2_rule
+      - V-22304
+
+- name: "MEDIUM | V-22305 | The system must require passwords contain at least one lowercase alphabetic character."
+  command: "true"
+  tags:
+      - cat2
+      - SV-26321r1_rule
+      - V-22305
+
+- name: "MEDIUM | V-22306 | The system must require at least eight characters be changed between the old and new passwords during a password change."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37304r2_rule
+      - V-22306
+
+- name: "MEDIUM | V-22307 | The system must prevent the use of dictionary words for passwords."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37318r1_rule
+      - V-22307
+
+- name: "MEDIUM | V-22309 | The root account's home directory must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37358r2_rule
+      - V-22309
+
+- name: "MEDIUM | V-22310 | The root account's library search path must be the system default and must contain only absolute paths."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37363r1_rule 
+      - V-22310
+
+- name: "MEDIUM | V-22311 | The root account's list of preloaded libraries must be empty."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37364r1_rule
+      - V-22311
+
+- name: "MEDIUM | V-22312 | All files and directories must have a valid group-owner."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37165r2_rule
+      - V-22312
+
+- name: "MEDIUM | V-22313 | All network services daemon files must not have extended ACLs."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37199r1_rule
+      - V-22313
+
+- name: "MEDIUM | V-22314 | All system command files must not have extended ACLs."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37210r1_rule
+      - V-22314
+
+- name: "MEDIUM | V-22315 | System log files must not have extended ACLs, except as needed to support authorized software."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37233r1_rule
+      - V-22315
+
+- name: "MEDIUM | V-22317 | All library files must not have extended ACLs."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37250r2_rule
+      - V-22317
+
+- name: "MEDIUM | V-22318 | NIS/NIS+/yp command files must not have extended ACLs."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37277r1_rule
+      - V-22318
+
+- name: "MEDIUM | V-22319 | The /etc/resolv.conf file must be owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37280r1_rule
+      - V-22319
+
+- name: "MEDIUM | V-22320 | The /etc/resolv.conf file must be group-owned by root, bin, or sys."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37286r1_rule
+      - V-22320
+
+- name: "MEDIUM | V-22321 | The /etc/resolv.conf file must have mode 0644 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37291r1_rule
+      - V-22321
+
+- name: "MEDIUM | V-22322 | The /etc/resolv.conf file must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37307r1_rule
+      - V-22322
+
+- name: "MEDIUM | V-22323 | The /etc/hosts file must be owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37309r1_rule
+      - V-22323
+
+- name: "MEDIUM | V-22324 | The /etc/hosts file must be group-owned by root, bin, or sys."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37315r1_rule
+      - V-22324
+
+- name: "MEDIUM | V-22325 | The /etc/hosts file must have mode 0644 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37321r1_rule
+      - V-22325
+
+- name: "MEDIUM | V-22326 | The /etc/hosts file must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37324r1_rule
+      - V-22326
+
+- name: "MEDIUM | V-22327 | The /etc/nsswitch.conf file must be owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37326r1_rule
+      - V-22327
+
+- name: "MEDIUM | V-22328 | The /etc/nsswitch.conf file must be group-owned by root, bin, or sys."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37330r1_rule
+      - V-22328
+
+- name: "MEDIUM | V-22329 | The /etc/nsswitch.conf file must have mode 0644 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37332r1_rule
+      - V-22329
+
+- name: "MEDIUM | V-22330 | The /etc/nsswitch.conf file must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37334r1_rule
+      - V-22330
+
+- name: "MEDIUM | V-22332 | The /etc/passwd file must be owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37336r1_rule
+      - V-22332
+
+- name: "MEDIUM | V-22333 | The /etc/passwd file must be group-owned by root, bin, or sys."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37337r1_rule
+      - V-22333
+
+- name: "MEDIUM | V-22334 | The /etc/passwd file must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37346r1_rule
+      - V-22334
+
+- name: "MEDIUM | V-22335 | The /etc/group file must be owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37351r1_rule
+      - V-22335
+
+- name: "MEDIUM | V-22336 | The /etc/group file must be group-owned by root, bin, or sys."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37352r1_rule 
+      - V-22336
+
+- name: "MEDIUM | V-22337 | The /etc/group file must have mode 0644 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37354r1_rule
+      - V-22337
+
+- name: "MEDIUM | V-22338 | The /etc/group file must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37357r1_rule
+      - V-22338
+
+- name: "MEDIUM | V-22339 | The /etc/shadow file (or equivalent) must be group-owned by root, bin, or sys."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37365r1_rule
+      - V-22339
+
+- name: "MEDIUM | V-22340 | The /etc/shadow file must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37371r1_rule
+      - V-22340
+
+- name: "MEDIUM | V-22341 | The /etc/gshadow file must be owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37143r1_rule
+      - V-22341
+
+- name: "MEDIUM | V-22342 | The /etc/gshadow file must be group-owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37164r1_rule
+      - V-22342
+
+- name: "MEDIUM | V-22343 | The /etc/gshadow file must have mode 0400."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37170r1_rule
+      - V-22343
+
+- name: "MEDIUM | V-22344 | The /etc/gshadow file must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37176r1_rule
+      - V-22344
+
+- name: "MEDIUM | V-22347 | The /etc/passwd file must not contain password hashes."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37381r2_rule
+      - V-22347
+
+- name: "MEDIUM | V-22348 | The /etc/group file must not contain any group password hashes."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37383r1_rule
+      - V-22348
+
+- name: "MEDIUM | V-22349 | The /etc/gshadow file must not contain any group password hashes."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37386r1_rule
+      - V-22349
+
+- name: "MEDIUM | V-22351 | All files and directories contained in user home directories must be group-owned by a group of which the home directory's owner is a member."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37180r1_rule
+      - V-22351
+
+- name: "MEDIUM | V-22352 | All files and directories contained in user home directories must not have extended ACLs."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37188r1_rule
+      - V-22352
+
+- name: "MEDIUM | V-22353 | All run control scripts must have no extended ACLs."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37196r1_rule
+      - V-22353
+
+- name: "MEDIUM | V-22354 | Run control scripts library search paths must contain only authorized paths."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37211r3_rule
+      - V-22354
+
+- name: "MEDIUM | V-22355 | Run control scripts' lists of preloaded libraries must contain only absolute paths."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37215r3_rule
+      - V-22355
+
+- name: "MEDIUM | V-22356 | All global initialization files must not have extended ACLs."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37279r1_rule
+      - V-22356
+
+- name: "MEDIUM | V-22357 | Skeleton files must not have extended ACLs."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37297r1_rule
+      - V-22357
+
+- name: "MEDIUM | V-22358 | All skeleton files (typically in /etc/skel) must be group-owned by root, bin, sys, system, or other."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37237r1_rule
+      - V-22358
+
+- name: "MEDIUM | V-22359 | Global initialization files library search paths must contain only authorized paths."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37246r3_rule
+      - V-22359
+
+- name: "MEDIUM | V-22360 | Global initialization files lists of preloaded libraries must contain only authorized paths."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37248r3_rule
+      - V-22360
+
+- name: "MEDIUM | V-22361 | Local initialization files must be group-owned by the user's primary group or root."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37252r1_rule
+      - V-22361
+
+- name: "MEDIUM | V-22362 | Local initialization files must not have extended ACLs."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37271r1_rule
+      - V-22362
+
+- name: "MEDIUM | V-22363 | Local initialization files library search paths must contain only authorized paths."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37305r4_rule
+      - V-22363
+
+- name: "MEDIUM | V-22364 | Local initialization files lists of preloaded libraries must contain only authorized paths."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37312r4_rule
+      - V-22364
+
+
+- name: "MEDIUM | V-22365 | All shell files must be group-owned by root, bin, sys, or system."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37399r1_rule
+      - V-22365
+
+- name: "MEDIUM | V-22366 | All shell files must not have extended ACLs."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37405r1_rule
+      - V-22366
+
+- name: "MEDIUM | V-22367 | Audio devices must not have extended ACLs."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37569r1_rule
+      - V-22367
+
+- name: "MEDIUM | V-22368 | Removable media, remote file systems, and any file system not containing approved device files must be mounted with the "nodev" option."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37623r1_rule
+      - V-22368
+
+- name: "MEDIUM | V-22369 | All system audit files must not have extended ACLs."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37917r1_rule
+      - V-22369
+
+- name: "MEDIUM | V-22375 | The audit system must alert the SA when the audit storage volume approaches its capacity."
+  command: "true"
+  tags:
+      - cat2
+      - SV-26518r2_rule
+      - V-22375
+
+- name: "MEDIUM | V-22383 | The audit system must be configured to audit the loading and unloading of dynamic kernel modules."
+  command: "true"
+  tags:
+      - cat2
+      - SV-38652r1_rule
+      - V-22383
+
+- name: "MEDIUM | V-22384 | The cron.allow file must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37382r1_rule
+      - V-22384
+
+- name: "MEDIUM | V-22385 | Crontab files must be group-owned by root, cron, or the crontab creator's primary group."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37400r1_rule
+      - V-22385
+
+- name: "MEDIUM | V-22386 | Crontab files must not have extended ACLs."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37467r1_rule
+      - V-22386
+
+- name: "MEDIUM | V-22387 | Cron and crontab directories must not have extended ACLs."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37471r1_rule
+      - V-22387
+
+- name: "MEDIUM | V-22388 | The cron log files must not have extended ACLs."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37477r2_rule
+      - V-22388
+
+- name: "MEDIUM | V-22389 | The cron.deny file must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37486r1_rule
+      - V-22389
+
+- name: "MEDIUM | V-22390 | The at.allow file must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37495r1_rule
+      - V-22390
+
+- name: "MEDIUM | V-22391 | The cron.allow file must be group-owned by root, bin, sys, or cron."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37499r1_rule
+      - V-22391
+
+- name: "MEDIUM | V-22392 | The at.deny file must have mode 0600 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-26555r1_rule
+      - V-22392
+
+- name: "MEDIUM | V-22393 | The at.deny file must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-26558r1_rule
+      - V-22393
+
+- name: "MEDIUM | V-22394 | The cron.deny file must be group-owned by root, bin, or sys."
+  command: "true"
+  tags:
+      - cat2
+      - SV-26562r2_rule
+      - V-22394
+
+- name: "MEDIUM | V-22395 | The "at" directory must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37523r1_rule
+      - V-22395
+
+- name: "MEDIUM | V-22396 | The 'at' directory must be group-owned by root, bin, sys, or cron."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37529r1_rule
+      - V-22396
+
+- name: "MEDIUM | V-22397 | The at.allow file must be group-owned by root, bin, sys, or cron."
+  command: "true"
+  tags:
+      - cat2
+      - SV-26569r1_rule
+      - V-22397
+
+- name: "MEDIUM | V-22398 | The at.deny file must be group-owned by root, bin, sys, or cron."
+  command: "true"
+  tags:
+      - cat2
+      - SV-26572r1_rule
+      - V-22398
+
+- name: "MEDIUM | V-22404 | Kernel core dumps must be disabled unless needed."
+  command: "true"
+  tags:
+      - cat2
+      - SV-26604r1_rule
+      - V-22404
+
+- name: "MEDIUM | V-22408 | Network interfaces must not be configured to allow user control."
+  command: "true"
+  tags:
+      - cat2
+      - SV-26620r1_rule
+      - V-22408
+
+- name: "MEDIUM | V-22410 | The system must not respond to Internet Control Message Protocol v4 (ICMPv4) echoes sent to a broadcast address."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37608r1_rule
+      - V-22410
+
+- name: "MEDIUM | V-22411 | The system must not respond to Internet Control Message Protocol (ICMP) timestamp requests sent to a broadcast address."
+  command: "true"
+  tags:
+      - cat2
+      - SV-29288r1_rule
+      - V-22411
+
+- name: "MEDIUM | V-22414 | The system must not accept source-routed IPv4 packets."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37622r1_rule
+      - V-22414
+
+- name: "MEDIUM | V-22415 | Proxy Address Resolution Protocol (Proxy ARP) must not be enabled on the system."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37624r1_rule
+      - V-22415
+
+- name: "MEDIUM | V-22416 | The system must ignore IPv4 Internet Control Message Protocol (ICMP) redirect messages."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37626r1_rule
+      - V-22416
+
+- name: "MEDIUM | V-22417 | The system must not send IPv4 Internet Control Message Protocol (ICMP) redirects."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37629r1_rule
+      - V-22417
+
+- name: "MEDIUM | V-22419 | The system must be configured to use TCP syncookies when experiencing a TCP SYN flood."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37633r1_rule
+      - V-22419
+
+- name: "MEDIUM | V-22421 | The system must not be configured for network bridging."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37639r1_rule
+      - V-22421
+
+- name: "MEDIUM | V-22423 | The inetd.conf file, xinetd.conf file, and the xinetd.d directory must be group-owned by root, bin, sys, or system."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37407r1_rule
+      - V-22423
+
+- name: "MEDIUM | V-22424 | The inetd.conf and xinetd.conf files must not have extended ACLs."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37409r1_rule
+      - V-22424
+
+- name: "MEDIUM | V-22425 | The xinetd.d directory must have mode 0755 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37410r1_rule
+      - V-22425
+
+- name: "MEDIUM | V-22426 | The xinetd.d directory must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37411r1_rule
+      - V-22426
+
+- name: "MEDIUM | V-22427 | The services file must be group-owned by root, bin, sys, or system."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37425r1_rule
+      - V-22427
+
+- name: "MEDIUM | V-22428 | The services file must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37438r1_rule
+      - V-22428
+
+- name: "MEDIUM | V-22429 | The portmap or rpcbind service must not be running unless needed."
+  command: "true"
+  tags:
+      - cat2
+      - SV-26662r1_rule
+      - V-22429
+
+- name: "MEDIUM | V-22430 | The portmap or rpcbind service must not be installed unless needed."
+  command: "true"
+  tags:
+      - cat2
+      - SV-26666r1_rule
+      - V-22430
+
+- name: "MEDIUM | V-22431 | The rshd service must not be installed."
+  command: "true"
+  tags:
+      - cat2
+      - SV-26667r1_rule
+      - V-22431
+
+- name: "MEDIUM | V-22432 | The rlogind service must not be running."
+  command: "true"
+  tags:
+      - cat2
+      - SV-26671r1_rule
+      - V-22432
+
+- name: "MEDIUM | V-22433 | The rlogind service must not be installed."
+  command: "true"
+  tags:
+      - cat2
+      - SV-26669r1_rule
+      - V-22433
+
+- name: "MEDIUM | V-22434 | The rexecd service must not be installed."
+  command: "true"
+  tags:
+      - cat2
+      - SV-26673r1_rule
+      - V-22434
+
+- name: "MEDIUM | V-22435 | The hosts.lpd (or equivalent) file must be group-owned by lp."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37449r2_rule
+      - V-22435
+
+- name: "MEDIUM | V-22436 | The hosts.lpd (or equivalent) file must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37462r1_rule
+      - V-22436
+
+- name: "MEDIUM | V-22437 | The traceroute file must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37468r1_rule
+      - V-22438
+
+- name: "MEDIUM | V-22438 | The aliases file must be group-owned by root, sys, bin, or system."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37473r2_rule
+      - V-22438
+
+
+- name: "MEDIUM | V-22439 | The alias file must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37488r2_rule
+      - V-22439
+
+
+- name: "MEDIUM | V-22440 | Files executed through a mail aliases file must be group-owned by root, bin, sys, or system, and must reside within a directory group-owned by root, bin, sys, or system."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37493r1_rule
+      - V-22440
+
+
+- name: "MEDIUM | V-22441 | Files executed through a mail aliases file must not have extended ACLs."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37496r1_rule
+      - V-22441
+
+
+- name: "MEDIUM | V-22442 | The SMTP service log file must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37503r3_rule
+      - V-22442
+
+
+- name: "MEDIUM | V-22444 | The ftpusers file must be group-owned by root, bin, sys, or system."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37538r1_rule
+      - V-22444
+
+
+- name: "MEDIUM | V-22445 | The ftpusers file must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37544r1_rule
+      - V-22445
+
+- name: "MEDIUM | V-22446 | The .Xauthority files must not have extended ACLs."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37682r1_rule
+      - V-22446
+
+
+- name: "MEDIUM | V-22447 | The SNMP service must use only SNMPv3 or its successors."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37692r1_rule
+      - V-22447
+
+- name: "MEDIUM | V-22448 | The SNMP service must require the use of a FIPS 140-2 approved cryptographic hash algorithm as part of its authentication and integrity methods."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37693r1_rule
+      - V-22448
+
+- name: "MEDIUM | V-22449 | The SNMP service must require the use of a FIPS 140-2 approved encryption algorithm for protecting the privacy of SNMP messages."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37695r1_rule
+      - V-22449
+
+- name: "MEDIUM | V-22450 | Management Information Base (MIB) files must not have extended ACLs."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37700r1_rule
+      - V-22450
+
+- name: "MEDIUM | V-22451 | The snmpd.conf file must be group-owned by root, bin, sys, or system."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37704r1_rule
+      - V-22451
+
+- name: "MEDIUM | V-22452 | The snmpd.conf file must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37706r1_rule
+      - V-22452
+
+- name: "MEDIUM | V-22453 | The /etc/syslog.conf file must have mode 0640 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37709r2_rule
+      - V-22453
+
+- name: "MEDIUM | V-22454 | The /etc/syslog.conf file must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37710r2_rule
+      - V-22454
+
+- name: "MEDIUM | V-22455 | The system must use a remote syslog server (loghost)."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37811r2_rule
+      - V-22455
+
+- name: "MEDIUM | V-22456 | The SSH client must be configured to only use the SSHv2 protocol."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37820r1_rule
+      - V-22456
+
+- name: "MEDIUM | V-22457 | The SSH daemon must only listen on management network addresses unless authorized for uses other than management."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37823r2_rule
+      - V-22457
+
+- name: "MEDIUM | V-22458 | The SSH daemon must be configured to only use FIPS 140-2 approved ciphers."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37824r3_rule
+      - V-22458
+
+- name: "MEDIUM | V-22459 | The SSH daemon must be configured to not use Cipher-Block Chaining (CBC) ciphers."
+  command: "true"
+  tags:
+      - cat2
+      - SV-26752r2_rule
+      - V-22459
+
+- name: "MEDIUM | V-22460 | The SSH daemon must be configured to only use Message Authentication Codes (MACs) employing FIPS 140-2 approved cryptographic hash algorithms."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37826r3_rule
+      - V-22460
+
+- name: "MEDIUM | V-22461 | The SSH client must be configured to only use FIPS 140-2 approved ciphers."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37828r1_rule
+      - V-22461
+
+- name: "MEDIUM | V-22462 | The SSH client must be configured to not use Cipher-Block Chaining (CBC)-based ciphers."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37830r1_rule
+      - V-22462
+
+- name: "MEDIUM | V-22463 | The SSH client must be configured to only use Message Authentication Codes (MACs) employing FIPS 140-2 approved cryptographic hash algorithms."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37836r2_rule
+      - V-22463
+
+- name: "MEDIUM | V-22470 | The SSH daemon must restrict login ability to specific users and/or groups."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37843r2_rule
+      - V-22470
+
+- name: "MEDIUM | V-22471 | The SSH public host key files must have mode 0644 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37844r1_rule
+      - V-22471
+
+- name: "MEDIUM | V-22472 | The SSH private host key files must have mode 0600 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37863r1_rule
+      - V-22472
+
+- name: "MEDIUM | V-22485 | The SSH daemon must perform strict mode checking of home directory configuration files."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37900r2_rule
+      - V-22485
+
+- name: "MEDIUM | V-22486 | The SSH daemon must use privilege separation."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37904r2_rule
+      - V-22486
+
+- name: "MEDIUM | V-22487 | The SSH daemon must not allow rhosts RSA authentication."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37905r2_rule
+      - V-22487
+
+- name: "MEDIUM | V-22488 | The SSH daemon must not allow compression or must only allow compression after successful authentication."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37908r2_rule
+      - V-22488
+
+- name: "MEDIUM | V-22489 | The SSH daemon must be configured with the Department of Defense (DoD) logon banner."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37915r3_rule
+      - V-22489
+
+- name: "MEDIUM | V-22490 | The system must be configured with a default gateway for IPv6 if the system uses IPv6, unless the system is a router."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37921r1_rule
+      - V-22490
+
+- name: "MEDIUM | V-22491 | The system must not have IP forwarding for IPv6 enabled, unless the system is an IPv6 router."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37930r2_rule
+      - V-22491
+
+- name: "MEDIUM | V-22492 | The Network File System (NFS) export configuration file must be group-owned by root, bin, sys, or system."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37940r1_rule
+      - V-22492
+
+- name: "MEDIUM | V-22496 | All Network File System (NFS) exported system files and system directories must be group-owned by root, bin, sys, or system."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37851r1_rule
+      - V-22496
+
+- name: "MEDIUM | V-22497 | The /etc/smb.conf file must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37877r1_rule
+      - V-2249
+
+- name: "MEDIUM | V-22498 | The /etc/smbpasswd file must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37884r1_rule
+      - V-22498
+
+- name: "MEDIUM | V-22499 | Samba must be configured to use an authentication mechanism other than 'share.'"
+  command: "true"
+  tags:
+      - cat2
+      - SV-37891r1_rule
+      - V-22499
+
+- name: "MEDIUM | V-22500 | Samba must be configured to use encrypted passwords."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37894r2_rule
+      - V-22500
+
+- name: "MEDIUM | V-22501 | Samba must be configured to not allow guest access to shares."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37896r1_rule
+      - V-22501
+
+- name: "MEDIUM | V-22502 | The /etc/news/incoming.conf file must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37902r2_rule
+      - V-22502
+
+- name: "MEDIUM | V-22503 | The /etc/news/hosts.nntp.nolimit file must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37713r1_rule
+      - V-22503
+
+- name: "MEDIUM | V-22504 | The /etc/news/nnrp.access file must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37730r1_rule
+      - V-22504
+
+- name: "MEDIUM | V-22505 | The /etc/news/passwd.nntp file must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37733r1_rule
+      - V-22505
+
+- name: "MEDIUM | V-22506 | The system package management tool must be used to verify system software periodically."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37751r2_rule
+      - V-22506
+
+- name: "MEDIUM | V-22511 | The Stream Control Transmission Protocol (SCTP) must be disabled unless required."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37761r1_rule
+      - V-22511
+
+- name: "MEDIUM | V-22514 | The Datagram Congestion Control Protocol (DCCP) must be disabled unless required."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37763r1_rule
+      - V-22514
+
+- name: "MEDIUM | V-22524 | The AppleTalk protocol must be disabled or not installed."
+  command: "true"
+  tags:
+      - cat2
+      - SV-26887r1_rule
+      - V-22524
+
+- name: "MEDIUM | V-22530 | The Reliable Datagram Sockets (RDS) protocol must be disabled or not installed unless required."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37603r1_rule
+      - V-22530
+
+- name: "MEDIUM | V-22533 | The Transparent Inter-Process Communication (TIPC) protocol must be disabled or uninstalled."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37604r1_rule
+      - V-22533
+
+- name: "MEDIUM | V-22539 | The Bluetooth protocol handler must be disabled or not installed."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37605r1_rule
+      - V-22539
+
+- name: "MEDIUM | V-22545 | The system must not have 6to4 enabled."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37610r1_rule
+      - V-22545
+
+- name: "MEDIUM | V-22546 | The system must not have Teredo enabled."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37611r1_rule
+      - V-22546
+
+- name: "MEDIUM | V-22547 | The system must not have IP tunnels configured."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37613r1_rule
+      - V-22547
+
+- name: "MEDIUM | V-22548 | The DHCP client must be disabled if not needed."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37615r1_rule
+      - V-22548
+
+- name: "MEDIUM | V-22549 | The DHCP client must not send dynamic DNS updates."
+  command: "true"
+  tags:
+      - cat2
+      - SV-26933r2_rule
+      - V-22549
+
+- name: "MEDIUM | V-22550 | The system must ignore IPv6 ICMP redirect messages."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37616r2_rule
+      - V-22550
+
+- name: "MEDIUM | V-22553 | The system must not forward IPv6 source-routed packets."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37618r1_rule
+      - V-22553
+
+- name: "MEDIUM | V-22555 | If the system is using LDAP for authentication or account information, the system must use a TLS connection using FIPS 140-2 approved cryptographic algorithms."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37627r3_rule
+      - V-22555
+
+- name: "MEDIUM | V-22556 | If the system is using LDAP for authentication or account information, certificates used to authenticate to the LDAP server must be provided from DoD PKI or a DoD-approved external PKI."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37631r1_rule
+      - V-22556
+
+- name: "MEDIUM | V-22557 | If the system is using LDAP for authentication or account information, the LDAP TLS connection must require the server provide a certificate with a valid trust path to a trusted CA."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37632r1_rule
+      - V-22557
+
+- name: "MEDIUM | V-22558 | If the system is using LDAP for authentication or account information, the system must verify the LDAP server's certificate has not been revoked."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37634r1_rule
+      - V-22558
+
+- name: "MEDIUM | V-22559 | If the system is using LDAP for authentication or account information the /etc/ldap.conf (or equivalent) file must have mode 0644 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37951r1_rule
+      - V-22559
+
+- name: "MEDIUM | V-22560 | If the system is using LDAP for authentication or account information, the /etc/ldap.conf (or equivalent) file must be owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37953r1_rule
+      - V-22560
+
+- name: "MEDIUM | V-22561 | If the system is using LDAP for authentication or account information, the /etc/ldap.conf (or equivalent) file must be group-owned by root, bin, sys, or system."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37955r1_rule
+      - V-22561
+
+- name: "MEDIUM | V-22562 | If the system is using LDAP for authentication or account information, the /etc/ldap.conf (or equivalent) file must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37956r1_rule
+      - V-22562
+
+- name: "MEDIUM | V-22563 | If the system is using LDAP for authentication or account information, the TLS certificate authority file and/or directory (as appropriate) must be owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37959r3_rule
+      - V-22563
+
+- name: "MEDIUM | V-22564 | If the system is using LDAP for authentication or account information, the TLS certificate authority file and/or directory (as appropriate) must be group-owned by root, bin, sys, or system."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37961r1_rule
+      - V-22564
+
+- name: "MEDIUM | V-22565 | If the system is using LDAP for authentication or account information, the TLS certificate authority file and/or directory (as appropriate) must have mode 0644 (0755 for directories) or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37962r1_rule
+      - V-22565
+
+- name: "MEDIUM | V-22566 | If the system is using LDAP for authentication or account information, the LDAP TLS certificate authority file and/or directory (as appropriate) must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37964r1_rule
+      - V-22566
+
+- name: "MEDIUM | V-22567 | For systems using NSS LDAP, the TLS certificate file must be owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37965r1_rule
+      - V-22567
+
+- name: "MEDIUM | V-22568 | If the system is using LDAP for authentication or account information, the LDAP TLS certificate file must be group-owned by root, bin, sys, or system."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37967r1_rule
+      - V-22568
+
+- name: "MEDIUM | V-22569 | If the system is using LDAP for authentication or account information, the LDAP TLS certificate file must have mode 0644 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37966r2_rule
+      - V-22569
+
+- name: "MEDIUM | V-22570 | If the system is using LDAP for authentication or account information, the LDAP TLS certificate file must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37968r1_rule
+      - V-22570
+
+- name: "MEDIUM | V-22571 | If the system is using LDAP for authentication or account information, the LDAP TLS key file must be owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37969r1_rule
+      - V-22571
+
+- name: "MEDIUM | V-22572 | If the system is using LDAP for authentication or account information, the LDAP TLS key file must be group-owned by root, bin, or sys."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37971r1_rule
+      - V-22572
+
+- name: "MEDIUM | V-22573 | If the system is using LDAP for authentication or account information, the LDAP TLS key file must have mode 0600 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37973r1_rule
+      - V-22573
+
+- name: "MEDIUM | V-22574 | If the system is using LDAP for authentication or account information, the LDAP TLS key file must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37977r1_rule
+      - V-22574
+
+- name: "MEDIUM | V-22582 | The system must employ a local firewall."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37984r1_rule
+      - V-22582
+
+- name: "MEDIUM | V-22583 | The system's local firewall must implement a deny-all, allow-by-exception policy."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37985r1_rule
+      - V-22583
+
+- name: "MEDIUM | V-22585 | The system's boot loader configuration file(s) must not have extended ACLs."
+  command: "true"
+  tags:
+      - cat2
+      - SV-26984r1_rule
+      - V-22585
+
+- name: "MEDIUM | V-22586 | The system's boot loader configuration files must be owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - SV-26986r1_rule
+      - V-22586
+
+- name: "MEDIUM | V-22587 | The system's boot loader configuration file(s) must be group-owned by root, bin, sys, or system."
+  command: "true"
+  tags:
+      - cat2
+      - SV-26988r1_rule
+      - V-22587
+
+- name: "MEDIUM | V-22695 | The access.conf file must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-26998r1_rule
+      - V-22695
+
+- name: "MEDIUM | V-22696 | The /etc/sysctl.conf file must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat2
+      - SV-26999r1_rule
+      - V-22696
+
+- name: "MEDIUM | V-22665 | The system must not be running any routing protocol daemons, unless the system is a router."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37926r1_rule
+      - V-22665
+
+- name: "MEDIUM | V-22702 | System audit logs must be group-owned by root, bin, sys, or system."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37914r1_rule
+      - V-22702
+
+- name: "MEDIUM | V-23732 | The FTPS/FTP service on the system must be configured with the Department of Defense (DoD) login banner."
+  command: "true"
+  tags:
+      - cat2
+      - SV-28606r1_rule
+      - V-23732
+
+- name: "MEDIUM | V-23741 | TCP backlog queue sizes must be set appropriately."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37594r2_rule
+      - V-23741
+
+- name: "MEDIUM | V-23952 | Mail relaying must be restricted."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37514r2_rule
+      - V-23952
+
+- name: "MEDIUM | V-23953 | The 'ldd' command must be disabled unless it protects against the execution of untrusted files."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37621r2_rule
+      - V-23953
+
+- name: "MEDIUM | V-23972 | The system must not respond to ICMPv6 echo requests sent to a broadcast address."
+  command: "true"
+  tags:
+      - cat2
+      - SV-29788r1_rule
+      - V-23972
+
+- name: "MEDIUM | V-24331 | The Department of Defense (DoD) login banner must be displayed immediately prior to, or as part of, graphical desktop environment login prompts."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37171r1_rule
+      - V-24331
+
+- name: "MEDIUM | V-24347 | The system, if capable, must be configured to require the use of a CAC, PIV compliant hardware token, or Alternate Logon Token (ALT) for authentication."
+  command: "true"
+  tags:
+      - cat2
+      - SV-30004r2_rule
+      - V-24347
+
+- name: "MEDIUM | V-24384 | If the system is using LDAP for authentication or account information, the /etc/ldap.conf file (or equivalent) must not contain passwords."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37643r3_rule
+      - V-24384
+
+- name: "MEDIUM | V-24624 | The system boot loader must protect passwords using an MD5 or stronger cryptographic hash."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37938r1_rule
+      - V-24624
+
+- name: "MEDIUM | V-27250 | A file integrity baseline including cryptographic hashes must be created."
+  command: "true"
+  tags:
+      - cat2
+      - SV-34549r3_rule
+      - V-27250
+
+- name: "MEDIUM | V-27251 | A file integrity baseline including cryptographic hashes must be maintained."
+  command: "true"
+  tags:
+      - cat2
+      - SV-34550r2_rule
+      - V-27275
+
+- name: "MEDIUM | V-27275 | The system must not have the unnecessary 'news' account."
+  command: "true"
+  tags:
+      - cat2
+      - SV-34574r1_rule
+      - V-27275
+
+- name: "MEDIUM | V-27276 | The system must not have the unnecessary "gopher" account."
+  command: "true"
+  tags:
+      - cat2
+      - SV-34575r1_rule
+      - V-27276
+
+- name: "MEDIUM | V-27279 | The system must not have the unnecessary 'ftp' account."
+  command: "true"
+  tags:
+      - cat2
+      - SV-34578r1_rule
+      - V-27279
+
+- name: "MEDIUM | V-27283 | The graphical desktop environment must set the idle timeout to no more than 15 minutes."
+  command: "true"
+  tags:
+      - cat2
+      - SV-48550r1_rule
+      - V-27283
+
+- name: "MEDIUM | V-27284 | Graphical desktop environments provided by the system must have automatic lock enabled."
+  command: "true"
+  tags:
+      - cat2
+      - SV-48551r1_rule
+      - V-27284
+
+- name: "MEDIUM | V-27285 | Global settings defined in system-auth must be applied in the pam.d definition files."
+  command: "true"
+  tags:
+      - cat2
+      - SV-34584r1_rule
+      - V-27285
+
+- name: "MEDIUM | V-29236 | The audit system must be configured to audit failed attempts to access files and programs."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37612r2_rule
+      - V-29236
+
+- name: "MEDIUM | V-29237 | The audit system must be configured to audit failed attempts to access files and programs."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37614r2_rule
+      - V-29237
+
+- name: "MEDIUM | V-29238 | The audit system must be configured to audit failed attempts to access files and programs."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37654r2_rule
+      - V-29238
+
+- name: "MEDIUM | V-29239 | The audit system must be configured to audit failed attempts to access files and programs."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37655r2_rule
+      - V-29239
+
+- name: "MEDIUM | V-29240 | The audit system must be configured to audit file deletions."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37656r1_rule
+      - V-29240
+
+- name: "MEDIUM | V-29241 | The audit system must be configured to audit all administrative, privileged, and security actions."
+  command: "true"
+  tags:
+      - cat2
+      - SV-48474r1_rule
+      - V-29241
+
+- name: "MEDIUM | V-29242 | The audit system must be configured to audit all administrative, privileged, and security actions."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37658r2_rule
+      - V-29242
+
+- name: "MEDIUM | V-29243 | The audit system must be configured to audit all administrative, privileged, and security actions."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37659r1_rule
+      - V-29243
+
+- name: "MEDIUM | V-29244 | The audit system must be configured to audit all administrative, privileged, and security actions."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37660r3_rule
+      - V-29244
+
+- name: "MEDIUM | V-29245 | The audit system must be configured to audit all administrative, privileged, and security actions."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37661r1_rule
+      - V-29245
+
+- name: "MEDIUM | V-29246 | The audit system must be configured to audit all administrative, privileged, and security actions."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37662r1_rule
+      - V-29246
+
+- name: "MEDIUM | V-29247 | The audit system must be configured to audit all administrative, privileged, and security actions."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37663r1_rule
+      - V-29247
+
+- name: "MEDIUM | V-29248 | The audit system must be configured to audit all administrative, privileged, and security actions."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37664r1_rule
+      - V-29248
+
+- name: "MEDIUM | V-29249 | The audit system must be configured to audit all administrative, privileged, and security actions."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37665r1_rule
+      - V-29249
+
+- name: "MEDIUM | V-29250 | The audit system must be configured to audit all discretionary access control permission modifications."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37666r1_rule
+      - V-29250
+
+- name: "MEDIUM | V-29251 | The audit system must be configured to audit all discretionary access control permission modifications."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37667r1_rule
+      - V-29251
+
+- name: "MEDIUM | V-29252 | The audit system must be configured to audit all discretionary access control permission modifications."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37668r1_rule
+      - V-29252
+
+- name: "MEDIUM | V-29253 | The audit system must be configured to audit all discretionary access control permission modifications."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37669r1_rule
+      - V-29253
+
+- name: "MEDIUM | V-29255 | The audit system must be configured to audit all discretionary access control permission modifications."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37671r1_rule
+      - V-29255
+
+- name: "MEDIUM | V-29257 | The audit system must be configured to audit all discretionary access control permission modifications."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37673r1_rule
+      - V-29257
+
+- name: "MEDIUM | V-29259 | The audit system must be configured to audit all discretionary access control permission modifications."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37677r1_rule
+      - V-29259
+
+- name: "MEDIUM | V-29261 | The audit system must be configured to audit all discretionary access control permission modifications."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37681r2_rule
+      - V-29261
+
+- name: "MEDIUM | V-29272 | The audit system must be configured to audit all discretionary access control permission modifications."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37716r1_rule
+      - V-29272
+
+- name: "MEDIUM | V-29274 | The audit system must be configured to audit all discretionary access control permission modifications."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37718r1_rule
+      - V-29274
+
+- name: "MEDIUM | V-29275 | The audit system must be configured to audit all discretionary access control permission modifications."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37719r1_rule
+      - V-29275
+
+- name: "MEDIUM | V-29279 | The audit system must be configured to audit all discretionary access control permission modifications."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37726r1_rule
+      - V-29279
+
+- name: "MEDIUM | V-29281 | The audit system must be configured to audit the loading and unloading of dynamic kernel modules - delete_module."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37728r1_rule
+      - V-29281
+
+- name: "MEDIUM | V-29284 | The audit system must be configured to audit the loading and unloading of dynamic kernel modules - /sbin/insmod."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37734r2_rule
+      - V-29284
+
+- name: "MEDIUM | V-29286 | The audit system must be configured to audit the loading and unloading of dynamic kernel modules -/sbin/modprobe."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37738r2_rule
+      - V-29286
+
+- name: "MEDIUM | V-29288 | The audit system must be configured to audit the loading and unloading of dynamic kernel modules - /sbin/rmmod"
+  command: "true"
+  tags:
+      - cat2
+      - SV-37741r2_rule
+      - V-29288
+
+- name: "MEDIUM | V-29289 | Files in cron script directories must have mode 0700 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - SV-37745r1_rule
+      - V-29289
+
+- name: "MEDIUM | V-29376 | The system must not have the unnecessary "games" account."
+  command: "true"
+  tags:
+      - cat2
+      - SV-38177r1_rule
+      - V-29376
+
+- name: "MEDIUM | V-58537 | The SSH daemon must not allow host-based authentication."
+  command: "true"
+  tags:
+      - cat2
+      - SV-72967r1_rule
+      - V-58537
+
+- name: "MEDIUM | V-58539 | The sudo command must require authentication."
+  command: "true"
+  tags:
+      - cat2
+      - SV-72969r1_rule
+      - V-58539
+
+- name: "MEDIUM | V-72771 | Wireless network adapters must be disabled."
+  command: "true"
+  tags:
+      - cat2
+      - SV-87413r1_rule
+      - V-72771

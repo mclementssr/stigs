@@ -1,0 +1,1598 @@
+---
+- name: "MEDIUM | V-38439 | The system must provide automated support for account management functions."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000524
+      - SV-50239r1_rule
+      - V-38439
+
+- name: "MEDIUM | V-38443 | The /etc/gshadow file must be owned by root."
+  file:
+      path: /etc/gshadow
+      owner: root
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000036
+      - SV-50243r1_rule
+      - V-38443
+
+- name: "MEDIUM | V-38444 | The systems local IPv6 firewall must implement a deny-all, allow-by-exception policy for inbound packets."
+  #command: iptables --policy INPUT DROP
+  lineinfile:
+    state: present
+    dest: /etc/sysconfig/ip6tables
+    regexp: '\:INPUT ACCEPT \[0:0]' 
+    line: ':INPUT DROP [0:0]' 
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000523
+      - SV-50244r2_rule
+      - V-38444
+
+- name: "MEDIUM | V-38445 | Audit log files must be group-owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000522
+      - SV-50245r1_rule
+      - V-38445
+
+- name: "MEDIUM | V-38446 | The mail system must forward all mail for root to one or more system administrators."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000521
+      - SV-50246r1_rule
+      - V-38446
+
+- name: "MEDIUM | V-38448 | The /etc/gshadow file must be group-owned by root."
+  file:
+      path: /etc/gshadow
+      group: root
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000037
+      - SV-50248r1_rule
+      - V-38448
+
+- name: "MEDIUM | V-38449 | The /etc/gshadow file must have mode 0000."
+  file:
+      path: /etc/gshadow
+      mode: 0000
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000038
+      - SV-50249r1_rule
+      - V-38449
+
+- name: "MEDIUM | V-38450 | The /etc/passwd file must be owned by root."
+  file:
+      path: /etc/passwd
+      owner: root
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000039
+      - SV-50250r1_rule
+      - V-38450
+
+- name: "MEDIUM | V-38451 | The /etc/passwd file must be group-owned by root."
+  file:
+      path: /etc/passwd
+      group: root
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000040
+      - SV-50251r1_rule
+      - V-38451
+
+- name: "MEDIUM | V-38457 | The /etc/passwd file must have mode 0644 or less permissive."
+  file:
+      path: /etc/passwd
+      mode: 0644
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000041
+      - SV-50257r1_rule
+      - V-38457
+
+- name: "MEDIUM | V-38458 | The /etc/group file must be owned by root."
+  file:
+      path: /etc/group
+      owner: root
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000042
+      - SV-50258r1_rule
+      - V-38458
+
+- name: "MEDIUM | V-38459 | The /etc/group file must be group-owned by root."
+  file:
+      path: /etc/group
+      group: root
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000043
+      - SV-50259r1_rule
+      - V-38459
+
+- name: "MEDIUM | V-38461 | The /etc/group file must have mode 0644 or less permissive."
+  file:
+      path: /etc/group
+      mode: 0644
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000044
+      - SV-50261r1_rule
+      - V-38461
+
+- name: "MEDIUM | V-38464 | The audit system must take appropriate action when there are disk errors on the audit storage volume."
+  lineinfile:
+      dest: /etc/audit/auditd.conf
+      regexp: '^disk_error_action = *'
+      line: 'disk_error_action = SYSLOG'
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000511
+      - SV-50264r1_rule
+      - V-38464
+
+- name: "MEDIUM | V-38465 | Library files must have mode 0755 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000045
+      - SV-50265r1_rule
+      - V-38465
+
+- name: "MEDIUM | V-38466 | Library files must be owned by a system account."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000046
+      - SV-50266r1_rule
+      - V-38466
+
+- name: "MEDIUM | V-38468 | The audit system must take appropriate action when the audit storage volume is full."
+  lineinfile:
+      dest: /etc/audit/auditd.conf
+      regexp: '^disk_full_action = *'
+      line: 'disk_full_action = SYSLOG'
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000510
+      - SV-50268r1_rule
+      - V-38468
+
+- name: "MEDIUM | V-38469 | All system command files must have mode 755 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000047
+      - SV-50269r3_rule
+      - V-38469
+
+- name: "MEDIUM | V-38470 | The audit system must alert designated staff members when the audit storage volume approaches capacity."
+  lineinfile:
+      dest: /etc/audit/auditd.conf
+      regexp: '^space_left_action = *'
+      line: 'space_left_action = email'
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000005
+      - SV-50270r2_rule
+      - V-38470
+
+- name: "MEDIUM | V-38472 | All system command files must be owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000048
+      - SV-50272r1_rule
+      - V-38472
+
+- name: "MEDIUM | V-38475 | The system must require passwords to contain a minimum of 15 characters."
+  lineinfile:
+    state: present
+    dest: /etc/login.defs
+    regexp: 'PASS_MIN_LEN *'
+    line: 'PASS_MIN_LEN    15'
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000050
+      - SV-50275r3_rule
+      - V-38475
+
+- name: "MEDIUM | V-38477 | Users must not be able to change passwords more than once every 24 hours."
+  lineinfile:
+    state: present
+    dest: /etc/login.defs
+    regexp: 'PASS_MIN_DAYS *'
+    line: 'PASS_MIN_DAYS   1'
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000051
+      - SV-50277r1_rule
+      - V-38477
+
+- name: "MEDIUM | V-38479 | User passwords must be changed at least every 60 days."
+  lineinfile:
+    state: present
+    dest: /etc/login.defs
+    regexp: 'PASS_MAX_DAYS *'
+    line: 'PASS_MAX_DAYS   60'
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000053
+      - SV-50279r1_rule
+      - V-38479
+
+- name: "MEDIUM | V-38481 | System security patches and updates must be installed and up-to-date."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000011
+      - SV-50281r1_rule
+      - V-38481
+
+- name: "MEDIUM | V-38483 | The system package management tool must cryptographically verify the authenticity of system software packages during installation."
+  lineinfile:
+      dest: /etc/yum.conf
+      regexp: gpgcheck
+      line: gpgcheck=1
+      insertafter: '\[main\]'
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000013
+      - SV-50283r1_rule
+      - V-38483
+
+- name: "MEDIUM | V-38484 | The operating system, upon successful logon, must display to the user the date and time of the last logon or access via ssh."
+  lineinfile:
+      dest: /etc/ssh/sshd_config
+      regexp: ^#?PrintLastLog
+      line: PrintLastLog yes
+  notify: restart ssh
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000507
+      - SV-50285r2_rule
+      - V-38484
+
+- name: "MEDIUM | V-38486 | The operating system must conduct backups of system-level information contained in the information system per organization defined frequency to conduct backups that are consistent with recovery time and recovery point objectives."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000505
+      - SV-50287r1_rule
+      - V-38486
+
+- name: "MEDIUM | V-38488 | The operating system must conduct backups of user-level information contained in the operating system per organization defined frequency to conduct backups consistent with recovery time and recovery point objectives."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-0000504
+      - SV-50289r1_rule
+      - V-38488
+
+- name: "MEDIUM | V-38489 | A file integrity tool must be installed."
+  yum:
+    name: aide
+    state: latest
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000016
+      - SV-50290r1_rule
+      - V-38489
+
+- name: "MEDIUM | V-38490 | Check if /etc/modprobe.d/disabled.conf file exists."
+  stat: path=/etc/modprobe.d/disabled.conf
+  register: v_38490_check
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000503
+      - SV-50291r1_rule
+      - V-38490
+
+- name: "MEDIUM | V-38490 | Create /etc/modprobe.d/disabled.conf if it doesn't exist."
+  file:
+      path: /etc/modprobe.d/disabled.conf
+      state: touch
+      owner: root
+      group: root
+      mode: 0644
+  when: v_38490_check.stat.exists == False
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000503
+      - SV-50291r1_rule
+      - V-38490
+
+- name: "MEDIUM | V-38490 | Check if /etc/modprobe.d/disabled.conf file exists."
+  stat: path=/etc/modprobe.d/disabled.conf
+  register: v_38490_check2
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000503
+      - SV-50291r1_rule
+      - V-38490
+
+- name: "MEDIUM | V-38490 | The operating system must enforce requirements for the connection of mobile devices to operating systems."
+  lineinfile:
+    state: present
+    dest: /etc/modprobe.d/disabled.conf
+    regexp: install usb-storage *
+    line: install usb-storage /bin/true
+  ignore_errors: "{{ ansible_check_mode }}" 
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000503
+      - SV-50291r1_rule
+      - V-38490
+
+- name: "MEDIUM | V-38492 | The system must prevent the root account from logging in from virtual consoles."
+  command: sed -i '/vc/d' /etc/securetty
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000027
+      - SV-50293r1_rule
+      - V-38492
+
+- name: "MEDIUM | V-38493 | Audit log directories must have mode 0755 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000385
+      - SV-50294r1_rule
+      - V-38493
+
+- name: "MEDIUM | V-38495 | Audit log files must be owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000384
+      - SV-50296r1_rule
+      - V-38495
+
+- name: "MEDIUM | V-38496 | Default operating system accounts, other than root, must be locked."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000029
+      - SV-50297r1_rule
+      - V-38496
+
+- name: "MEDIUM | V-38498 | Audit log files must have mode 0640 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000383
+      - SV-50299r1_rule
+      - V-38498
+
+- name: "MEDIUM | V-38499 | The /etc/passwd file must not contain password hashes."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000031
+      - SV-50300r1_rule
+      - V-38499
+
+- name: "MEDIUM | V-38500 | The root account must be the only account having a UID of 0."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000032
+      - SV-50301r1_rule
+      - V-38500
+
+- name: "MEDIUM | V-38501 | The system must disable accounts after excessive login failures within a 15-minute interval."
+  script: v-38501.sh
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000357
+      - SV-50302r1_rule
+      - V-38501
+
+- name: "MEDIUM | V-38502 | The /etc/shadow file must be owned by root."
+  file:
+      path: /etc/shadow
+      owner: root
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000033
+      - SV-50303r1_rule
+      - V-38502
+
+- name: "MEDIUM | V-38503 | The /etc/shadow file must be group-owned by root."
+  file:
+      path: /etc/shadow
+      group: root
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000034
+      - SV-50304r1_rule
+      - V-38503
+
+- name: "MEDIUM | V-38504 | The /etc/shadow file must have mode 0000."
+  file:
+      path: /etc/shadow
+      mode: 0000
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000035
+      - SV-50305r1_rule
+      - V-38504
+
+- name: "MEDIUM | V-38511 | IP forwarding for IPv4 must not be enabled, unless the system is a router."
+  sysctl:
+      name: net.ipv4.ip_forward
+      state: present
+      value: 0
+      reload: yes
+      ignoreerrors: yes
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000082
+      - SV-50312r1_rule
+      - V-38511
+
+- name: "MEDIUM | V-38512 | The operating system must prevent public IPv4 access into an organizations internal networks, except as appropriately mediated by managed interfaces employing boundary protection devices."
+  #shell: chkconfig iptables on && service iptables start
+  service:
+    name: iptables
+    enabled: yes
+    state: started
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000117
+      - SV-50313r1_rule
+      - V-38512
+
+- name: "MEDIUM | V-38513 | The systems local IPv4 firewall must implement a deny-all, allow-by-exception policy for inbound packets."
+  replace:
+    dest: /etc/sysconfig/iptables
+    regexp: 'INPUT ACCEPT \[0:0\]'
+    replace: 'INPUT DROP [0:0]'
+  notify: restart iptables
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000120
+      - SV-50314r1_rule
+      - V-38513
+
+- name: "MEDIUM | V-38514 | The Datagram Congestion Control Protocol (DCCP) must be disabled unless required."
+  lineinfile:
+    state: present
+    dest: /etc/modprobe.d/disabled.conf
+    regexp: install dccp *
+    line: install dccp /bin/true
+  ignore_errors: "{{ ansible_check_mode }}"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000124
+      - SV-50315r1_rule
+      - V-38514
+
+- name: "MEDIUM | V-38515 | The Stream Control Transmission Protocol (SCTP) must be disabled unless required."
+  lineinfile:
+    state: present
+    dest: /etc/modprobe.d/disabled.conf
+    regexp: install sctp *
+    line: install sctp /bin/true
+  ignore_errors: "{{ ansible_check_mode }}"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000125
+      - SV-50316r1_rule
+      - V-38515
+
+- name: "MEDIUM | V-38517 | The Transparent Inter-Process Communication (TIPC) protocol must be disabled unless required."
+  lineinfile:
+    state: present
+    dest: /etc/modprobe.d/disabled.conf
+    regexp: install tipc *
+    line: install tipc /bin/true
+  ignore_errors: "{{ ansible_check_mode }}"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000127
+      - SV-50318r4_rule
+      - V-38517
+
+- name: "MEDIUM | V-38518 | All rsyslog-generated log files must be owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000133
+      - SV-50319r2_rule
+      - V-38518
+
+- name: "MEDIUM | V-38519 | All rsyslog-generated log files must be group-owned by root."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000134
+      - SV-50320r2_rule
+      - V-38519
+
+- name: "MEDIUM | V-38520 | The operating system must back up audit records on an organization defined frequency onto a different system or media than the system being audited."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000136
+      - SV-50321r1_rule
+      - V-38520
+
+- name: "MEDIUM | V-38521 | The operating system must support the requirement to centrally manage the content of audit records generated by organization defined information system components."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000137
+      - SV-50322r1_rule
+      - V-38521
+
+- name: "MEDIUM | V-38523 | The system must not accept IPv4 source-routed packets on any interface."
+  sysctl:
+      name: net.ipv4.conf.all.accept_source_route   
+      state: present
+      value: 0
+      reload: yes
+      ignoreerrors: yes
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000083
+      - SV-50324r2_rule
+      - V-38523
+
+- name: "MEDIUM | V-38524 | The system must not accept ICMPv4 redirect packets on any interface."
+  sysctl:
+      name: net.ipv4.conf.all.accept_redirects
+      state: present
+      value: 0
+      reload: yes
+      ignoreerrors: yes
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000084
+      - SV-50325r2_rule
+      - V-38524
+
+- name: "MEDIUM | V-38526 | The system must not accept ICMPv4 secure redirect packets on any interface."
+  sysctl:
+      name: net.ipv4.conf.all.secure_redirects
+      state: present
+      value: 0
+      reload: yes
+      ignoreerrors: yes
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000086
+      - SV-50327r2_rule
+      - V-38526
+
+- name: "MEDIUM | V-38529 | The system must not accept IPv4 source-routed packets by default."
+  sysctl:
+      name: net.ipv4.conf.default.accept_source_route
+      state: present
+      value: 0
+      reload: yes
+      ignoreerrors: yes
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000089
+      - SV-50330r2_rule
+      - V-38529
+
+- name: "MEDIUM | V-38532 | The system must not accept ICMPv4 secure redirect packets by default."
+  sysctl:
+      name: net.ipv4.conf.default.secure_redirects
+      state: present
+      value: 0
+      reload: yes
+      ignoreerrors: yes
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000090
+      - SV-50333r2_rule
+      - V-38532
+
+- name: "MEDIUM | V-38539 | The system must be configured to use TCP syncookies when experiencing a TCP SYN flood."
+  sysctl:
+      name: net.ipv4.tcp_syncookies
+      state: present
+      value: 1
+      reload: yes
+      ignoreerrors: yes
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000095
+      - SV-50340r2_rule
+      - V-38539
+
+- name: "MEDIUM | V-38542 | The system must use a reverse-path filter for IPv4 network traffic when possible on all interfaces."
+  sysctl:
+      name: net.ipv4.conf.all.rp_filter
+      state: present
+      value: 1
+      reload: yes
+      ignoreerrors: yes 
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000096
+      - SV-50343r2_rule
+      - V-38542
+
+- name: "MEDIUM | V-38544 | The system must use a reverse-path filter for IPv4 network traffic when possible by default."
+  sysctl:
+      name: net.ipv4.conf.default.rp_filter
+      state: present
+      value: 1
+      reload: yes
+      ignoreerrors: yes
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000097
+      - SV-50345r2_rule
+      - V-38544
+
+- name: "MEDIUM | V-38548 | The system must ignore ICMPv6 redirects by default."
+  sysctl:
+      name: net.ipv6.conf.default.accept_redirects
+      state: present
+      value: 0
+      reload: yes
+      ignoreerrors: yes
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000099
+      - SV-50349r3_rule
+      - V-38548
+
+- name: "MEDIUM | V-38549 | The system must employ a local IPv6 firewall."
+  #shell: chkconfig ip6tables on && service ip6tables start
+  service:
+    name: ip6tables
+    enabled: yes
+    state: started
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000103
+      - SV-50350r3_rule
+      - V-38549
+
+- name: "MEDIUM | V-38551 | The operating system must connect to external networks or information systems only through managed IPv6 interfaces consisting of boundary protection devices arranged in accordance with an organizational security architecture."
+  #shell: chkconfig ip6tables on && service ip6tables start
+  service:
+    name: ip6tables
+    enabled: yes
+    state: started
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000106
+      - SV-50352r3_rule
+      - V-38551
+
+- name: "MEDIUM | V-38553 | The operating system must prevent public IPv6 access into an organizations internal networks, except as appropriately mediated by managed interfaces employing boundary protection devices."
+  #shell: chkconfig ip6tables on && service ip6tables start
+  service:
+    name: ip6tables
+    enabled: yes
+    state: started
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000107
+      - SV-50354r3_rule
+      - V-38553
+
+- name: "MEDIUM | V-38555 | The system must employ a local IPv4 firewall."
+  #shell: chkconfig iptables on && service iptables start
+  service:
+    name: iptables
+    enabled: yes
+    state: started
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000113
+      - SV-50356r2_rule
+      - V-38555
+
+- name: "MEDIUM | V-38560 | The operating system must connect to external networks or information systems only through managed IPv4 interfaces consisting of boundary protection devices arranged in accordance with an organizational security architecture."
+  #shell: chkconfig iptables on && service iptables start
+  service:
+    name: iptables
+    enabled: yes
+    state: started
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000116
+      - SV-50361r2_rule
+      - V-38560
+
+- name: "MEDIUM | V-38573 | The system must disable accounts after three consecutive unsuccessful logon attempts."
+  script: v-38573.sh
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000061
+      - SV-50374r4_rule
+      - V-38573
+
+- name: "MEDIUM | V-38574 | The system must use a FIPS 140-2 approved cryptographic hashing algorithm for generating account password hashes (system-auth)."
+  script: v-38574.sh
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000062
+      - SV-50375r3_rule
+      - V-38574
+
+- name: "MEDIUM | V-38576 | The system must use a FIPS 140-2 approved cryptographic hashing algorithm for generating account password hashes (login.defs)."
+  lineinfile:
+    state: present
+    dest: /etc/login.defs
+    regexp: 'ENCRYPT_METHOD *'
+    line: 'ENCRYPT_METHOD SHA512'
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000063
+      - SV-50377r1_rule
+      - V-38576
+
+- name: "MEDIUM | V-38577 | The system must use a FIPS 140-2 approved cryptographic hashing algorithm for generating account password hashes (libuser.conf)."
+  lineinfile:
+    state: present
+    dest: /etc/libuser.conf
+    regexp: 'crypt_style *'
+    line: 'crypt_style sha512'
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000064
+      - SV-50378r1_rule
+      - V-38577
+
+- name: "MEDIUM | V-38579 | The system boot loader configuration file(s) must be owned by root."
+  file:
+      path: /boot/grub/grub.conf 
+      owner: root
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000065
+      - SV-50380r2_rule
+      - V-38579
+
+- name: "MEDIUM | V-38580 | The audit system must be configured to audit the loading and unloading of dynamic kernel modules."
+  #command: "true"
+  template:
+      src=audit_rules
+      dest=/etc/audit/audit.rules
+      owner=root
+      group=root
+      mode=0640
+  notify: restart auditd
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000202
+      - SV-50381r2_rule
+      - V-38580
+
+- name: "MEDIUM | V-38581 | The system boot loader configuration file(s) must be group-owned by root."
+  file:
+      path: /boot/grub/grub.conf
+      group: root
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000066
+      - SV-50382r2_rule
+      - V-38581
+
+- name: "MEDIUM | V-38582 | The xinetd service must be disabled if no network services utilizing it are enabled."
+  #shell: chkconfig xinetd off && service xinetd stop
+  service:
+    name: xinetd
+    enabled: no
+    state: stopped
+  ignore_errors: true
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000203
+      - SV-50383r2_rule
+      - V-38582
+
+- name: "MEDIUM | V-38583 | The system boot loader configuration file(s) must have mode 0600 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000067
+      - SV-50384r3_rule
+      - V-38583
+
+- name: "MEDIUM | V-38586 | The system must require authentication upon booting into single-user and maintenance modes."
+  lineinfile:
+    state: present
+    dest: /etc/sysconfig/init
+    regexp: SINGLE=/sbin/*
+    line: SINGLE=/sbin/sulogin
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000069
+      - SV-50387r1_rule
+      - V-38586
+
+- name: "MEDIUM | V-38588 | The system must not permit interactive boot."
+  lineinfile:
+    state: present
+    dest: /etc/sysconfig/init
+    regexp: PROMPT=*
+    line: PROMPT=no
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000070
+      - SV-50389r1_rule
+      - V-38588
+
+- name: "MEDIUM | V-38592 | The system must require administrator action to unlock an account locked by excessive failed login attempts."
+  script: v-38592.sh
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000356
+      - SV-50393r4_rule
+      - V-38592
+
+- name: "MEDIUM | V-38593 | The Department of Defense (DoD) login banner must be displayed immediately prior to, or as part of, console login prompts."
+  template:
+    src=templates/issue
+    dest=/etc/issue
+    owner=root
+    group=root
+    mode=0644
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000073
+      - SV-50394r3_rule
+      - V-38593
+
+- name: "MEDIUM | V-38595 | The system must be configured to require the use of a CAC, PIV compliant hardware token, or Alternate Logon Token (ALT) for authentication."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000349
+      - SV-50396r3_rule
+      - V-38595
+
+- name: "MEDIUM | V-38596 | The system must implement virtual address space randomization."
+  sysctl:
+      name: kernel.randomize_va_space
+      state: present
+      value: 2
+      reload: yes
+      ignoreerrors: yes
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000078
+      - SV-50397r2_rule
+      - V-38596
+
+- name: "MEDIUM | V-38597 | The system must limit the ability of processes to have simultaneous write and execute access to memory."
+  sysctl:
+      name: kernel.exec-shield   
+      state: present
+      value: 1
+      reload: yes
+      ignoreerrors: yes
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000079
+      - SV-50398r2_rule
+      - V-38597
+
+- name: "MEDIUM | V-38599 | The FTPS/FTP service on the system must be configured with the Department of Defense (DoD) login banner."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000348
+      - SV-50400r2_rule
+      - V-38599
+
+- name: "MEDIUM | V-38600 | The system must not send ICMPv4 redirects by default."
+  sysctl:
+      name: net.ipv4.conf.default.send_redirects
+      state: present
+      value: 0
+      reload: yes
+      ignoreerrors: yes
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000080
+      - SV-50401r2_rule
+      - V-38600
+
+- name: "MEDIUM | V-38601 | The system must not send ICMPv4 redirects from any interface."
+  sysctl:
+      name: net.ipv4.conf.all.send_redirects
+      state: present
+      value: 0
+      reload: yes
+      ignoreerrors: yes
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000081
+      - SV-50402r2_rule
+      - V-38601
+
+- name: "MEDIUM | V-38603 | The ypserv package must not be installed."
+  yum:
+      name: ypserv
+      state: absent
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000220
+      - SV-50404r1_rule
+      - V-38603
+
+- name: "MEDIUM | V-38604 | The ypbind service must not be running."
+  #shell: chkconfig ypbind off && service ypbind stop
+  service:
+    name: ypbind
+    enabled: no
+    state: stopped
+  ignore_errors: true
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000221
+      - SV-50405r2_rule
+      - V-38604
+
+- name: "MEDIUM | V-38605 | The cron service must be running."
+  #shell: chkconfig crond on && service crond start
+  service:
+    name: crond
+    enabled: yes
+    state: started
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000224
+      - SV-50406r2_rule
+      - V-38605
+
+- name: "MEDIUM | V-38611 | The SSH daemon must ignore .rhosts files."
+  lineinfile:
+      dest: /etc/ssh/sshd_config
+      regexp: ^#?IgnoreRhosts
+      line: IgnoreRhosts yes
+  notify: restart ssh
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000234
+      - SV-50412r1_rule
+      - V-38611
+
+- name: "MEDIUM | V-38612 | The SSH daemon must not allow host-based authentication."
+  lineinfile:
+      dest: /etc/ssh/sshd_config
+      regexp: ^#?HostbasedAuthentication
+      line: HostbasedAuthentication yes
+  notify: restart ssh
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000236
+      - SV-50413r1_rule
+      - V-38612
+
+- name: "MEDIUM | V-38613 | The system must not permit root logins using remote access programs such as ssh."
+  lineinfile:
+      dest: /etc/ssh/sshd_config
+      regexp: ^#?PermitRootLogin
+      line: PermitRootLogin no
+  notify: restart ssh
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000237
+      - SV-50414r1_rule
+      - V-38613
+
+- name: "MEDIUM | V-38615 | The SSH daemon must be configured with the Department of Defense (DoD) login banner."
+  lineinfile:
+      dest: /etc/ssh/sshd_config
+      regexp: ^#?Banner
+      line: Banner /etc/issue
+  notify: restart ssh
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000240
+      - SV-50416r1_rule
+      - V-38615
+
+- name: "MEDIUM | V-38617 | The SSH daemon must be configured to use only FIPS 140-2 approved ciphers."
+  lineinfile:
+      dest: /etc/ssh/sshd_config
+      regexp: ^#?Ciphers
+      line: Ciphers aes128-ctr,aes192-ctr,aes256-ctr 
+  notify: restart ssh
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000243
+      - SV-50418r1_rule
+      - V-38617
+
+- name: "MEDIUM | V-38619 | There must be no .netrc files on the system."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000347
+      - SV-50420r2_rule
+      - V-38619
+
+- name: "MEDIUM | V-38620 | The system clock must be synchronized continuously, or at least daily."
+  service:
+      name: ntpd
+      state: started
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000247
+      - SV-50421r1_rule
+      - V-38620
+
+- name: "MEDIUM | V-38621 | The system clock must be synchronized to an authoritative DoD time source."
+  lineinfile:
+      dest: /etc/ntp.conf
+      regexp: ^#?server
+      line: server time.dc3n.navy.mil iburst maxpoll 10
+  notify: restart ntpd
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000248
+      - SV-50422r1_rule
+      - V-38621
+
+- name: "MEDIUM | V-38622 | Mail relaying must be restricted."
+  lineinfile:
+      dest: /etc/postfix/main.cf
+      regexp: ^#?inet_interfaces
+      line: inet_interfaces = localhost
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000249
+      - SV-50423r2_rule
+      - V-38622
+
+- name: "MEDIUM | V-38623 | All rsyslog-generated log files must have mode 0600 or less permissive."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000135
+      - SV-50424r2_rule
+      - V-38623
+
+- name: "MEDIUM | V-38628 | The operating system must produce audit records containing sufficient information to establish the identity of any user/subject associated with the event."
+  service:
+      name: auditd
+      state: started
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000145
+      - SV-50429r2_rule
+      - V-38628
+
+- name: "MEDIUM | V-38631 | The operating system must employ automated mechanisms to facilitate the monitoring and control of remote access methods."
+  #command: chkconfig auditd on
+  #notify: restart auditd
+  service:
+    name: auditd
+    enabled: yes
+    state: restarted
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000148
+      - SV-50432r2_rule
+      - V-38631
+
+- name: "MEDIUM | V-38632 | The operating system must produce audit records containing sufficient information to establish what type of events occurred."
+  #command: chkconfig auditd on
+  #notify: restart auditd
+  service:
+    name: auditd
+    enabled: yes
+    state: restarted
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000154
+      - SV-50433r2_rule
+      - V-38632
+
+- name: "MEDIUM | V-38633 | The system must set a maximum audit log file size."
+  lineinfile:
+      dest: /etc/audit/auditd.conf
+      regexp: ^#?max_log_file =
+      line: max_log_file = 6
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000160
+      - SV-50434r1_rule
+      - V-38633
+
+- name: "MEDIUM | V-38634 | The system must rotate audit log files that reach the maximum file size."
+  lineinfile:
+      dest: /etc/audit/auditd.conf
+      regexp: ^#?max_log_file_action =
+      line: max_log_file_action = rotate 
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000161
+      - SV-50435r2_rule
+      - V-38634
+
+- name: "MEDIUM | V-38636 | The system must retain enough rotated audit logs to cover the required log retention period."
+  lineinfile:
+      dest: /etc/audit/auditd.conf
+      regexp: ^#?num_logs =
+      line: num_logs = 5
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000159
+      - SV-50437r1_rule
+      - V-38636
+
+- name: "MEDIUM | V-38637 | The system package management tool must verify contents of all files associated with the audit package."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000281
+      - SV-50438r2_rule
+      - V-38637
+
+- name: "MEDIUM | V-38643 | There must be no world-writable files on the system."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000282
+      - SV-50444r3_rule
+      - V-38643
+
+- name: "MEDIUM | V-38652 | Remote file systems must be mounted with the nodev option."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000269
+      - SV-50453r2_rule
+      - V-38652
+
+- name: "MEDIUM | V-38654 | Remote file systems must be mounted with the nosuid option."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000270
+      - SV-50455r2_rule
+      - V-38654
+
+- name: "MEDIUM | V-38658 | The system must prohibit the reuse of passwords within five iterations."
+  script: v-38658.sh
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000274
+      - SV-50459r4_rule
+      - V-38658
+
+- name: "MEDIUM | V-38660 | The snmpd service must use only SNMP protocol version 3 or newer."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000340
+      - SV-50461r1_rule
+      - V-38660
+
+- name: "MEDIUM | V-38663 | The system package management tool must verify permissions on all files and directories associated with the audit package."
+  script: v-38663.sh
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000278
+      - SV-50464r1_rule
+      - V-38663
+
+- name: "MEDIUM | V-38664 | The system package management tool must verify ownership on all files and directories associated with the audit package."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000279
+      - SV-50465r1_rule
+      - V-38664
+
+- name: "MEDIUM | V-38665 | The system package management tool must verify group-ownership on all files and directories associated with the audit package."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000280
+      - SV-50466r1_rule
+      - V-38665
+
+- name: "MEDIUM | V-38667 | The system must have a host-based intrusion detection tool installed."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000285
+      - SV-50468r3_rule
+      - V-38667
+
+- name: "MEDIUM | V-38670 | The operating system must detect unauthorized changes to software and information. "
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000306
+      - SV-50471r2_rule
+      - V-38670
+
+- name: "MEDIUM | V-38671 | The sendmail package must be removed."
+  yum:
+      name: sendmail
+      state: absent
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000288
+      - SV-50472r1_rule
+      - V-38671
+
+- name: "MEDIUM | V-38673 | The operating system must ensure unauthorized, security-relevant configuration changes detected are tracked."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000307
+      - SV-50474r2_rule
+      - V-38673
+
+- name: "MEDIUM | V-38674 | X Windows must not be enabled unless required."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000290
+      - SV-50475r1_rule
+      - V-38674
+
+- name: "MEDIUM | V-38678 | The audit system must provide a warning when allocated audit record storage volume reaches a documented percentage of maximum audit record storage capacity."
+  lineinfile:
+      dest: /etc/audit/auditd.conf
+      regexp: '^space_left = *'
+      line: 'space_left = 75'
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000311
+      - SV-50479r2_rule
+      - V-38678
+
+- name: "MEDIUM | V-38679 | The DHCP client must be disabled if not needed."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000292
+      - SV-50480r2_rule
+      - V-38679
+
+- name: "MEDIUM | V-38680 | he audit system must identify staff members to receive notifications of audit log storage volume capacity issues."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000313
+      - SV-50481r1_rule
+      - V-38680
+
+- name: "MEDIUM | V-38682 | The Bluetooth kernel module must be disabled."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000315
+      - SV-50483r4_rule
+      - V-38682
+
+- name: "MEDIUM | V-38686 | The systems local firewall must implement a deny-all, allow-by-exception policy for forwarded packets."
+  lineinfile:
+    state: present
+    dest: /etc/sysconfig/iptables
+    regexp: '\:FORWARD ACCEPT \[0:0]'
+    line: ':FORWARD DROP [0:0]'
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000320
+      - SV-50487r1_rule
+      - V-38686
+
+- name: "MEDIUM | V-38691 | The Bluetooth service must be disabled."
+  #shell: chkconfig bluetooth off && service bluetooth stop
+  service:
+    name: bluetooth
+    enabled: no
+    state: stopped
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000331
+      - SV-50492r2_rule
+      - V-38691
+
+- name: "MEDIUM | V-38695 | Verify if Aide is installed or not. If not install Aide."
+  yum:
+     name: aide
+     state: latest
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000302
+      - SV-50496r2_rule
+      - V-38695
+
+- name: "MEDIUM | V-38695 | A file integrity tool must be used at least weekly to check for unauthorized file changes, particularly the addition of unauthorized system libraries or binaries, or for unauthorized modification to authorized system libraries or binaries."
+  lineinfile:
+      dest: /etc/crontab
+      state: present
+      line: '05 4 * * * root /usr/sbin/aide --check'
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000302
+      - SV-50496r2_rule
+      - V-38695
+
+- name: "MEDIUM | V-38696 | Verify if Aide is installed or not. If not install Aide."
+  yum:
+     name: aide
+     state: latest
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000303
+      - SV-50497r2_rule
+      - V-38696
+
+- name: "MEDIUM | V-38696 | The operating system must employ automated mechanisms, per organization defined frequency, to detect the addition of unauthorized components/devices into the operating system."
+  lineinfile:
+      dest: /etc/crontab
+      state: present
+      line: '05 4 * * * root /usr/sbin/aide --check'
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000303
+      - SV-50497r2_rule
+      - V-38696
+
+- name: "MEDIUM | V-38698 | Verify if Aide is installed or not. If not install Aide."
+  yum:
+     name: aide
+     state: latest
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000304
+      - SV-50499r2_rule
+      - V-38698
+
+- name: "MEDIUM | V-38698 | The operating system must employ automated mechanisms to detect the presence of unauthorized software on organizational information systems and notify designated organizational officials in accordance with the organization defined frequency."
+  lineinfile:
+      dest: /etc/crontab
+      state: present
+      line: '05 4 * * * root /usr/sbin/aide --check'
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000304
+      - SV-50499r2_rule
+      - V-38698
+
+- name: "MEDIUM | V-38700 | Verify if Aide is installed or not. If not install Aide."
+  yum:
+     name: aide
+     state: latest
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000305
+      - SV-50501r2_rule
+      - V-38700
+
+- name: "MEDIUM | V-38700 | The operating system must provide a near real-time alert when any of the organization defined list of compromise or potential compromise indicators occurs. "
+  lineinfile:
+      dest: /etc/crontab
+      state: present
+      line: '05 4 * * * root /usr/sbin/aide --check'
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000305
+      - SV-50501r2_rule
+      - V-38700
+
+- name: "MEDIUM | V-51337 | The system must use a Linux Security Module at boot time."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000017
+      - SV-65547r2_rule
+      - V-51337
+
+#- name: "MEDIUM | V-51363 | The system must use a Linux Security Module configured to enforce limits on system services."
+#  This finding has it's only task called enable-selinux.yml
+
+- name: "MEDIUM | V-51391 | A file integrity baseline must be created."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000018
+      - SV-65601r1_rule
+      - V-51391
+
+- name: "MEDIUM | V-51875 | The operating system, upon successful logon/access, must display to the user the number of unsuccessful logon/access attempts since the last successful logon/access."
+  script: v-51875.sh
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000372
+      - SV-66089r1_rule
+      - V-51875
+
+- name: "MEDIUM | V-54381 | The audit system must switch the system to single-user mode when available audit storage volume becomes dangerously low."
+  lineinfile:
+      dest: /etc/audit/auditd.conf
+      regexp: '^admin_space_left_action = *'
+      line: 'admin_space_left_action = SYSLOG'
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000163
+      - SV-68627r3_rule
+      - V-54381
+
+- name: "MEDIUM | V-57569 | The noexec option must be added to the /tmp partition."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000528
+      - SV-71919r1_rule
+      - V-57569
+
+- name: "MEDIUM | V-58901 | The sudo command must require authentication."
+  command: "true"
+  #command: sed -i 's/NOPASSWD://g' /etc/sudoers
+  #replace:
+  #  dest: /etc/sudoers
+  #  regexp: 'NOPASSWD ?'
+  #  replace: ''
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000529
+      - SV-73331r1_rule
+      - V-58901
+
+- name: "MEDIUM | V-72817 | Wireless network adapters must be disabled."
+  command: "true"
+  tags:
+      - cat2
+      - medium
+      - RHEL-06-000293
+      - SV-87461r1_rule
+      - V-72817
+

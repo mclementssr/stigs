@@ -1,0 +1,113 @@
+RHEL 6 STIGs Playbook
+
+==============================================================================
+# How to run this playbook:
+#
+# cd /etc/ansible/playbooks
+# ansible-playbook rhel6-stigs.yml
+# Then answer yes to the categories you want to fix.
+# Nothing will be correct unless you answer "y" to that category.
+#
+# Single host:
+# ansible-playbook rhel6-stigs.yml --limit <hostname>
+#
+# Single finding:
+# ansible-playbook rhel6-stigs.yml --tags V-38473
+#
+# Single Category:
+# ansible-playbook rhel6-stigs.yml --tags fix_cat1
+#
+# Dry Run with changes to be made shown:
+# ansible-playbook rhel6-stigs.yml --check --diff
+#
+# List available tags:
+# ansible-playbook rhel6-stigs.yml --list-tags
+==============================================================================
+
+Manaul Review Required
+
+  High
+    V-38476 (rpm -q gpg-pubkey)
+    V-38666 (McAfee VSEL)
+
+  Medium
+    V-38439
+    V-38445
+    V-38446
+    V-38465
+    V-38466
+    V-38469
+    V-38472
+    V-38486
+    V-38488
+    V-38493
+    V-38495
+    V-38496
+    V-38498
+    V-38499
+    V-38500
+    V-38518
+    V-38519
+    V-38520
+    V-38521
+    V-38585
+    V-38595
+    V-38619
+    V-38623
+    V-38637 ?
+    V-38643
+    V-38652
+    V-38654
+    V-38660 ?
+    V-39663 ?
+    V-38664 ?
+    V-38665 ?
+    V-38666
+    V-38667
+    V-38674
+    V-38679
+    V-38682 ?
+    V-51337 ?
+    V-51391 
+    V-57569
+    V-72817
+
+  Low
+
+    V-38438
+    V-38455
+    V-38456
+    V-38463
+    V-38467
+    V-38473
+    V-38487
+    V-38655
+    V-38657
+    V-38659
+    V-38661
+    V-38662
+    V-38681
+    V-38683
+    V-38685
+    V-38690
+    V-38697
+    V-38699
+    V-51379
+
+Ignore Errors:
+ Note: If the service isn't install these items will error. 
+
+    V-38478
+    V-38582
+    V-38589 
+    V-38591
+    V-38594
+    V-38598
+    V-38602
+    V-38653
+    V-38582
+    V-38604
+    V-38609
+    V-38618
+    V-38646
+    V-38648

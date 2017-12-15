@@ -1,0 +1,904 @@
+---
+- name: "LOW | V-38438 | Auditing must be enabled at boot by setting a kernel parameter."
+  command: "true"
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000525
+      - SV-50238r3_rule
+      - V-38438
+
+- name: "LOW | V-38447 | The system package management tool must verify contents of all files associated with packages."
+  script: v-38447.sh
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000519
+      - SV-50247r3_rule
+      - V-38447
+
+- name: "LOW | V-38452 | The system package management tool must verify permissions on all files and directories associated with packages."
+  script: v-38452.sh
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000518
+      - SV-50252r2_rule
+      - V-38452
+
+- name: "LOW | V-38453 | The system package management tool must verify group-ownership on all files and directories associated with packages."
+  script: v-38453.sh
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000517
+      - SV-50253r2_rule
+      - V-38453
+
+- name: "LOW | V-38454 | The system package management tool must verify ownership on all files and directories associated with packages."
+  script: v-38454.sh
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000516
+      - SV-50254r2_rule
+      - V-38454
+
+- name: "LOW | V-38455 | The system must use a separate file system for /tmp."
+  command: "true"
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000001
+      - SV-50255r1_rule
+      - V-38455
+
+- name: "LOW | V-38456 | The system must use a separate file system for /var."
+  command: "true"
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000002
+      - SV-50256r1_rule
+      - V-38456
+
+- name: "LOW | V-38460 | The NFS server must not have the all_squash option enabled."
+  script: v-38460.sh
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000515
+      - SV-50260r1_rule
+      - V-38460
+
+- name: "LOW | V-38463 | The system must use a separate file system for /var/log."
+  command: "true"
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000003
+      - SV-50263r1_rule
+      - V-38463
+
+- name: "LOW | V-38467 | The system must use a separate file system for the system audit data path."
+  command: "true"
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000004
+      - SV-50267r1_rule
+      - V-38467
+
+- name: "LOW | V-38471 | The system must forward audit records to the syslog service."
+  lineinfile:
+    state: present
+    dest: /etc/audisp/plugins.d/syslog.conf  
+    regexp: 'active = *'
+    line: 'active = yes'
+  notify: restart auditd
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000509
+      - SV-50271r1_rule
+      - V-38471
+
+- name: "LOW | V-38473 | The system must use a separate file system for user home directories."
+  command: "true"
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000007
+      - SV-50273r1_rule
+      - V-38473
+
+- name: "LOW | V-38478 | The Red Hat Network Service (rhnsd) service must not be running, unless using RHN or an RHN Satellite."
+  service:
+      name: rhnsd
+      enabled: no
+      state: stopped
+  ignore_errors: true
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000009
+      - SV-50278r2_rule
+      - V-38478
+
+- name: "LOW | V-38480 | Users must be warned 7 days in advance of password expiration."
+  lineinfile:
+    state: present
+    dest: /etc/login.defs
+    regexp: 'PASS_WARN_AGE *'
+    line: 'PASS_WARN_AGE   7'  
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000054
+      - SV-50280r1_rule
+      - V-38480
+
+- name: "LOW | V-38482 | The system must require passwords to contain at least one numeric character."
+  script: pam_cracklib.sh 
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000056
+      - SV-50282r1_rule
+      - V-38482
+
+- name: "LOW | V-38487 | The system package management tool must cryptographically verify the authenticity of all software packages during installation."
+  command: "true"
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000015
+      - SV-50288r1_rule
+      - V-38487
+
+- name: "LOW | V-38494 | The system must prevent the root account from logging in from serial consoles."
+  command: sed -i '/ttyS/d' /etc/securetty
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000028
+      - SV-50295r1_rule
+      - V-38494
+
+- name: "LOW | V-38516 | Check if /etc/modprobe.d/disabled.conf file exists."
+  stat: path=/etc/modprobe.d/disabled.conf
+  register: v_38516_check
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000126
+      - SV-50317r3_rule
+      - V-38516
+
+- name: "LOW | V-38516 | Create /etc/modprobe.d/disabled.conf if it doesn't exist."
+  file:
+      path: /etc/modprobe.d/disabled.conf
+      state: touch
+      owner: root
+      group: root
+      mode: 0644
+  when: v_38516_check.stat.exists == False
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000126
+      - SV-50317r3_rule
+      - V-38516
+
+- name: "LOW | V-38516 | Check if /etc/modprobe.d/disabled.conf file exists."
+  stat: path=/etc/modprobe.d/disabled.conf
+  register: v_38516_check2
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000126
+      - SV-50317r3_rule
+      - V-38516
+
+- name: "LOW | V-38516 | The Reliable Datagram Sockets (RDS) protocol must be disabled unless required."
+  lineinfile:
+    state: present
+    dest: /etc/modprobe.d/disabled.conf
+    regexp: install rds *
+    line: install rds /bin/true
+  ignore_errors: "{{ ansible_check_mode }}"
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000126
+      - SV-50317r3_rule
+      - V-38516
+
+- name: "LOW | \n
+  V-38522, V-38525, V-38525, V-38527, V-38530, V-38531, V-38534, V-38536, V-38538, \n
+  V-38540, V-38541, V-38543, V-38545, V-38547, V-38550, V-38552, V-38554, V-38556, \n
+  V-38557, V-38558, V-38559, V-38561, V-38563, V-38565, V-38566, V-38567, V-38568, \n
+  V-38575, V-38578, \n 
+  | Replaces audit.rules file. \n "
+  template:
+      src=audit_rules
+      dest=/etc/audit/rules.d/audit.rules
+      owner=root
+      group=root
+      mode=0640
+  notify: restart auditd
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000167
+      - SV-50323r3_rule
+      - V-38522
+      - RHEL-06-000169
+      - SV-50326r4_rule
+      - V-38525
+      - RHEL-06-000171
+      - SV-50328r3_rule
+      - V-38527
+      - RHEL-06-000173
+      - SV-50331r2_rule
+      - V-38530
+      - RHEL-06-000174
+      - SV-50332r2_rule
+      - V-38531
+      - RHEL-06-000175
+      - SV-50335r2_rule
+      - V-38534
+      - RHEL-06-000176
+      - SV-50337r2_rule
+      - V-38536
+      - RHEL-06-000177
+      - SV-50339r2_rule
+      - V-38538
+      - RHEL-06-000182
+      - SV-50341r4_rule
+      - V-38540
+      - RHEL-06-000183
+      - SV-50342r2_rule
+      - V-38541
+      - RHEL-06-000184
+      - SV-50344r3_rule
+      - V-38543
+      - RHEL-06-000185
+      - SV-50346r3_rule
+      - V-38545
+      - RHEL-06-000186
+      - SV-50348r3_rule
+      - V-38547
+      - RHEL-06-000187
+      - SV-50351r3_rule
+      - V-38550
+      - RHEL-06-000188
+      - SV-50353r3_rule
+      - V-38552
+      - RHEL-06-000189
+      - SV-50355r3_rule
+      - V-38554
+      - RHEL-06-000190
+      - SV-50357r3_rule
+      - V-38556
+      - RHEL-06-000191
+      - SV-50358r3_rule
+      - V-38557
+      - RHEL-06-000192
+      - SV-50359r3_rule
+      - V-38558
+      - RHEL-06-000193
+      - SV-50360r3_rule
+      - V-38559
+      - RHEL-06-000194
+      - SV-50362r3_rule
+      - V-38561
+      - RHEL-06-000195
+      - SV-50364r3_rule
+      - V-38563
+      - RHEL-06-000196
+      - SV-50366r3_rule
+      - V-38565
+      - RHEL-06-000197
+      - SV-50367r2_rule
+      - V-38566
+      - RHEL-06-000198
+      - SV-50368r4_rule
+      - V-38567
+      - RHEL-06-000199
+      - SV-50369r3_rule
+      - V-38568
+      - RHEL-06-000200
+      - SV-50376r4_rule
+      - V-38575
+      - RHEL-06-000201
+      - SV-50379r2_rule
+      - V-38578
+
+- name: "LOW | V-38528 | The system must log Martian packets."
+  sysctl:
+      name: net.ipv4.conf.all.log_martians
+      state: present
+      value: 1
+      reload: yes
+      ignoreerrors: yes
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000088
+      - SV-50329r2_rule
+      - V-38528
+
+- name: "LOW | V-38533 | The system must ignore ICMPv4 redirect messages by default."
+  sysctl:
+      name: net.ipv4.conf.default.accept_redirects
+      state: present
+      value: 0
+      reload: yes
+      ignoreerrors: yes
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000091
+      - SV-50334r3_rule
+      - V-38533
+
+- name: "LOW | V-38535 | The system must not respond to ICMPv4 sent to a broadcast address."
+  sysctl:
+      name: net.ipv4.icmp_echo_ignore_broadcasts  
+      state: present
+      value: 1
+      reload: yes
+      ignoreerrors: yes
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000092
+      - SV-50336r2_rule
+      - V-38535
+
+- name: "LOW | V-38537 | The system must ignore ICMPv4 bogus error responses."
+  sysctl:
+      name: net.ipv4.icmp_ignore_bogus_error_responses
+      state: present
+      value: 1
+      reload: yes
+      ignoreerrors: yes
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000093
+      - SV-50338r2_rule
+      - V-38537
+
+- name: "LOW | V-38569 | The system must require passwords to contain at least one uppercase alphabetic character."
+  script: pam_cracklib.sh
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000057
+      - SV-50370r1_rule
+      - V-38569
+
+- name: "LOW | V-38570 | The system must require passwords to contain at least one special character."
+  script: pam_cracklib.sh
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000058
+      - SV-50371r1_rule
+      - V-38570
+
+- name: "LOW | V-38571 | The system must require passwords to contain at least one lower-case alphabetic character."
+  script: pam_cracklib.sh
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000059
+      - SV-50372r2_rule
+      - V-38571
+
+- name: "LOW | V-38572 | The system must require at least eight characters be changed between the old and new passwords during a password change."
+  script: pam_cracklib.sh
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000060
+      - SV-50373r2_rule
+      - V-38572
+
+- name: "LOW | V-38584 | The xinetd service must be uninstalled if no network services utilizing it are enabled."
+  yum:
+      name: xinetd
+      state: absent
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000204
+      - SV-50385r1_rule
+      - V-38584
+
+- name: "LOW | V-38590 | The system must allow locking of the console screen in text mode."
+  yum:
+    name: screen
+    state: latest
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000071
+      - SV-50391r1_rule
+      - V-38590
+
+- name: "LOW | V-38608 | The SSH daemon must set a timeout interval on idle sessions."
+  lineinfile:
+      state: present
+      dest: /etc/ssh/sshd_config
+      regexp: ^#?ClientAliveInterval
+      line: ClientAliveInterval 900
+  notify: restart ssh
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000230
+      - SV-50409r1_rule
+      - V-38608
+
+- name: "LOW | V-38610 | The SSH daemon must set a timeout count on idle sessions."
+  lineinfile:
+      state: present
+      dest: /etc/ssh/sshd_config
+      regexp: ^#?ClientAliveCountMax
+      line: ClientAliveCountMax 0
+  notify: restart ssh
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000231
+      - SV-50411r1_rule
+      - V-38610
+
+- name: "LOW | V-38616 | The SSH daemon must not permit user environment settings."
+  lineinfile:
+      state: present
+      dest: /etc/ssh/sshd_config
+      regexp: ^#?PermitUserEnvironment
+      line: PermitUserEnvironment no
+  notify: restart ssh
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000241
+      - SV-50417r1_rule
+      - V-38616
+
+- name: "LOW | V-38618 | The avahi service must be disabled."
+  service:
+      name: avahi-daemon
+      state: stopped
+      enabled: no
+  ignore_errors: true
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000246
+      - SV-50419r2_rule
+      - V-38618
+
+- name: "LOW | V-38624 | System logs must be rotated daily."
+  yum:
+     name: logrotate
+     state: latest
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000138
+      - SV-50425r1_rule
+      - V-38624
+
+- name: "LOW | V-38627 | The openldap-servers package must not be installed unless required."
+  yum:
+     name: openldap-servers
+     state: absent
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000256
+      - SV-50428r2_rule
+      - V-38627
+
+- name: "LOW | V-38640 | The Automatic Bug Reporting Tool (abrtd) service must not be running."
+  service:
+      name: abrtd
+      enabled: no
+      state: stopped
+  ignore_errors: true
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000261
+      - SV-50441r2_rule
+      - V-38640
+
+- name: "LOW | V-38641 | The atd service must be disabled."
+  service:
+      name: atd
+      enabled: no
+      state: stopped
+  ignore_errors: true
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000262
+      - SV-50442r3_rule
+      - V-38641
+
+- name: "LOW | V-38642 | The system default umask for daemons must be 027 or 022."
+  lineinfile:
+      state: present
+      dest: /etc/init.d/functions
+      regexp: 'umask *'
+      line: 'umask 022'
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000346
+      - SV-50443r1_rule
+      - V-38642
+
+- name: "LOW | V-38644 | The ntpdate service must not be running."
+  service:
+      name: ntpdate
+      enabled: no
+      state: stopped
+  ignore_errors: true
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000265
+      - SV-50445r2_rule
+      - V-38644
+
+- name: "LOW | V-38645 | The system default umask in /etc/login.defs must be 077."
+  lineinfile:
+      state: present
+      dest: /etc/login.defs
+      regexp: 'UMASK *'
+      line: 'UMASK 077'
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000345
+      - SV-50446r1_rule
+      - V-38645
+
+- name: "LOW | V-38646 | The oddjobd service must not be running."
+  service:
+      name: oddjobd
+      enabled: yes
+      state: started
+  ignore_errors: True
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000266
+      - SV-50447r2_rule
+      - V-38646
+
+- name: "LOW | V-38647 | The system default umask in /etc/profile must be 077."
+  shell: sed -i.bak 's/\(mask \)0.*/\mask 077/g' /etc/profile
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000344
+      - SV-50448r1_rule
+      - V-38647
+
+- name: "LOW | V-38648 | The qpidd service must not be running."
+  service:
+      name: qpidd
+      enabled: no
+      state: stopped
+  ignore_errors: True
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000267
+      - SV-50449r2_rule
+      - V-38648
+
+- name: "LOW | V-38649 | The system default umask for the csh shell must be 077."
+  shell: sed -i.bak 's/\(mask \)0.*/\mask 077/g' /etc/csh.cshrc
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000343
+      - SV-50450r1_rule
+      - V-38649
+
+- name: "LOW | V-38650 | The rdisc service must not be running."
+  service:
+      name: rdisc
+      enabled: no
+      state: stopped
+  ignore_errors: True
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000268
+      - SV-50451r2_rule
+      - V-38650
+
+- name: "LOW | V-38651 | The system default umask for the bash shell must be 077."
+  shell: sed -i.bak 's/\(mask \)0.*/\mask 077/g' /etc/bashrc
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000342
+      - SV-50452r1_rule
+      - V-38651
+
+- name: "LOW | V-38655 | The noexec option must be added to removable media partitions."
+  command: "true"
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000271
+      - SV-50456r1_rule
+      - V-38655
+
+- name: "LOW | V-38656 | The system must use SMB client signing for connecting to samba servers using smbclient."
+  lineinfile:
+    state: present
+    dest: /etc/samba/smb.conf
+    regexp: client signing = *
+    line: client signing = mandatory
+    insertafter: '\[global\]'
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000272
+      - SV-50457r1_rule
+      - V-38656
+
+- name: "LOW | V-38657 | The system must use SMB client signing for connecting to samba servers using mount.cifs."
+  command: "true"
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000273
+      - SV-50458r2_rule
+      - V-38657
+
+- name: "LOW | V-38659 | The operating system must employ cryptographic mechanisms to protect information in storage."
+  command: "true"
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000275
+      - SV-50460r2_rule
+      - V-38659
+
+- name: "LOW | V-38661 | The operating system must protect the confidentiality and integrity of data at rest."
+  command: "true"
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000276
+      - SV-50462r2_rule
+      - V-38661
+
+- name: "LOW | V-38662 | The operating system must employ cryptographic mechanisms to prevent unauthorized disclosure of data at rest unless otherwise protected by alternative physical measures."
+  command: "true"
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000277
+      - SV-50463r2_rule
+      - V-38662
+
+- name: "LOW | V-38669 | The postfix service must be enabled for mail delivery."
+  service:
+    name: postfix
+    enabled: yes
+    state: started
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000287
+      - SV-50470r1_rule
+      - V-38669
+
+- name: "LOW | V-38672 | The netconsole service must be disabled unless required."
+  service:
+    name: netconsole
+    enabled: no
+    state: stopped
+  ignore_errors: true
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000289
+      - SV-50473r2_rule
+      - V-38672
+
+- name: "LOW | V-38675 | Process core dumps must be disabled unless needed."
+  lineinfile:
+      state: present
+      dest: /etc/security/limits.conf
+      regexp: '\* hard core'
+      line: '* hard core 0'
+      insertafter: '\#@student'
+  ignore_errors: "{{ ansible_check_mode }}"
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000308
+      - SV-50476r2_rule
+      - V-38675
+
+- name: "LOW | V-38681 | All GIDs referenced in /etc/passwd must be defined in /etc/group"
+  command: "true"
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000294
+      - SV-50482r2_rule
+      - V-38681
+
+- name: "LOW | V-38683 | All accounts on the system must have unique user or account names"
+  command: "true"
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000296
+      - SV-50484r1_rule
+      - V-38683
+
+- name: "LOW | V-38684 | The system must limit users to 10 simultaneous system logins, or a site-defined number, in accordance with operational requirements."
+  lineinfile:
+      state: present
+      dest: /etc/security/limits.conf
+      regexp: '\* hard maxlogins'
+      line: '* hard maxlogins 10'
+      insertafter: '\#@student'
+  ignore_errors: "{{ ansible_check_mode }}"
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000319
+      - SV-50485r2_rule
+      - V-38684
+
+- name: "LOW | V-38685 | Temporary accounts must be provisioned with an expiration date."
+  command: "true"
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000297
+      - SV-50486r1_rule
+      - V-38685
+
+- name: "LOW | V-38687 | The system must provide VPN connectivity for communications over untrusted networks."
+  yum:
+      name: libreswan
+      state: latest
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000321
+      - SV-50488r3_rule
+      - V-38687
+
+- name: "LOW | V-38690 | Emergency accounts must be provisioned with an expiration date. "
+  command: "true"
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000298
+      - SV-50491r1_rule
+      - V-38690
+
+- name: "LOW | V-38692 | Accounts must be locked upon 35 days of inactivity."
+  lineinfile:
+      state: present
+      dest: /etc/default/useradd
+      regexp: 'INACTIVE='
+      line: 'INACTIVE=35'
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000334
+      - SV-50493r1_rule
+      - V-38692
+
+- name: "LOW | V-38693 | The system must require passwords to contain no more than three consecutive repeating characters."
+  script: pam_cracklib.sh 
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000299
+      - SV-50494r2_rule
+      - V-38693
+
+- name: "LOW | V-38694 | The operating system must manage information system identifiers for users and devices by disabling the user identifier after an organization defined time period of inactivity."
+  lineinfile:
+      state: present
+      dest: /etc/default/useradd
+      regexp: 'INACTIVE='
+      line: 'INACTIVE=35'
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000335
+      - SV-50495r1_rule
+      - V-38694
+
+- name: "LOW | V-38697 | The sticky bit must be set on all public directories."
+  command: "true"
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000336
+      - SV-50498r2_rule
+      - V-38697
+
+- name: "LOW | V-38699 | All public directories must be owned by a system account."
+  command: "true"
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000337
+      - SV-50505r2_rule
+      - V-38699
+
+- name: "LOW | V-38702 | Check if /etc/vsftpd/vsftpd.conf file exists."
+  stat: path=/etc/vsftpd/vsftpd.conf
+  register: v_38702_check
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000339
+      - SV-50503r1_rule
+      - V-38702
+
+- name: "LOW | V-38702 | The FTP daemon must be configured for logging or verbose mode."
+  lineinfile:
+      dest: /etc/vsftpd/vsftpd.conf
+      state: present
+      line: "{{ vsftpd_item }}"
+  with_items:
+      - "xferlog_enable=YES"
+      - "xferlog_std_format=NO"
+      - "log_ftp_protocol=YES"
+  loop_control:
+      loop_var: vsftpd_item
+  when: v_38702_check.stat.exists == true
+  ignore_errors: "{{ ansible_check_mode }}"
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000339
+      - SV-50503r1_rule
+      - V-38702
+
+
+- name: "LOW | V-51369 | The system must use a Linux Security Module configured to limit the privileges of system services."
+  script: selinuxtype.sh
+  #selinux:
+  #    policy: targeted
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000023
+      - SV-65579r1_rule
+      - V-51369
+
+- name: "LOW | V-51379 | All device files must be monitored by the system Linux Security Module."
+  command: "true"
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000025
+      - SV-65589r1_rule
+      - V-51379
+

@@ -1,0 +1,33 @@
+---
+# Nothing is currently used from this file.
+# It is all in the displayed menu
+
+
+# defaults file for rhel7_stigs
+
+#rhel7stig_cat1: No
+#rhel7stig_cat2: No
+#rhel7stig_cat3: No
+
+#rhel7stig_cat1_gui: No
+#rhel7stig_cat2_gui: No
+##rhel7stig_cat3_gui: No
+
+#rhel7stig_lftpd_removal: No
+
+#rhel7stig_remove_gui: No
+
+#rhel7stig_tftp_removal: No
+
+#rhel7stig_system_not_router: No
+
+#selinux_enforce: No
+
+#disable_autofs: No
+
+#grub2_password: No
+
+# The system must use a DoD-approved virus scan program.
+#rhel7stig_av_package.package: McAfeeVSEForLinux
+#rhel7stig_av_package.service: nails
+

@@ -1,0 +1,16 @@
+---
+
+- name: "MEDIUM | RHEL-07-040740 | The system must not be performing packet forwarding unless the system is a router."
+  sysctl:
+      name: net.ipv4.ip_forward
+      state: present
+      value: 0
+      reload: yes
+      ignoreerrors: yes
+  #when: not rhel7stig_system_not_router
+  tags:
+      - cat2
+      - medium
+      - RHEL-07-040740
+      - SV-86933r1_rule
+      - V-72309

@@ -1,0 +1,25 @@
+---
+
+- name: "MEDIUM | V-71985 | Check if autofs is installed."
+  stat: path=/etc/init.d/autofs
+  register: v_71985_check
+  tags:
+      - cat2
+      - medium
+      - RHEL-07-020110
+      - SV-86609r1_rule
+      - V-71985
+
+- name: "MEDIUM | V-71985 | File system automounter must be disabled unless required."
+  service:
+      name: autofs
+      enabled: no
+      state: stopped
+      #ignore_errors: yes
+  when: v_71985_check.stat.exists == True
+  tags:
+      - cat2
+      - medium
+      - RHEL-07-020110
+      - SV-86609r1_rule
+      - V-71985

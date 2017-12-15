@@ -1,0 +1,24 @@
+---
+
+- name: "LOW | V-38437 | Automated file system mounting tools must not be enabled unless needed."
+  stat: path=/etc/init.d/autofs
+  register: v_38437_check
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000526
+      - SV-50237r1_rule
+      - V-38437
+
+- name: "LOW | V-38437 | Automated file system mounting tools must not be enabled unless needed."
+  service:
+    name: autofs
+    enabled: no
+    state: stopped
+  when: v_38437_check.stat.exists == True
+  tags:
+      - cat3
+      - low
+      - RHEL-06-000526
+      - SV-50237r1_rule
+      - V-38437

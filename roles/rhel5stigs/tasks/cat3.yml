@@ -1,0 +1,477 @@
+- name: "LOW | V-774 | The root user's home directory must not be the root directory (/)."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37349r2_rule
+      - V-774
+
+- name: "LOW | V-781 | All GIDs referenced in the /etc/passwd file must be defined in the /etc/group file."
+  command: "true"
+  tags:
+      - cat3
+      - SV-27072r1_rule
+      - V-781
+
+- name: "LOW | V-792 | Manual page files must have mode 0644 or less permissive."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37234r3_rule
+      - V-792
+
+- name: "LOW | V-806 | The sticky bit must be set on all public directories."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37647r1_rule
+      - V-806
+
+- name: "LOW | V-825 | Global initialization files must contain the 'mesg -n' or 'mesg n' commands."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37289r1_rule
+      - V-825
+
+- name: "LOW | V-835 | Sendmail logging must not be set to less than nine in the sendmail.cf file."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37497r2_rule
+      - V-835
+
+- name: "LOW | V-845 | The FTP daemon must be configured for logging or verbose mode."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37547r1_rule
+      - V-899
+
+- name: "LOW | V-899 | All interactive users must be assigned a home directory in the /etc/passwd file."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37375r1_rule
+      - V-899
+
+- name: "LOW | V-900 | All interactive user home directories defined in the /etc/passwd file must exist."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37379r1_rule
+      - V-900
+
+- name: "LOW | V-914 | All files and directories contained in interactive user home directories must be owned by the home directory's owner."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37175r1_rule
+      - V-914
+
+- name: "LOW | V-915 | All files and directories contained in user home directories must have mode 0750 or less permissive."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37183r1_rule
+      - V-915
+
+- name: "LOW | V-923 | The system must be checked for extraneous device files at least weekly."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37543r3_rule
+      - V-923
+
+- name: "LOW | V-929 | The Network File System (NFS) export configuration file must have mode 0644 or less permissive."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37943r1_rule
+      - V-929
+
+- name: "LOW | V-1011 | Inetd or xinetd logging/tracing must be enabled."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37439r1_rule
+      - V-1011
+
+- name: "LOW | V-1062 | The root shell must be located in the / file system."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37380r1_rule
+      - V-1062
+
+- name: "LOW | V-4360 |Cron programs must not set the umask to a value less restrictive than 077."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37489r1_rule
+      - V-4360
+
+- name: "LOW | V-4384 | The SMTP service's SMTP greeting must not provide version information."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37505r2_rule
+      - V-4384
+
+- name: "LOW | V-4692 | The SMTP service must not have the EXPN feature active."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37510r1_rule
+      - V-4692
+
+- name: "LOW | V-4693 | The SMTP service must not have the Verify (VRFY) feature active."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37511r1_rule
+      - V-4693
+
+- name: "LOW | V-4694 | The sendmail service must not have the wizard backdoor active."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37513r1_rule
+      - V-4694
+
+- name: "LOW | V-4701 | The system must not have the finger service active."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37445r1_rule
+      - V-4701
+
+
+- name: "LOW | V-11996 | Process core dumps must be disabled unless needed."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37546r2_rule
+      - V-11996
+
+- name: "LOW | V-11997 | The kernel core dump data directory must be owned by root."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37570r2_rule
+      - V-11997
+
+- name: "LOW | V-12003 | A separate file system must be used for user home directories (such as /home or an equivalent)."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37640r1_rule
+      - V-12003
+
+- name: "LOW | V-22292 | The system must use time sources local to the enclave."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37413r2_rule
+      - V-22292
+
+- name: "LOW | V-22298 | The system must limit users to 10 simultaneous system logins, or a site-defined number, in accordance with operational requirements."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37182r1_rule
+      - V-22298
+
+- name: "LOW | V-22299 | The system must display the date and time of the last successful account login upon login."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37187r1_rule
+      - V-22299
+
+- name: "LOW | V-22301 | The system must display a publicly-viewable pattern during a graphical desktop environment session lock."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37222r1_rule
+      - V-22301
+
+- name: "LOW | V-22308 | The system must restrict the ability to switch to the root user to members of a defined group."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37345r1_rule
+      - V-22308
+
+- name: "LOW | V-22316 | All manual page files must not have extended ACLs."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37238r2_rule
+      - V-22316
+
+- name: "LOW | V-22331 | For systems using DNS resolution, at least two name servers must be configured."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37238r2_rule
+      - V-22331
+
+- name: "LOW | V-22350 | User home directories must not have extended ACLs."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37162r1_rule
+      - V-22350
+
+- name: "LOW | V-22370 | System audit tool executables must be owned by root."
+  command: "true"
+  tags:
+      - cat3
+      - SV-26504r1_rule
+      - V-22370
+
+- name: "LOW | V-22371 | System audit tool executables must be group-owned by root, bin, sys, or system."
+  command: "true"
+  tags:
+      - cat3
+      - SV-26507r1_rule
+      - V-22371
+
+- name: "LOW | V-22372 | System audit tool executables must have mode 0750 or less permissive."
+  command: "true"
+  tags:
+      - cat3
+      - SV-26510r1_rule
+      - V-22372
+
+- name: "LOW | V-22373 | System audit tool executables must not have extended ACLs."
+  command: "true"
+  tags:
+      - cat3
+      - SV-26513r1_rule
+      - V-22373
+
+- name: "LOW | V-22374 | The audit system must alert the SA in the event of an audit processing failure."
+  command: "true"
+  tags:
+      - cat3
+      - SV-68095r2_rule
+      - V-22374
+
+- name: "LOW | V-22376 | The audit system must be configured to audit account creation."
+  command: "true"
+  tags:
+      - cat3
+      - SV-26519r1_rule
+      - V-22376
+
+- name: "LOW | V-22377 | The audit system must be configured to audit account modification."
+  command: "true"
+  tags:
+      - cat3
+      - SV-26520r1_rule
+      - V-22377
+
+- name: "LOW | V-22378 | The audit system must be configured to audit account disabling."
+  command: "true"
+  tags:
+      - cat3
+      - SV-26521r1_rule
+      - V-22378
+
+- name: "LOW | V-22382 | The audit system must be configured to audit account termination."
+  command: "true"
+  tags:
+      - cat3
+      - SV-26522r1_rule
+      - V-22382
+
+- name: "LOW | V-22405 | The kernel core dump data directory must be group-owned by root, bin, sys, or system."
+  command: "true"
+  tags:
+      - cat3
+      - SV-26608r1_rule
+      - V-22405
+
+- name: "LOW | V-22406 | The kernel core dump data directory must have mode 0700 or less permissive."
+  command: "true"
+  tags:
+      - cat3
+      - SV-26612r2_rule
+      - V-22406
+
+- name: "LOW | V-22407 | The kernel core dump data directory must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat3
+      - SV-26616r2_rule
+      - V-22407
+
+- name: "LOW | V-22409 | The system must not process Internet Control Message Protocol (ICMP) timestamp requests."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37601r2_rule
+      - V-22409
+
+- name: "LOW | V-22418 | The system must log martian packets."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37630r1_rule
+      - V-22418
+
+- name: "LOW | V-22422 | All local file systems must employ journaling or another mechanism ensuring file system consistency."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37401r1_rule
+      - V-22422
+
+- name: "LOW | V-22473 | The SSH daemon must not permit GSSAPI authentication unless needed."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37866r3_rule
+      - V-22473
+
+- name: "LOW | V-22474 | The SSH client must not permit GSSAPI authentication unless needed."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37868r2_rule
+      - V-22474
+
+- name: "LOW | V-22475 | The SSH daemon must not permit Kerberos authentication unless needed."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37872r2_rule
+      - V-22475
+
+- name: "LOW | V-22493 | The Network File System (NFS) exports configuration file must not have an extended ACL."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37947r1_rule
+      - V-22493
+
+- name: "LOW | V-22507 | The file integrity tool must be configured to verify ACLs."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37752r1_rule
+      - V-22507
+
+- name: "LOW | V-22508 | The file integrity tool must be configured to verify extended attributes."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37753r1_rule
+      - V-22508
+
+- name: "LOW | V-22509 | The file integrity tool must use FIPS 140-2 approved cryptographic hashes for validating file contents."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37754r1_rule
+      - V-22509
+
+- name: "LOW | V-22576 | The system must use available memory address randomization techniques."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37979r1_rule
+      - V-22576
+
+- name: "LOW | V-22577 | Automated file system mounting tools must not be enabled unless needed."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37980r2_rule
+      - V-22577
+
+- name: "LOW | V-22578 | The system must have USB disabled unless needed."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37981r1_rule
+      - V-22578
+
+- name: "LOW | V-22579 | The system must have USB Mass Storage disabled unless needed."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37982r1_rule
+      - V-22579
+
+- name: "LOW | V-22580 | The system must have IEEE 1394 (Firewire) disabled unless needed."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37983r1_rule
+      - V-22580
+
+- name: "LOW | V-22584 | The system must use a Linux Security Module configured to limit the privileges of system services."
+  command: "true"
+  tags:
+      - cat3
+      - SV-26978r1_rule
+      - V-22584
+
+- name: "LOW | V-22588 | The system package management tool must cryptographically verify the authenticity of software packages during installation."
+  command: "true"
+  tags:
+      - cat3
+      - SV-26990r2_rule
+      - V-22588
+
+- name: "LOW | V-22589 | The system package management tool must not automatically obtain updates."
+  command: "true"
+  tags:
+      - cat3
+      - SV-26992r1_rule
+      - V-22589
+
+- name: "LOW | V-22598 | Auditing must be enabled at boot by setting a kernel parameter."
+  command: "true"
+  tags:
+      - cat3
+      - SV-27001r1_rule
+      - V-22598
+
+- name: "LOW | V-23736 | The system must use a separate file system for /var."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37641r1_rule
+      - V-23736
+
+- name: "LOW | V-23738 | The system must use a separate file system for the system audit data path."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37642r1_rule
+      - V-23738
+
+- name: "LOW | V-23739 | The system must use a separate file system for /tmp (or equivalent)."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37395r1_rule
+      - V-23739
+
+- name: "LOW | V-24357 | The system must be configured to send audit/system records to a remote audit server."
+  command: "true"
+  tags:
+      - cat3
+      - SV-37948r4_rule
+      - V-24357
+
+- name: "LOW | V-38692 | Accounts must be locked upon 35 days of inactivity."
+  command: "true"
+  tags:
+      - cat3
+      - SV-50927r1_rule
+      - V-38692
+

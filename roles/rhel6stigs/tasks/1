@@ -1,0 +1,151 @@
+---
+# tasks file for rhel6_stigs
+
+- name: Run CAT1 STIGs
+  include: fix-cat1.yml 
+  with_items:
+      - rhel6stig_cat1
+  when: 
+      - rhel6stig_cat1 == "Yes" or rhel6stig_cat1 == "yes" or rhel6stig_cat1 == "Y" or rhel6stig_cat1 == "y"
+      #- ansible_distribution == "RedHat"
+      #- ansible_distribution == "CentOS"
+      - ansible_distrubution_major_version == "6"
+  #when: confirmation != "Yes"
+  tags:
+      - cat1
+      - high
+      - fix_cat1
+
+- name: Run CAT2 STIGs
+  include: fix-cat2.yml
+  #when: confirmation != "Yes"
+  with_items:
+      - rhel6stig_cat2
+  when: 
+      - rhel6stig_cat2 == "Yes" or rhel6stig_cat2 == "yes" or rhel6stig_cat2 == "Y" or rhel6stig_cat2 == "y"
+  tags:
+      - cat2
+      - medium
+      - fix_cat2
+
+- name: Run CAT3 STIGs
+  include: fix-cat3.yml 
+  with_items:
+      - rhel6stig_cat3
+  when: 
+      - rhel6stig_cat3 == "Yes" or rhel6stig_cat3 == "yes" or rhel6stig_cat3 == "Y" or rhel6stig_cat3 == "y"
+  #when: confirmation != "Yes"
+  tags:
+      - cat3
+      - medium
+      - fix_cat3
+
+- name: Remove X Windows
+  include: remove-gui.yml
+  with_items:
+      - rhel6stig_remove_gui
+  when:
+      - rhel6stig_remove_gui == "Yes" or rhel6stig_remove_gui == "yes" or rhel6stig_remove_gui == "Y" or rhel6stig_remove_gui == "y"
+  #when: confirmation != "Yes"
+  tags:
+      - cat2
+      - gui
+      - fix_cat2_gui
+      - RHEL-06-040560
+
+- name: Run CAT1 GUI STIGs
+  include: fix-cat1-gui.yml
+  with_items:
+      - rhel6stig_cat1_gui
+  when: 
+      - rhel6stig_cat1_gui == "Yes" or rhel6stig_cat1_gui == "yes" or rhel6stig_cat1_gui == "Y" or rhel6stig_cat1_gui == "y"
+  #when: confirmation != "Yes"
+  tags:
+      - cat1
+      - gui
+      - fix_cat1_gui
+
+- name: Run CAT2 GUI STIGs
+  include: fix-cat2-gui.yml
+  with_items:
+      - rhel6stig_cat2_gui
+  when: 
+      - rhel6stig_cat2_gui == "Yes" or rhel6stig_cat2_gui == "yes" or rhel6stig_cat2_gui == "Y" or rhel6stig_cat2_gui == "y"
+  #when: confirmation != "Yes"
+  tags:
+      - cat2
+      - gui
+      - fix_cat2_gui
+
+
+#- name: Run CAT3 GUI STIGs
+#  include: fix-cat3-gui.yml
+#  with_items:
+#      - rhel6stig_cat3_gui
+#  when:
+#      - rhel6stig_cat3_gui == "Yes" or rhel6stig_cat3_gui == "yes" or rhel6stig_cat3_gui == "Y" or rhel6stig_cat3_gui == "y"
+  #when: confirmation != "Yes"
+#  tags:
+#      - cat3
+#      - gui
+#      - fix_cat3_gui
+
+- name: Run FTP server (LFTPD) removal
+  include: remove-lftpd.yml
+  with_items:
+      - rhel6stig_lftpd_removal
+  when:
+      - rhel6stig_lftpd_removal == "Yes" or rhel6stig_lftpd_removal == "yes" or rhel6stig_lftpd_removal == "Y" or rhel6stig_lftpd_removal == "y"
+  #when: confirmation != "Yes"
+  tags:
+      - removal_lftpd
+
+- name: Run TFTP server removal
+  include: remove-tftp.yml
+  with_items:
+      - rhel6stig_tftp_removal
+  when:
+      - rhel6stig_tftp_removal == "Yes" or rhel6stig_tftp_removal == "yes" or rhel6stig_tftp_removal== "Y" or rhel6stig_tftp_removal == "y"
+  #when: confirmation != "Yes"
+  tags:
+      - removal_tftp
+
+- name: Router Configuration removal
+  include: remove-router.yml
+  with_items:
+      - rhel6stig_system_not_router
+  when:
+      - rhel6stig_system_not_router == "Yes" or rhel6stig_system_not_router == "yes" or rhel6stig_system_not_router == "Y" or rhel6stig_system_not_router == "y"
+  #when: confirmation != "Yes"
+  tags:
+      - removal_router
+
+- name: Set SELinux to enforcing
+  include: selinux_enforce.yml
+  with_items:
+      - selinux_enforce
+  when:
+      - selinux_enforce == "Yes" or selinux_enforce == "yes" or selinux_enforce == "Y" or selinux_enforce == "y"
+  #when: confirmation != "Yes"
+  tags:
+      - selinux_enforce
+
+- name: Disable autofs
+  include: disable_autofs.yml
+  with_items:
+      - disable_autofs
+  when:
+      - disable_autofs == "Yes" or disable_autofs == "yes" or disable_autofs == "Y" or disable_autofs == "y"
+  #when: confirmation != "Yes"
+  tags:
+      - disable_autofs
+
+- name: Set GRUB2 Password
+  include: grub2_password.yml
+  with_items:
+      - grub2_password
+  when:
+      - grub2_password == "Yes" or grub2_password == "yes" or grub2_password == "Y" or grub2_password == "y"
+  #when: confirmation != "Yes"
+  tags:
+      - grub2_password

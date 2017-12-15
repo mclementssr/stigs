@@ -1,0 +1,13 @@
+---
+- name: "HIGH | V-71989 | The operating system must enable SELinux."
+  #script: roles/rhel7stigs/scripts/rhel-07-020210.sh
+  #script: v-71989.sh
+  selinux:
+      policy: targeted
+      state: enforcing
+  tags:
+      - cat1
+      - high
+      - RHEL-07-020210
+      - SV-86613r2_rule
+      - V-71989

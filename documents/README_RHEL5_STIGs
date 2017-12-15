@@ -1,0 +1,40 @@
+RHEL 5 STIGs Playbook
+
+==============================================================================
+# How to run this playbook:
+#
+# cd /etc/ansible/playbooks
+# ansible-playbook rhel5-stigs.yml
+# Then answer yes to the categories you want to fix.
+# Nothing will be correct unless you answer "y" to that category.
+#
+# Single host:
+# ansible-playbook rhel5-stigs.yml --limit <hostname>
+#
+# Single finding:
+# ansible-playbook rhel5-stigs.yml --tags V-38473
+#
+# Single Category:
+# ansible-playbook rhel5-stigs.yml --tags fix_cat1
+#
+# Dry Run with changes to be made shown:
+# ansible-playbook rhel5-stigs.yml --check --diff
+#
+# List available tags:
+# ansible-playbook rhel5-stigs.yml --list-tags
+==============================================================================
+
+Manaul Review Required
+
+  High
+
+  Medium
+    V-72817
+
+  Low
+
+    V-51379
+
+Ignore Errors:
+ Note: If the service isn't install these items will error. 
+

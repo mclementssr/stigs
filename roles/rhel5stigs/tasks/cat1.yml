@@ -1,0 +1,210 @@
+- name: "HIGH | V-770 | The system must not have accounts configured with blank or null passwords."
+  command: "true"
+  tags:
+      - cat1
+      - SV-37259r1_rule
+      - V-770
+
+- name: "HIGH | V-883 | Files executed through a mail aliases file must be owned by root and must reside within a directory owned and writable only by root."
+  command: "true"
+  tags:
+      - cat1
+      - SV-37491r1_rule
+      - V-883
+
+
+- name: "HIGH | V-847 | The TFTP daemon must operate in 'secure mode' which provides access only to a single directory on the host file system."
+  command: "true"
+  tags:
+      - cat1
+      - SV-37560r1_rule 
+      - V-847
+
+- name: "HIGH | V-848 | The TFTP daemon must have mode 0755 or less permissive."
+  command: "true"
+  tags:
+      - cat1
+      - SV-37564r1_rule
+      - V-848
+
+- name: "HIGH | V-910 | Run control scripts must not execute world-writable programs or scripts."
+  command: "true"
+  tags:
+      - cat1
+      - SV-38154r2_rule 
+      - V-910
+
+- name: "HIGH | V-922 | All shell files must have mode 0755 or less permissive."
+  command: "true"
+  tags:
+      - cat1
+      - SV-37403r1_rule
+      - V-922
+
+- name: "HIGH | V-993 | SNMP communities, users, and passphrases must be changed from the default."
+  command: "true"
+  tags:
+      - cat1
+      - SV-37689r1_rule
+      - V-993
+
+- name: "HIGH | V-1013 | The system must be configured to only boot from the system boot device."
+  command: "true"
+  tags:
+      - cat1
+      - SV-37986r1_rule
+      - V-1013
+
+- name: "HIGH | V-1046 | Root passwords must never be passed over a network in clear text form."
+  command: "true"
+  tags:
+      - cat1
+      - SV-37150r2_rule
+      - V-1046
+
+- name: "HIGH | V-4247 | The system must not use removable media as the boot loader."
+  command: "true"
+  tags:
+      - cat1
+      - SV-41534r1_rule
+      - V-4247
+
+- name: "HIGH | V-4248 | For systems capable of using GRUB, the system must be configured with GRUB as the default boot loader unless another boot loader has been authorized, justified, and documented using site-defined procedures."
+  command: "true"
+  tags:
+      - cat1
+      - SV-42186r1_rule
+      - V-4248
+
+- name: "HIGH | V-4249 | The system boot loader must require authentication."
+  command: "true"
+  tags:
+      - cat1
+      - SV-37933r1_rule
+      - V-4249
+
+- name: "HIGH | V-4255 | If the system boots from removable media, it must be stored in a safe or similarly secured container."
+  command: "true"
+  tags:
+      - cat1
+      - SV-4255r2_rule
+      - V-4268
+
+- name: "HIGH | V-4268 | The system must not have special privilege accounts, such as shutdown and halt."
+  command: "true"
+  tags:
+      - cat1
+      - SV-37181r1_rule
+      - V-4268
+
+- name: "HIGH | V-4295 | The SSH daemon must be configured to only use the SSHv2 protocol."
+  command: "true"
+  tags:
+      - cat1
+      - SV-37818r2_rule
+      - V-4295
+
+- name: "HIGH | V-4339 | The Linux NFS Server must not have the insecure file locking option."
+  command: "true"
+  tags:
+      - cat1
+      - SV-37316r1_rule
+      - V-4339
+
+- name: "HIGH | V-4342 | The x86 CTRL-ALT-DELETE key sequence must be disabled."
+  command: "true"
+  tags:
+      - cat1
+      - SV-37327r1_rule
+      - V-4342
+
+- name: "HIGH | V-4382 | Administrative accounts must not run a web browser, except as needed for local service administration."
+  command: "true"
+  tags:
+      - cat1
+      - SV-37469r2_rule
+      - V-4382
+
+- name: "HIGH | V-4387 | Anonymous FTP accounts must not have a functional shell."
+  command: "true"
+  tags:
+      - cat1
+      - SV-37549r2_rule
+      - V-4387
+
+- name: "HIGH | V-4399 | The system must not use UDP for NIS/NIS+."
+  command: "true"
+  tags:
+      - cat1
+      - SV-37739r1_rule
+      - V-4399
+
+- name: "HIGH | V-4687 | The rsh daemon must not be running."
+  command: "true"
+  tags:
+      - cat1
+      - SV-37441r1_rule
+      - V-4687
+
+- name: "HIGH | V-4688 | The rexec daemon must not be running."
+  command: "true"
+  tags:
+      - cat1
+      - SV-37443r1_rule
+      - V-4688
+
+- name: "HIGH | V-4689 | The SMTP service must be an up-to-date version."
+  command: "true"
+  tags:
+      - cat1
+      - SV-37507r2_rule
+      - V-4689
+
+- name: "HIGH | V-4690 | The sendmail server must have the debug feature disabled."
+  command: "true"
+  tags:
+      - cat1
+      - SV-37508r1_rule
+      - V-4690
+
+- name: "HIGH | V-4691 | The SMTP service must not have a uudecode alias active."
+  command: "true"
+  tags:
+      - cat1
+      - SV-37509r1_rule
+      - V-4691
+
+- name: "HIGH | V-4695 | Any active TFTP daemon must be authorized and approved in the system accreditation package."
+  command: "true"
+  tags:
+      - cat1
+      - SV-37676r1_rule
+      - V-4695
+
+- name: "HIGH | V-4697 | X displays must not be exported to the world."
+  command: "true"
+  tags:
+      - cat1
+      - SV-37683r1_rule
+      - V-4697
+
+- name: "HIGH | V-11940 | The operating system must be a supported release."
+  command: "true"
+  tags:
+      - cat1
+      - SV-27049r2_rule
+      - V-11940
+
+- name: "HIGH | V-11988 | There must be no .rhosts, .shosts, hosts.equiv, or shosts.equiv files on the system."
+  command: "true"
+  tags:
+      - cat1
+      - SV-37370r1_rule
+      - V-11988
+
+- name: "HIGH | V-24386 | The telnet daemon must not be running."
+  command: "true"
+  tags:
+      - cat1
+      - SV-37444r1_rule
+      - V-24386

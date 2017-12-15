@@ -1,0 +1,84 @@
+RHEL 7 STIGs Playbook
+
+==============================================================================
+# How to run this playbook:
+#
+# cd /etc/ansible/playbooks
+# ansible-playbook rhel7-stigs.yml
+# Then answer yes to the categories you want to fix.
+# Nothing will be correct unless you answer "y" to that category.
+#
+# Single host:
+# ansible-playbook rhel7-stigs.yml --limit <hostname>
+#
+# Single finding:
+# ansible-playbook rhel7-stigs.yml --tags V-38473
+#
+# Single Category:
+# ansible-playbook rhel7-stigs.yml --tags fix_cat1
+#
+# Dry Run with changes to be made shown:
+# ansible-playbook rhel7-stigs.yml --check --diff
+#
+# List available tags:
+# ansible-playbook rhel7-stigs.yml --list-tags
+==============================================================================
+
+Manaul Review Required
+
+  High
+    V-71997 (cat /etc/redhat-release)
+    V-72005 (awk -F: '$3 == 0 {print $1}' /etc/passwd)
+    V-72067 (grep fips /boot/grub2/grub.cfg)
+    V-72213 (systemctl status nails)
+
+  Medium
+    V-71927 (awk -F: '$4 < 1 {print $1}' /etc/shadow)
+    V-71931 (chage -M 60 [username])
+    V-71965 (Smart Card)
+    V-71971 (semanage login)
+    V-71999 (yum history list | more)
+    V-72007 (find / xdev -fstype xfs -nouser)
+    V-72009 (find / xdev -fstype xfs -nogroup)
+    V-72011 (pwch -r | verify all users have home directories)
+    V-72015 (verify home directories defined in /etc/passwd)
+    V-72019 (chown <username> /home/<username>)
+    V-72021 (chgrp <username> /home/<username>) [Not recommended]
+    V-72023 (chown <username> /home/<username>/)
+    V-72025 (chgrp <username> /home/<username>/) [Not recommended]
+    V-72027 (chmod 0750 /home/<username>/*)
+    V-72029 (chown <username> /home/<username>/.*)
+    V-72031 (chgrp <username> /home/<username>/) [Not recommended]
+    V-72033 (chmod 0740 /home/<username>/.) [Not recommended. example: .ssh (0700)]
+    V-72035 (/etc/fstab /home add nosuid)
+    V-72037 (chmod 755 /home) [Do not script dangerous]
+    V-72039 (To restore default selinux context use touch /.autolabel, then reboot)
+    V-72041 (/etc/fstab /home add nosuid)
+    V-72043 (/etc/fstab add nosuid removable) 
+    V-72045 (/etc/fstab add nosuid NFS)
+    V-72047 (change group of world-writable directories to root)
+    V-72075 (no removable media in boot loader)
+    V-72095 (Not performed)
+    V-72209 (Log server ip address) ****Site specific****
+    V-72215 (Virus Definitions/McAfee VSE for linux)
+    V-72219 (Firewall service running: firewall-cmd --list-all)
+    V-72227 (LDAP USELDAPAUTH=yes /etc/sysconfig/authconfig)
+    V-72229 (LDAP tls_cacertdir /etc/openldap/certs)
+    V-72231 (LDAP tls_cacertfile /etc/openldap/ldap-cacert.pem)
+    V-72295 (Network interfaces must not be in promiscuous mode)
+    V-72311 (cat /etc/fstab | grep ntp)  
+    V-72315 (tcpwrappers)
+    V-72317 (Remove all unauthorized configured IP tunnels) 
+    V-72417 (Multifactor authentication installed)
+    V-72427 (PAM /etc/sssd/sssd.conf | services = nss, pam)
+    V-72433 (The operating system must implement certificate status checking for PKI authentication.)
+    V-72435 (Smartcard)
+    V-73161 (File systems that are being imported via Network File System (NFS) must be mounted to prevent binary files from being executed.)
+    V-77819
+
+  Low
+    V-72003 (pwck -r)
+    V-72059 (/home )
+    V-72061 (/var )
+    V-72065 (/tmp )
+    V-72281 (nameserver) ****Site Specific****
