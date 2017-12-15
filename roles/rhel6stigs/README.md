@@ -12,6 +12,26 @@ ansible-playbook rhel6-stigs.yml
 
 Note: Nothing will be correct unless you answer "y" to that category.
 
+ Fix CAT 1 findings? Answer 'Yes/No' [No]:
+
+ Fix CAT 2 findings? Answer 'Yes/No' [No]:
+
+ Fix CAT 3 findings? Answer 'Yes/No' [No]:
+
+ Fix CAT 2 GUI findings? Answer 'Yes/No' [No]:
+
+ Fix CAT 3 GUI findings? Answer 'Yes/No' [No]:
+
+ Remove X Windows (V-38676)? Recommended if not needed.  Answer 'Yes/No' [No]:
+
+ Remove TFTP/TFTP-Server (V-38606, V-38609)? Removal required if not if use.  Answer 'Yes/No' [No]:
+
+ Set SELinux to enforcing (V-51363)? Answer 'Yes/No' [No]:
+
+ Disable autofs? If NO, documentation is required for why and what NFS shares are being mounted. (V-38437)? Answer 'Yes/No' [No]:
+
+
+
 Single host:
 
 ansible-playbook rhel6-stigs.yml --limit <hostname>
