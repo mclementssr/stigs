@@ -8,30 +8,8 @@ Requirements
 
  How to run this playbook:
 
- cd /etc/ansible/playbooks
-
  ansible-playbook rhel7-stigs.yml
 
-  Single host:
- ansible-playbook rhel7-stigs.yml --limit <hostname>
-
- Single finding:
- ansible-playbook rhel7-stigs.yml --tags V-38473
-
- Single Category:
- ansible-playbook rhel7-stigs.yml --tags fix_cat1
-
- Dry Run with changes to be made shown:
- ansible-playbook rhel7-stigs.yml --check --diff
-
- List available tags:
- ansible-playbook rhel7-stigs.yml --list-tags
-
-
-Role Variables
---------------
- Then answer yes to the categories you want to fix.
- 
  Note: Nothing will be correct unless you answer "y" to that category or finding category.
 
  Fix CAT 1 findings? Answer 'Yes/No' [No]:
@@ -53,6 +31,29 @@ Role Variables
  Disable router functions (V-72309)? Required if not configured as a router? Answer 'Yes/No' [No]:
 
  Set SELinux to enforcing (V-71989)? Answer 'Yes/No' [No]:
+ 
+ 
+
+ Single host:
+ ansible-playbook rhel7-stigs.yml --limit <hostname>
+
+ Single finding:
+ ansible-playbook rhel7-stigs.yml --tags V-38473
+
+ Single Category:
+ ansible-playbook rhel7-stigs.yml --tags fix_cat1
+
+ Dry Run with changes to be made shown:
+ ansible-playbook rhel7-stigs.yml --check --diff
+
+ List available tags:
+ ansible-playbook rhel7-stigs.yml --list-tags
+
+
+Role Variables
+--------------
+
+TASK TAGS: [cat1, cat1-gui, cat2, cat2-gui, cat3, disable_autofs, high, low, medium, removal_lftpd, removal_router, removal_tftp, selinux_enforce]
 
 
 Dependencies
