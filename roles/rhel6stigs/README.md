@@ -10,25 +10,19 @@ How to run this playbook:
 
 ansible-playbook rhel6-stigs.yml
 
-Note: Nothing will be correct unless you answer "y" to that category.
+Note: Nothing will be corrected unless you answer "y" to the category.
 
+<pre>
  Fix CAT 1 findings? Answer 'Yes/No' [No]:
-
  Fix CAT 2 findings? Answer 'Yes/No' [No]:
-
  Fix CAT 3 findings? Answer 'Yes/No' [No]:
-
  Fix CAT 2 GUI findings? Answer 'Yes/No' [No]:
-
  Fix CAT 3 GUI findings? Answer 'Yes/No' [No]:
-
  Remove X Windows (V-38676)? Recommended if not needed.  Answer 'Yes/No' [No]:
-
  Remove TFTP/TFTP-Server (V-38606, V-38609)? Removal required if not if use.  Answer 'Yes/No' [No]:
-
  Set SELinux to enforcing (V-51363)? Answer 'Yes/No' [No]:
-
  Disable autofs? If NO, documentation is required for why and what NFS shares are being mounted. (V-38437)? Answer 'Yes/No' [No]:
+</pre>
 
 #### or
 
@@ -70,9 +64,18 @@ Example Playbook
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
+<pre>
+   - hosts: all
+     gather_facts: true
+     #become: yes
+     #become_method: su
+     become: true
+     become_flags: '-s'
+
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - roles/rhel6stigs
+</pre>
 
 License
 -------
