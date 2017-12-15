@@ -55,6 +55,7 @@ Role Variables
 
 TASK TAGS: [cat1, cat1-gui, cat2, cat2-gui, cat3, disable_autofs, high, low, medium, removal_lftpd, removal_router, removal_tftp, selinux_enforce]
 
+You can also use either the STIG Rule ID or Vuln ID as a tag to correct the individual vulnerability.
 
 Dependencies
 ------------
@@ -68,7 +69,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - roles/rhel7stigs
 
 License
 -------
