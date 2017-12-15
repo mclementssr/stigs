@@ -37,10 +37,14 @@ ansible-playbook rhel7-stigs.yml --list-tags
 To run RHEL 5 or 6 just replace rhel7 accordingly. 
 
 Example menu:
-Fix CAT 1 findings? Answer 'Yes/No' [No]: \n
+Fix CAT 1 findings? Answer 'Yes/No' [No]:
+
 Fix CAT 2 findings? Answer 'Yes/No' [No]:
+
 Fix CAT 3 findings? Answer 'Yes/No' [No]:
+
 Fix CAT 1 GUI findings? Answer 'Yes/No' [No]:
+
 Fix CAT 2 GUI findings? Answer 'Yes/No' [No]:
 Remove X Windows (V-72307)? Recommended if not needed.  Answer 'Yes/No' [No]:
 Remove FTP server (LFTPD) (V-72299)? Removal required if not if use. Answer 'Yes/No' [No]:
