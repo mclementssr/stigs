@@ -73,7 +73,7 @@ Including an example of how to use your role (for instance, with variables passe
      #become_method: su
      become: true
      become_flags: '-s'
-
+    
     - hosts: servers
       roles:
          - roles/rhel7stigs
