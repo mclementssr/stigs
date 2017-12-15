@@ -6,12 +6,54 @@ A brief description of the role goes here.
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+ How to run this playbook:
+
+ cd /etc/ansible/playbooks
+
+ ansible-playbook rhel7-stigs.yml
+
+  Single host:
+ ansible-playbook rhel7-stigs.yml --limit <hostname>
+
+ Single finding:
+ ansible-playbook rhel7-stigs.yml --tags V-38473
+
+ Single Category:
+ ansible-playbook rhel7-stigs.yml --tags fix_cat1
+
+ Dry Run with changes to be made shown:
+ ansible-playbook rhel7-stigs.yml --check --diff
+
+ List available tags:
+ ansible-playbook rhel7-stigs.yml --list-tags
+
 
 Role Variables
 --------------
+ Then answer yes to the categories you want to fix.
+ 
+ Note: Nothing will be correct unless you answer "y" to that category or finding category.
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+ Fix CAT 1 findings? Answer 'Yes/No' [No]:
+
+ Fix CAT 2 findings? Answer 'Yes/No' [No]:
+
+ Fix CAT 3 findings? Answer 'Yes/No' [No]:
+
+ Fix CAT 1 GUI findings? Answer 'Yes/No' [No]:
+
+ Fix CAT 2 GUI findings? Answer 'Yes/No' [No]:
+
+ Remove X Windows (V-72307)? Recommended if not needed.  Answer 'Yes/No' [No]:
+
+ Remove FTP server (LFTPD) (V-72299)? Removal required if not if use. Answer 'Yes/No' [No]:
+
+ Remove TFTP/TFTP-Server (V-72301)? Removal required if not if use.  Answer 'Yes/No' [No]:
+
+ Disable router functions (V-72309)? Required if not configured as a router? Answer 'Yes/No' [No]:
+
+ Set SELinux to enforcing (V-71989)? Answer 'Yes/No' [No]:
+
 
 Dependencies
 ------------
