@@ -37,7 +37,7 @@ ansible-playbook rhel7-stigs.yml --list-tags
 To run RHEL 5 or 6 just replace rhel7 accordingly. 
 
 Example menu:
-Fix CAT 1 findings? Answer 'Yes/No' [No]:
+Fix CAT 1 findings? Answer 'Yes/No' [No]: \n
 Fix CAT 2 findings? Answer 'Yes/No' [No]:
 Fix CAT 3 findings? Answer 'Yes/No' [No]:
 Fix CAT 1 GUI findings? Answer 'Yes/No' [No]:
