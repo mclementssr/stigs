@@ -12,26 +12,19 @@ Requirements
 
  Note: Nothing will be correct unless you answer "y" to that category or finding category.
 
+<pre>
  Fix CAT 1 findings? Answer 'Yes/No' [No]:
-
  Fix CAT 2 findings? Answer 'Yes/No' [No]:
-
  Fix CAT 3 findings? Answer 'Yes/No' [No]:
-
  Fix CAT 1 GUI findings? Answer 'Yes/No' [No]:
-
  Fix CAT 2 GUI findings? Answer 'Yes/No' [No]:
-
  Remove X Windows (V-72307)? Recommended if not needed.  Answer 'Yes/No' [No]:
-
  Remove FTP server (LFTPD) (V-72299)? Removal required if not if use. Answer 'Yes/No' [No]:
-
  Remove TFTP/TFTP-Server (V-72301)? Removal required if not if use.  Answer 'Yes/No' [No]:
-
  Disable router functions (V-72309)? Required if not configured as a router? Answer 'Yes/No' [No]:
-
  Set SELinux to enforcing (V-71989)? Answer 'Yes/No' [No]:
- 
+</pre>
+
  #### or
 
  Single host:
