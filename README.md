@@ -11,7 +11,7 @@ Doran, S. (2016) Ansible role for Red Hat 6 DISA STIG. URL: https://github.com/s
 Shepherd, D. (2015) Ansible role for Red Hat 5 DISA STIG. URL: https://github.com/MindPointGroup/RHEL5-STIG
 
 
-# How to run any of these playbooks:
+## How to run any of these playbooks:
 
 cd /etc/ansible/playbooks
 ansible-playbook rhel7-stigs.yml
@@ -36,7 +36,7 @@ ansible-playbook rhel7-stigs.yml --list-tags
 
 To run RHEL 5 or 6 just replace rhel7 accordingly. 
 
-'''Menu'''
+### Menu
 
 Fix CAT 1 findings? Answer 'Yes/No' [No]:
 
