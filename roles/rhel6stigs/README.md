@@ -30,7 +30,7 @@ Note: Nothing will be correct unless you answer "y" to that category.
 
  Disable autofs? If NO, documentation is required for why and what NFS shares are being mounted. (V-38437)? Answer 'Yes/No' [No]:
 
-
+#### or
 
 Single host:
 
