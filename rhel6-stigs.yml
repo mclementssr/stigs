@@ -1,0 +1,116 @@
+---
+- hosts: all
+  gather_facts: true
+  #become: yes
+  #become_method: su
+  become: true
+  become_flags: '-s'
+
+# ========================================================================
+# How to run this playbook:
+#
+# cd /etc/ansible/playbooks
+# ansible-playbook rhel6-stigs.yml
+# Then answer yes to the categories you want to fix.
+# Nothing will be correct unless you answer "y" to that category.
+#
+# Single host:
+# ansible-playbook rhel6-stigs.yml --limit <hostname>
+#
+# Single finding:
+# ansible-playbook rhel6-stigs.yml --tags V-38473
+#
+# Single Category:
+# ansible-playbook rhel6-stigs.yml --tags fix_cat1
+#
+# Dry Run with changes to be made shown:
+# ansible-playbook rhel6-stigs.yml --check --diff
+#
+# List available tags:
+# ansible-playbook rhel6-stigs.yml --list-tags
+# ========================================================================
+
+  vars_prompt:
+  - name: "rhel6stig_cat1"
+    prompt: "\n Fix CAT 1 findings? Answer 'Yes/No'"
+    #default: "Yes"
+    default: "No"
+    private: No
+    #confirm: yes
+
+  - name: "rhel6stig_cat2"
+    prompt: "\n Fix CAT 2 findings? Answer 'Yes/No'"
+    #default: "Yes"
+    default: "No"
+    private: No
+    #confirm: yes
+
+  - name: "rhel6stig_cat3"
+    prompt: "\n Fix CAT 3 findings? Answer 'Yes/No'"
+    #default: "Yes"
+    default: "No"
+    private: No
+    #confirm: yes
+
+#  - name: "rhel6stig_cat1_gui"
+#    prompt: "\n Fix CAT 1 GUI findings? Answer 'Yes/No'"
+#    #default: "Yes"
+#    default: "No"
+#    private: No
+#    #confirm: yes
+
+  - name: "rhel6stig_cat2_gui"
+    prompt: "\n Fix CAT 2 GUI findings? Answer 'Yes/No'"
+    #default: "Yes"
+    default: "No"
+    private: No
+    #confirm: yes
+
+  - name: "rhel6stig_cat3_gui"
+    prompt: "\n Fix CAT 3 GUI findings? Answer 'Yes/No'"
+    default: "No"
+    private: No
+    #confirm: yes
+
+  - name: "rhel6stig_remove_gui"
+    prompt: "\n Remove X Windows (V-38676)? Recommended if not needed.  Answer 'Yes/No'"
+    #default: "Yes"
+    default: "No"
+    private: No
+    #confirm: yes
+
+  - name: "rhel6stig_tftp_removal"
+    prompt: "\n Remove TFTP/TFTP-Server (V-38606, V-38609)? Removal required if not if use.  Answer 'Yes/No'"
+    #default: "Yes"
+    default: "No"
+    private: No
+    #confirm: yes
+
+  - name: "selinux_enforce"
+    prompt: "\n Set SELinux to enforcing (V-51363)? Answer 'Yes/No'"
+    #default: "Yes"
+    default: "No"
+    private: No
+    #confirm: yes
+
+  - name: "disable_autofs"
+    prompt: "\n Disable autofs? If NO, documentation is required for why and what NFS shares are being mounted. (V-38437)? Answer 'Yes/No'"
+    #default: "Yes"
+    default: "No"
+    private: No
+    #confirm: yes
+
+#  - name: "grub_password"
+#    prompt: "\n Set GRUB password (V-38585)? Answer 'Yes/No'"
+#    #default: "Yes"
+#    default: "No"
+#    private: No
+##    confirm: yes
+
+#  - name: "password"
+#    prompt: "\n Enter the bootloader password. Not required if not setting GRUB password."
+#    private: yes
+##    confirm: yes
+
+  roles:
+  - roles/rhel6stigs
