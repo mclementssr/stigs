@@ -6,12 +6,39 @@ A brief description of the role goes here.
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+How to run this playbook:
+
+ansible-playbook rhel6-stigs.yml
+
+Note: Nothing will be correct unless you answer "y" to that category.
+
+Single host:
+
+ansible-playbook rhel6-stigs.yml --limit <hostname>
+
+Single finding/vulnerability:
+
+ansible-playbook rhel6-stigs.yml --tags V-38473
+
+Single Category:
+
+ansible-playbook rhel6-stigs.yml --tags fix_cat1
+
+Dry Run with changes to be made shown:
+
+ansible-playbook rhel6-stigs.yml --check --diff
+
+List available tags:
+
+ansible-playbook rhel6-stigs.yml --list-tags
+
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+ TASK TAGS: [cat1, cat2, cat2-gui, cat3, cat3-gui, disable_autofs, gui, high, low, medium, removal_tftp, selinux_enforce]
+ 
+ You can also you either the STIG Rule ID or Vuln ID as a tag to correct the individual vulnerability. 
 
 Dependencies
 ------------
