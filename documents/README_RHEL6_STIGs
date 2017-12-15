@@ -6,7 +6,7 @@ RHEL 6 STIGs Playbook
 # cd /etc/ansible/playbooks
 # ansible-playbook rhel6-stigs.yml
 # Then answer yes to the categories you want to fix.
-# Nothing will be correct unless you answer "y" to that category.
+# Nothing will be corrected unless you answer "y" to a category.
 #
 # Single host:
 # ansible-playbook rhel6-stigs.yml --limit <hostname>
