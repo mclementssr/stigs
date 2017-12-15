@@ -67,6 +67,13 @@ Example Playbook
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
+   - hosts: all
+     gather_facts: true
+     #become: yes
+     #become_method: su
+     become: true
+     become_flags: '-s'
+
     - hosts: servers
       roles:
          - roles/rhel7stigs
