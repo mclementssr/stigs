@@ -10,7 +10,7 @@ Requirements
 
  ansible-playbook rhel7-stigs.yml
 
- Note: Nothing will be corrected unless you answer "y" to that category or finding category.
+ Note: Nothing will be corrected unless you answer "y" to the category or finding category.
 
 <pre>
  Fix CAT 1 findings? Answer 'Yes/No' [No]:
